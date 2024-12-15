@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="AnimeNexus - Your Hub for Anime Reviews and News">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeNexus - Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>AnimeNexus</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Latest Posts</h2>
+        <ul>
+            {% for post in posts %}
+            <li><a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a> by {{ post.author }} on {{ post.created_at }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

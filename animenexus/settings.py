@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
+]
+
 
 # Application definition
 
@@ -122,6 +126,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

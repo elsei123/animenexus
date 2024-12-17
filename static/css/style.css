@@ -25,6 +25,43 @@
     --overlay-bg: rgba(255, 255, 255, 0.1);
   }
   
+  /* Dark Mode Transitions*/
+
+[data-theme="dark"] body {
+    background: #121212;
+    color: #eeeeee;
+  }
+  
+  [data-theme="dark"] .header,
+  [data-theme="dark"] .footer {
+    background: #1f1f1f;
+  }
+  
+  [data-theme="dark"] .post-card,
+  [data-theme="dark"] .comment-item,
+  [data-theme="dark"] .post-detail__content,
+  [data-theme="dark"] form input,
+  [data-theme="dark"] form textarea,
+  [data-theme="dark"] .category-filter select {
+    background: var(--card-bg);
+    color: #eee;
+    border-color: var(--primary-color);
+  }
+  
+  [data-theme="dark"] .nav__link {
+    color: #bbb;
+  }
+  
+  [data-theme="dark"] .nav__link:hover,
+  [data-theme="dark"] .nav__link:focus {
+    color: var(--accent-color);
+  }
+  
+  [data-theme="dark"] .theme-toggle {
+    color: var(--accent-color);
+  }
+  
+
   body {
     margin: 0;
     background: var(--bg-color);

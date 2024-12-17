@@ -200,19 +200,39 @@
   }
   
 
-.about-container {
-    background-image: url('/static/images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 50px;
-    color: #fff;
-}
+/* About Page*/
 
-.about-text {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 5px;
-}
+   .about-container {
+    min-height: 100vh; 
+    background: url('/static/images/about-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  
+  .about-text {
+    max-width: 800px;
+    background: var(--overlay-bg);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .about-text h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+
 
 
 .contact-container {

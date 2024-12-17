@@ -6,4 +6,5 @@ urlpatterns = [
     path('post/<int:post_id>/', post_detail, name='post_detail'),
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
+    path('', post_list, name='post_list'),
 ]

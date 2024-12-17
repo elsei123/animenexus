@@ -20,6 +20,19 @@
             <p><em>By {{ post.author }} on {{ post.created_at }}</em></p>
             <div>{{ post.content }}</div>
         </article>
+        
+        <!-- Comments Section -->
+        <section>
+            <h3>Comments</h3>
+            <ul>
+                {% for comment in post.comments.all %}
+                    <li>
+                        <strong>{{ comment.name }}</strong> on {{ comment.created|date:"M d, Y" }}<br>
+                        {{ comment.body }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
     </main>
     <script src="/static/js/script.js"></script>
 </body>

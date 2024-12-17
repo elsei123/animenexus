@@ -232,50 +232,66 @@
     font-size: 1.1rem;
   }
   
+/*Contact Page*/
 
-
-
-.contact-container {
+   .contact-container {
+    min-height: 100vh;
+    background: url('/static/images/contact-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  
+  .contact-text {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-text h2 {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .contact-text h2 {
     margin-top: 0;
-}
-
-.contact-text p {
-    margin-bottom: 20px;
-}
-
-.contact-text form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.contact-text form input,
-.contact-text form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.contact-text form button {
-    padding: 10px 20px;
-    background-color: #232323;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  
+  .contact-text form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-text form input,
+  .contact-text form textarea {
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  
+  .contact-text form button {
+    background: var(--accent-color);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 0.8em;
     cursor: pointer;
-}
-
-.contact-text form button:hover {
-    background-color: #555;
-}
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+  
+  .contact-text form button:hover,
+  .contact-text form button:focus {
+    background: var(--primary-color);
+  }
+  

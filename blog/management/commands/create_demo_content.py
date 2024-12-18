@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from blog.models import Post, Category
 
-
 class Command(BaseCommand):
     """
     Command to create demo posts in the database based on provided content.
@@ -18,35 +17,31 @@ class Command(BaseCommand):
         # Create an author user if it does not exist
         author, created = User.objects.get_or_create(username='admin')
         if created:
-            author.set_password('admin')
+            author.set_password('admin') 
             author.is_superuser = True
             author.is_staff = True
             author.save()
+            self.stdout.write(self.style.SUCCESS('Admin user created.'))
 
-        # Create categories
-        cat_best, _ = Category.objects.get_or_create(
-            name='Best of All Time', description='Top Classic Anime')
-        cat_worst, _ = Category.objects.get_or_create(
-            name='Worst of All Time', description='Worst Anime')
-        cat_thisyear_best, _ = Category.objects.get_or_create(
-            name='Best of the Year', description='Top Anime of the Year')
-        cat_thisyear_worst, _ = Category.objects.get_or_create(
-            name='Worst of the Year', description='Worst Anime of the Year')
-        cat_future, _ = Category.objects.get_or_create(
-            name='Upcoming Releases', description='Anime Set to Premiere')
-        cat_movies, _ = Category.objects.get_or_create(
-            name='Best Movies', description='Must-Watch Films')
-        cat_winners, _ = Category.objects.get_or_create(
-            name='Annual Winners', description='Award-Winning Anime')
+        categories_data = {
+            'Best of All Time': 'Top Classic Anime',
+            'Worst of All Time': 'Worst Anime',
+            'Best of the Year': 'Top Anime of the Year',
+            'Worst of the Year': 'Worst Anime of the Year',
+            'Upcoming Releases': 'Anime Set to Premiere',
+            'Best Movies': 'Must-Watch Films',
+            'Annual Winners': 'Award-Winning Anime',
+        }
 
         cats = {}
         for name, desc in categories_data.items():
             c, _ = Category.objects.get_or_create(name=name, description=desc)
             cats[name] = c
+            self.stdout.write(self.style.SUCCESS(f'Categoria "{name}" criada.'))
 
         media_path = os.path.join(settings.MEDIA_ROOT, 'posts')
 
-    def create_post(title, content, category, image_name):
+        def create_post(title, content, category, image_name):
             """
             Creates a Post object in the database, associating it with an image.
             If the specified image does not exist, it uses 'placeholder.jpg'.
@@ -76,11 +71,11 @@ class Command(BaseCommand):
                     category=category
                 )
                 post.cover_image.save(image_name, img_file, save=True)
+            self.stdout.write(self.style.SUCCESS(f'Post "{title}" criado.'))
             return post
 
-
-        # Best of All Time (Top 5) - longer descriptions (minimum of 6 lines)
-best_ever = [
+        
+        best_ever = [
             (
                 "Fullmetal Alchemist: Brotherhood",
                 """Fullmetal Alchemist: Brotherhood is often considered the pinnacle of shounen anime.
@@ -244,4 +239,3 @@ for title, desc, img in winners:
     create_post(title, desc, cat_winners, img)
 
     self.stdout.write(self.style.SUCCESS('Demo content created successfully!'))
-

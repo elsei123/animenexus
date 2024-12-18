@@ -25,6 +25,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     body = models.TextField()
+    approved = models.BooleanField(default=False)
     created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

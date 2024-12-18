@@ -1,39 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="{{ post.title }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }} - AnimeNexus</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>AnimeNexus</h1>
-        <nav>
-            <a href="/">Home</a>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <h2>{{ post.title }}</h2>
-            <p><em>By {{ post.author }} on {{ post.created_at }}</em></p>
-            <div>{{ post.content }}</div>
-        </article>
-        
-        <!-- Comments Section -->
-        <section>
-            <h3>Comments</h3>
-            <ul>
-                {% for comment in post.comments.all %}
-                    <li>
-                        <strong>{{ comment.name }}</strong> on {{ comment.created|date:"M d, Y" }}<br>
-                        {{ comment.body }}
-                    </li>
-                {% endfor %}
-            </ul>
-        </section>
-    </main>
-    <script src="/static/js/script.js"></script>
-</body>
-</html>
+{% extends "blog/base.html" %}
+
+{% block meta_description %}{{ post.title }} | AnimeNexus{% endblock %}
+
+{% block title %}{{ post.title }} - AnimeNexus{% endblock %}
+
+{% block content %}
+<article>
+    <h2>{{ post.title }}</h2>
+    <p><em>By {{ post.author }} on {{ post.created_at|date:"M d, Y" }}</em></p>
+    {% if post.cover_image %}
+        <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="max-width:100%; height:auto;">
+    {% endif %}
+    <div class="post-detail__content">
+        {{ post.content|linebreaks }}
+    </div>
+</article>
+
+<!-- Comments Section -->
+<section>
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.name }}</strong> on {{ comment.created|date:"M d, Y" }}<br>
+                {{ comment.body|linebreaks }}
+            </li>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </ul>
+    <h4>Add a Comment</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Comment</button>
+    </form>
+</section>
+{% endblock %}

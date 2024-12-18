@@ -1,12 +1,16 @@
 {% extends "blog/base.html" %}
+
+{% block meta_description %}Browse the latest Anime posts on AnimeNexus{% endblock %}
+
 {% block title %}Home | AnimeNexus{% endblock %}
+
 {% block content %}
 
 <!-- Category Filter -->
 <div class="category-filter">
   <span>Filter by category:</span>
   <select onchange="location = this.value;">
-    <option value="?">All</option>
+    <option value="{% url 'post_list' %}">All</option>
     {% for cat in categories %}
       <option value="?category={{ cat.name }}" {% if category_filter == cat.name %}selected{% endif %}>{{ cat.name }}</option>
     {% endfor %}
@@ -40,13 +44,13 @@
 <!-- Pagination -->
 <div class="pagination">
   {% if page_obj.has_previous %}
-    <a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}">Previous</a>
+    <a href="?page={{ page_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">Previous</a>
   {% endif %}
   
   <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
   
   {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}{% if category_filter %}&category={{ category_filter }}{% endif %}">Next</a>
+    <a href="?page={{ page_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">Next</a>
   {% endif %}
 </div>
 {% endblock %}

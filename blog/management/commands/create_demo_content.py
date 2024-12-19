@@ -17,12 +17,13 @@ class Command(BaseCommand):
         # Create an author user if it does not exist
         author, created = User.objects.get_or_create(username='admin')
         if created:
-            author.set_password('admin') 
+            author.set_password('admin')  # Use uma senha segura em produção
             author.is_superuser = True
             author.is_staff = True
             author.save()
-            self.stdout.write(self.style.SUCCESS('Admin user created.'))
+            self.stdout.write(self.style.SUCCESS('Admin user criado.'))
 
+        # Define categorias e suas descrições
         categories_data = {
             'Best of All Time': 'Top Classic Anime',
             'Worst of All Time': 'Worst Anime',
@@ -33,6 +34,7 @@ class Command(BaseCommand):
             'Annual Winners': 'Award-Winning Anime',
         }
 
+        # Criar categorias
         cats = {}
         for name, desc in categories_data.items():
             c, _ = Category.objects.get_or_create(name=name, description=desc)
@@ -59,10 +61,10 @@ class Command(BaseCommand):
                 if not os.path.exists(image_path):
                     # If no placeholder exists, raise an error
                     self.stdout.write(self.style.ERROR(
-                        f'Placeholder image not found.'))
+                        f'Imagem placeholder "{placeholder}" não encontrada.'))
                     return
                 self.stdout.write(self.style.WARNING(
-                    f'Image "{image_name}" not found, using "{placeholder}".'))
+                    f'Imagem "{image_name}" não encontrada, usando "{placeholder}".'))
             with open(image_path, 'rb') as img_file:
                 post = Post(
                     title=title,
@@ -74,7 +76,7 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS(f'Post "{title}" criado.'))
             return post
 
-        
+        # Best of All Time (Top 5) - longer descriptions
         best_ever = [
             (
                 "Fullmetal Alchemist: Brotherhood",
@@ -129,11 +131,11 @@ I recommend it for its intensity and the ethical reflection it inspires about hu
                 "deathnote.jpg"
             ),
         ]
-for title, desc, img in best_ever:
-            create_post(title, desc, cat_best, img)
+        for title, desc, img in best_ever:
+            create_post(title, desc, cats['Best of All Time'], img)
 
         # Worst of All Time (Top 5) - shorter descriptions
-worst_ever = [
+        worst_ever = [
             ("Mars of Destruction",
              "Amateur production with a confusing plot. Virtually no redeeming qualities.",
              "mars.jpg"),
@@ -150,12 +152,11 @@ worst_ever = [
              "Promised mystery and vampires, delivered boredom and confusion.",
              "holmes.jpg")
         ]
-
-for title, desc, img in worst_ever:
-            create_post(title, desc, cat_worst, img)
+        for title, desc, img in worst_ever:
+            create_post(title, desc, cats['Worst of All Time'], img)
 
         # Best of This Year (Top 5)
-best_this_year = [
+        best_this_year = [
             ("Jujutsu Kaisen Season 3",
              "A solid continuation with insane battles and deep character development.",
              "jujutsu.jpg"),
@@ -172,12 +173,11 @@ best_this_year = [
              "Humor, action, and the tenderness of the most beloved fake family in anime.",
              "spyxfamily2.jpg")
         ]
-
-for title, desc, img in best_this_year:
-            create_post(title, desc, cat_thisyear_best, img)
+        for title, desc, img in best_this_year:
+            create_post(title, desc, cats['Best of the Year'], img)
 
         # Worst of This Year (Top 5)
-worst_this_year = [
+        worst_this_year = [
             ("Zombie Idol Fever",
              "Attempt at zombie idols without any sense. Poor animation quality.",
              "zombieidol.jpg"),
@@ -194,11 +194,11 @@ worst_this_year = [
              "Cyberpunk mixed with fairies lacks cohesion. Promised innovation, delivered boredom.",
              "cyberfairyland.jpg")
         ]
-for title, desc, img in worst_this_year:
-            create_post(title, desc, cat_thisyear_worst, img)
+        for title, desc, img in worst_this_year:
+            create_post(title, desc, cats['Worst of the Year'], img)
 
         # Upcoming Releases (10 anime titles)
-future_releases = [
+        future_releases = [
             ("Attack on Titan: A New Era", "A new saga following the end of the original. Expectation for continuous tension.", "aot_newera.jpg"),
             ("Demon Slayer: Pillar Chronicles", "Stories of the Hashira before the main storyline. Deeper character exploration.", "ds_pillar.jpg"),
             ("My Hero Academia: Final Arc", "Deku's final arc. An epic conclusion is expected.", "mha_final.jpg"),
@@ -210,32 +210,29 @@ future_releases = [
             ("Jujutsu Kaisen: Ancients", "Explores the sorcerers of the past. Expands the lore.", "jjk_ancients.jpg"),
             ("Sword Art Online: New Frontier", "A new era of VRMMO. Hopefully bringing freshness to the series.", "sao_newfrontier.jpg")
         ]
-
-for title, desc, img in future_releases:
-            create_post(title, desc, cat_future, img)
+        for title, desc, img in future_releases:
+            create_post(title, desc, cats['Upcoming Releases'], img)
 
         # Best Movies
-movies = [
+        movies = [
             ("Your Name", "A story of love through time and space with impeccable animation.", "yourname.jpg"),
             ("Spirited Away", "Ghibli's masterpiece, a magical world full of metaphors.", "chihiro.jpg"),
             ("A Silent Voice", "Bullying, redemption, and acceptance. Emotionally powerful.", "vozsilencio.jpg"),
             ("Your Lie in April: The Movie", "A faithful adaptation of the musical drama. Emotionally impactful.", "yourlie.jpg"),
             ("Made in Abyss: Dawn of the Deep Soul", "A dark journey with stunning visuals that both shocks and enchants.", "madeinabyss.jpg")
         ]
-
-for title, desc, img in movies:
-            create_post(title, desc, cat_movies, img)
+        for title, desc, img in movies:
+            create_post(title, desc, cats['Best Movies'], img)
 
         # Annual Winners
-winners = [
+        winners = [
             ("Jujutsu Kaisen (2020)", "An impactful debut with fluid action and charisma.", "jujutsu2020.jpg"),
             ("Attack on Titan: The Final Season Part 1 (2021)", "Political tension and technical quality.", "aot2021.jpg"),
             ("Cyberpunk: Edgerunners (2022)", "Stylish, emotional, and inspired by the game.", "edgerunners2022.jpg"),
             ("Oshi no Ko (2023)", "Drama, mystery, and critique of the entertainment industry.", "oshinoko2023.jpg"),
             ("Solo Leveling (2024)", "A highly anticipated adaptation that lived up to the hype.", "sololeveling2024.jpg")
         ]
+        for title, desc, img in winners:
+            create_post(title, desc, cats['Annual Winners'], img)
 
-for title, desc, img in winners:
-    create_post(title, desc, cat_winners, img)
-
-    self.stdout.write(self.style.SUCCESS('Demo content created successfully!'))
+        self.stdout.write(self.style.SUCCESS('Conteúdo de demonstração criado com sucesso!'))

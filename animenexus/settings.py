@@ -26,10 +26,13 @@ SECRET_KEY = config("SECRET_KEY", default="django-insecure-f%zwu(e_il2x0r6=d963-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default='8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com').split(',')
+ALLOWED_HOSTS = ['8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com']
+
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
+    'https://8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
+    'https://8002-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
 ]
 
 # Application definition
@@ -120,8 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Diretório estático do projeto
-    BASE_DIR / 'blog' / 'static',  # Diretório estático da aplicação blog
+    BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

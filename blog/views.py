@@ -19,7 +19,7 @@ def post_detail(request, post_id):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Seu comentário foi enviado e está aguardando aprovação.')
+            messages.success(request, 'Your comment has been submitted and is awaiting approval.')
             return redirect('post_detail', post_id=post.id)
     else:
         form = CommentForm()
@@ -36,16 +36,16 @@ def contact_page(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            full_message = f"Mensagem de {name} <{email}>:\n\n{message}"
+            full_message = f"Message from {name} <{email}>:\n\n{message}"
 
             send_mail(
-                subject=f'Nova mensagem de contato de {name}',
+                subject=f'New contact message from {name}',
                 message=full_message,
                 from_email=settings.EMAIL_HOST_USER, 
                 recipient_list=['27zc8gmq@students.codeinstitute.net'],
             )
 
-            messages.success(request, 'Sua mensagem foi enviada com sucesso!')
+            messages.success(request, 'Your message has been sent successfully!')
             return redirect('contact')
     else:
         form = ContactForm()
@@ -53,8 +53,8 @@ def contact_page(request):
 
 def post_list(request):
     """
-    View para listar posts com suporte para filtragem por categoria e paginação.
-    A barra de pesquisa foi removida conforme solicitado.
+    View to list posts with support for category filtering and pagination.
+    The search bar has been removed as requested.
     """
     category_filter = request.GET.get('category', '')
 

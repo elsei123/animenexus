@@ -234,9 +234,11 @@
   .about-text,
   .contact-text {
     max-width: 800px;
-    background: var(--overlay-bg);
+    background: rgba(240, 240, 240, 0.9);
+    color: #000000;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .about-text h2,
@@ -316,4 +318,37 @@
       padding: 1rem;
     }
   }
+
+  /* Adds the background image for the About page */
+  .about-container {
+    background-image: url("/static/images/about_background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Adds the background image for the Contact page */
+.contact-container {
+  background-image: url("/static/images/contact_background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh; /* Garante que a altura seja 100% da viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
   

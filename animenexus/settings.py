@@ -26,9 +26,7 @@ SECRET_KEY = config("SECRET_KEY", default="django-insecure-f%zwu(e_il2x0r6=d963-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com', 
-'.herokuapp.com'
-]
+ALLOWED_HOSTS = ['8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com']
 
 
 CSRF_TRUSTED_ORIGINS = [

@@ -1,1 +1,1 @@
-web: gunicorn animenexus.wsgi
+web: gunicorn myproject.wsgi

@@ -1,0 +1,16 @@
+[33m2709bad[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31mheroku/main[m[33m)[m Update WSGI and DJANGO_SETTINGS_MODULE configuration to reflect new structure
+[33m62dc99e[m Corrige caminho do WSGI no Procfile
+[33m984cbcf[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Resolving deployment issues and setting DISABLE_COLLECTSTATIC
+[33m27e1389[m Reorganize project structure
+[33maff897f[m Fix project structure
+[33m89c88cd[m Fix WSGI module path
+[33m439493d[m Add gunicorn to requirements
+[33m37fbdce[m Update .env doc
+[33m48ebede[m Add Procfile for Heroku deployment
+[33m932c2f0[m Add requirements.txt file
+[33m016a625[m Update About and Contact pages, enhance CSS, and add responsive background images
+[33md105008[m Fix docstring formatting in ASGI configuration
+[33m577afb0[m Enhance admin panel: Register Category, Post, and Comment models with custom configurations and bulk comment approval action
+[33mbc006c0[m Add management/commands structure and create_demo_content.py
+[33m1aa525e[m Update .gitignore
+[33m6687eaf[m Initial commit

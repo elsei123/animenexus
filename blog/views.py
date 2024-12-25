@@ -62,6 +62,9 @@ def post_list(request):
 
     if category_filter:
         posts_list = posts_list.filter(category__name__iexact=category_filter)
+    
+    if not posts_list.exists():
+        messages.info(request, "No posts found for the selected category.")
 
     paginator = Paginator(posts_list, 6) 
     page_number = request.GET.get('page')

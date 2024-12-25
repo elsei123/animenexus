@@ -43,6 +43,10 @@ class Command(BaseCommand):
 
         media_path = os.path.join(settings.MEDIA_ROOT, 'posts')
 
+        if not os.path.exists(media_path):
+            self.stdout.write(self.style.ERROR('Media directory not found.'))
+            return
+
         def create_post(title, content, category, image_name):
             """
             Creates a Post object in the database, associating it with an image.

@@ -10,6 +10,8 @@
     <p><em>By {{ post.author }} on {{ post.created_at|date:"M d, Y" }}</em></p>
     {% if post.cover_image %}
         <img src="{{ post.cover_image.url }}" alt="{{ post.title }}" style="max-width:100%; height:auto;">
+    {% else %}
+        <img src="{% static 'images/default_cover.jpg' %}" alt="Default Image" style="max-width:100%; height:auto;">
     {% endif %}
     <div class="post-detail__content">
         {{ post.content|linebreaks }}

@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY", default="django-insecure-f%zwu(e_il2x0r6=d963-3&sybjjby^*ov30$w95t27aetlyb*")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'animenexus-34160473ae26.herokuapp.com',
@@ -89,10 +89,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        config('DATABASE_URL', default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')),
+        config('DATABASE_URL', default='sqlite:///' + str(BASE_DIR / 'myproject' / 'db.sqlite3')),
         conn_max_age=600,
         ssl_require=True
     )
+
 }
 
 

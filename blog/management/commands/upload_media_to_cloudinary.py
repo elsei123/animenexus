@@ -2,10 +2,8 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
 from django.core.management.base import BaseCommand
 from django.conf import settings
-
 from blog.models import Post 
 
 class Command(BaseCommand):
@@ -22,7 +20,7 @@ class Command(BaseCommand):
 
         # Define the local media directory
         media_dir = os.path.join(settings.BASE_DIR, 'media')
-        folder_to_scan = os.path.join(media_dir, 'posts')  # Adjust if needed
+        folder_to_scan = os.path.join(media_dir, 'posts')  
 
         for root, dirs, files in os.walk(folder_to_scan):
             for filename in files:

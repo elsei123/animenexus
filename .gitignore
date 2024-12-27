@@ -6,7 +6,7 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
-cloudinary_python.txt
+#cloudinary_python.txt
 
 
 # Python
@@ -19,9 +19,9 @@ __pycache__/
 *.pot
 *.pyc
 __pycache__/
-db.sqlite3
+#db.sqlite3
 #/media
-/staticfiles
+#/staticfiles
 
 # Virtual Environment
 venv/

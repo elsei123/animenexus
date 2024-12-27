@@ -29,7 +29,7 @@ SECRET_KEY = config("SECRET_KEY", default="django-insecure-f%zwu(e_il2x0r6=d963-
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'animenexus-34160473ae26.herokuapp.com',
+    'animenexus-0cb179340e14.herokuapp.com',
     '8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
 ]
 

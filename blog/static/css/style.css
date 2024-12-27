@@ -1,28 +1,38 @@
 /* General Styles */
 :root {
-    /* Light Mode */
-    --bg-color: #ffffff;
-    --text-color: #222222;
-    --header-bg: #f8f8f8;
-    --footer-bg: #f2f2f2;
-    --card-bg: #ffffff;
-    --primary-color: #3f51b5;
-    --accent-color: #ff5722;
-    --overlay-bg: rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Dark Mode */
-  [data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #eeeeee;
-    --header-bg: #1f1f1f;
-    --footer-bg: #1f1f1f;
-    --card-bg: #1f1f1f;
-    --primary-color: #bb86fc;
-    --accent-color: #ff4081;
-    --overlay-bg: rgba(255, 255, 255, 0.1);
-  }
-  
+  /* Light Mode */
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --header-bg: #f8f8f8;
+  --footer-bg: #f2f2f2;
+  --card-bg: #ffffff;
+  --primary-color: #3f51b5;
+  --accent-color: #ff5722;
+  --form-bg: #f9f9f9;
+  --form-text: #333333;
+  --button-bg: #3f51b5;
+  --button-text: #ffffff;
+  --button-hover-bg: #303f9f;
+  --button-hover-text: #ffffff;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #eeeeee;
+  --header-bg: #1f1f1f;
+  --footer-bg: #1f1f1f;
+  --card-bg: #1f1f1f;
+  --primary-color: #bb86fc;
+  --accent-color: #ff4081;
+  --form-bg: #1f1f1f;
+  --form-text: #eeeeee;
+  --button-bg: #bb86fc;
+  --button-text: #ffffff;
+  --button-hover-bg: #8853ff;
+  --button-hover-text: #ffffff;
+}
+
   /* Global Styles */
   body {
     margin: 0;
@@ -351,4 +361,75 @@
     overflow: hidden;
 }
 
+.contact-text {
+  max-width: 800px;
+  background: var(--form-bg);
+  color: var(--form-text);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact-text h2 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+.contact-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-text form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-text form label {
+  font-size: 0.9rem;
+  color: var(--form-text);
+}
+
+.contact-text form input,
+.contact-text form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+[data-theme="dark"] .contact-text form input,
+[data-theme="dark"] .contact-text form textarea {
+  border-color: var(--primary-color);
+}
+
+.contact-text form input:focus,
+.contact-text form textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.contact-text form button {
+  padding: 0.8rem 1.5rem;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact-text form button:hover,
+.contact-text form button:focus {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
   

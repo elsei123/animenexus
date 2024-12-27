@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.core.paginator import Paginator
 from .models import Post, Category
 from .forms import ContactForm, CommentForm
-from django.contrib import messages
-from django.core.mail import send_mail
-from django.core.paginator import Paginator
-from django.conf import settings
+from .utils.emailjs_utils import send_email_via_emailjs 
 
 def home_page(request):
     posts = Post.objects.all().order_by('-created_at')
@@ -36,16 +35,13 @@ def contact_page(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            full_message = f"Message from {name} <{email}>:\n\n{message}"
+            success = send_email_via_emailjs(name, email, message)
 
-            send_mail(
-                subject=f'New contact message from {name}',
-                message=full_message,
-                from_email=settings.EMAIL_HOST_USER, 
-                recipient_list=['27zc8gmq@students.codeinstitute.net'],
-            )
+            if success:
+                messages.success(request, 'Your message has been sent successfully!')
+            else:
+                messages.error(request, 'There was an error sending your message. Please try again later.')
 
-            messages.success(request, 'Your message has been sent successfully!')
             return redirect('contact')
     else:
         form = ContactForm()
@@ -54,7 +50,6 @@ def contact_page(request):
 def post_list(request):
     """
     View to list posts with support for category filtering and pagination.
-    The search bar has been removed as requested.
     """
     category_filter = request.GET.get('category', '')
 
@@ -66,7 +61,7 @@ def post_list(request):
     if not posts_list.exists():
         messages.info(request, "No posts found for the selected category.")
 
-    paginator = Paginator(posts_list, 6) 
+    paginator = Paginator(posts_list, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

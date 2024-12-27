@@ -58,6 +58,8 @@ class Command(BaseCommand):
             :param image_name: Image file name
             """
             image_path = os.path.join(media_path, image_name)
+            print(f"Looking for image at: {image_path}")
+
             if not os.path.exists(image_path):
                 # If the image is not found, use placeholder
                 placeholder = 'placeholder.jpg'

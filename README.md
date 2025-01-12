@@ -1,131 +1,187 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# AnimeNexus
 
-Welcome USER_NAME,
+**AnimeNexus** is an interactive web application focused on creating, reading, and discussing anime, manga, and the broader Japanese pop culture universe. It provides a platform where users can explore posts, comment, and engage with different anime-related content in an intuitive, responsive way.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+The application is built using **Django (Python)**, **HTML**, **CSS**, and **JavaScript**, ensuring a fast and user-friendly experience. The main mission of **AnimeNexus** is to offer a welcoming environment where anime fans can **share ideas**, **discover new titles**, and **further immerse themselves** in the otaku community.
 
 ---
 
-Happy coding!
+## Key Features
+
+### Interactivity and Engagement
+- Users can read posts about anime and manga.
+- Comments are supported, allowing discussions and opinion exchanges.
+- A category system is integrated to filter posts by specific topics.
+
+### Post Management
+- **CRUD** (Create, Read, Update, Delete) functionality for posts, with the ability to include cover images for each anime.
+- Immediate feedback in the Django admin panel for managing posts and comments.
+
+### Responsive and Accessible
+- A layout adaptable to any screen size: desktops, tablets, and smartphones.
+- Intuitive navigation, ensuring ease of use for different age groups and skill levels.
+
+
+## Core Technologies
+
+### Django (Python)
+- Provides the entire backend structure and database integration.
+- Robust route, model, and **Admin Panel** management.
+
+### HTML
+- Structures and semantically marks up pages, enhancing accessibility and SEO.
+
+### CSS
+- Styles the application, ensuring a visually pleasing experience and cohesive identity.
+- Implements responsive design for various screen resolutions.
+
+### JavaScript
+- Manages dynamic interactions.
+
+---
+
+## Features
+
+### Header
+- The header highlights the **AnimeNexus** name, making the site immediately recognizable.
+- Provides main navigation to sections such as *Home*, *About* and *Contact*.
+
+<img width="1387" alt="header" src="https://github.com/user-attachments/assets/897b5888-2056-43db-9f91-85946ce7e564" />
+
+### About Page
+- Dedicated to explaining the site’s purpose and its context.
+
+<img width="1054" alt="About Page" src="https://github.com/user-attachments/assets/7305fd57-703e-4d9d-bb8e-00cacbf48e12" />
+
+
+### Contact Page
+- Provides a simple form for users to send questions, suggestions, or feedback.
+
+<img width="995" alt="Contact Page" src="https://github.com/user-attachments/assets/20ef7863-473f-49c7-80c8-394ba88698af" />
+
+
+### Posts and Listings
+
+- **Home Page**  
+  - Lists featured posts or displays them in order by date/category.  
+  - Shows the title, cover image, and a brief summary.
+
+<img width="1435" alt="Home Page" src="https://github.com/user-attachments/assets/7136c238-3d3a-4390-a728-830dd544aea8" />
+
+
+- **Post Detail Page**  
+  - Displays the full post, including attached images and a comments section.
+ 
+<img width="1126" alt="Post Detail Page" src="https://github.com/user-attachments/assets/703de32e-a710-47e2-83ea-e6b8aa22a823" />
+
+
+- **Category Filter**  
+  - Allows users to filter posts by specific topics (e.g., “Upcoming Releases,” “Best of the Year,” “Worse of All Time,” etc.).
+ 
+    <img width="398" alt="Category Filter" src="https://github.com/user-attachments/assets/60608d2f-be62-4f0f-af90-feaae08f8489" />
+
+
+### Comments
+- A dedicated space for visitors to share opinions on the post’s topic.
+- Can be moderated via the Django admin panel.
+
+<img width="599" alt="comments section" src="https://github.com/user-attachments/assets/38ff412d-8fbf-4922-a46a-0104742b2079" />
+
+---
+
+## User Interaction Flow
+1. **Visit Home**: Users see the most recent/featured posts.  
+2. **Select a Post**: Click on a post to view full details.  
+3. **Engage**: They can comment or navigate to other sections (About/Contact).  
+4. **Return or Continue**: They may go back to Home, explore other categories.
+
+---
+
+## Features Left to Implement
+- **Leaderboard/Ranking**: Display the most-read or most-commented posts to boost engagement.  
+- **Timelined Updates**: Organize posts by anime seasons (Autumn, Winter, etc.).  
+- **Multi-Language Support**: Make the platform available in additional languages (PT, JP, ES, FR).  
+- **Additional Integrations**: Display event feeds, anime conventions, or streaming resources (Crunchyroll, Netflix).
+
+---
+
+## Testing
+
+- **Browsers**: Tested on Chrome, Firefox, and Safari.  
+- **Functionality**: Comments are saved correctly, links and categories work.  
+- **Layout**: Verified on multiple screen sizes (smartphones, tablets, desktops).
+
+ <img width="698" alt="testing" src="https://github.com/user-attachments/assets/50e4dc78-c1a3-43a4-988e-bfa8c5ce2fd8" />
+
+
+---
+
+## Validation
+
+### HTML
+- Validated via W3C Validator, with no markup errors.
+
+### CSS
+- Checked with the W3C Jigsaw Validator, with no markup errors.
+
+### JavaScript
+- Passed through JSHint.
+
+### Python
+- No erros were returned from PEP8
+
+---
+
+## Bug Fixes
+
+1. **Ephemeral File System on Heroku**  
+   - **Context**: Storing images locally in Heroku caused them to disappear after dynos were restarted.  
+   - **Solution**: Integrated a cloud-based storage (Cloudinary) and updated settings for persistent image handling.
+
+2. **`collectstatic` Deploy Error**  
+   - **Context**: The `collectstatic` command failed during deployment due to improper `STATIC_ROOT` configuration.  
+   - **Solution**: Specified `STATIC_ROOT` in `settings.py` and verified all static file paths. This ensured that static assets (CSS, JS, etc.) were compiled and served correctly in the Heroku environment.
+
+3. **Templates Not Found**  
+   - **Context**: Custom `templates/` folder wasn't recognized by Django, resulting in “TemplateDoesNotExist” errors.  
+   - **Solution**: Adjusted the `TEMPLATES` setting in `settings.py` to correctly point to the `templates/` directory and verified each app’s template structure.
+
+4. **Broken Routes in `urls.py`**  
+   - **Context**: Certain endpoints conflicted or appeared in the wrong order, causing 404 errors.  
+   - **Solution**: Reorganized the URL patterns, placing more specific routes before generic ones and ensuring the correct views were assigned.
+
+5. **Image Upload and Cloudinary Mapping**  
+   - **Context**: Moving from local media storage to Cloudinary led to outdated references (e.g., `/media/...`) in the database, plus some images exceeded the Cloudinary size limit.  
+   - **Solution**: Cleaned up older records to point to the new Cloudinary URLs and enforced file-size checks prior to upload, preventing silent failures.
+
+
+---
+
+## Unfixed Bugs
+
+- **Image Bug**: In some posts, images do not appear correctly in the production environment, or are lost after server restarts. This is the only bug still unfixed.
+
+---
+
+## Deployment
+
+**AnimeNexus** is currently live on Heroku:  
+- [AnimeNexus on Heroku](https://animenexus-0cb179340e14.herokuapp.com/)
+
+### Deployment Steps Heroku
+1. Connect the GitHub repository to Heroku via the **Deploy** tab.  
+2. Insert environment variables.  
+3. Use automatic deployment from GitHub to push changes.  
+4. Heroku installs the dependencies listed in `requirements.txt`.  
+5. The application becomes accessible at the generated link, ready for use.
+
+---
+
+## Credits
+
+- **Knowledge Base**: Official Django documentation and the open-source community.  
+- **Layout Inspiration**: User feedback and references from UI/UX for pop culture websites.  
+- **Images and Assets**: Google images  
+- **Ebook**: Special thanks to the database structure ebook that served as a reference.  
+- **Python Code**: Some logic snippets were inspired by Code Institute lessons ('I Think Therefore I Blog' and 'The Flask Framework'), adapted to this project.
+

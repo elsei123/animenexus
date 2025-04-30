@@ -1,9 +1,55 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+
 from .models import Post, Category
-from .forms import ContactForm, CommentForm
-from .utils.emailjs_utils import send_email_via_emailjs 
+from .forms import ContactForm, CommentForm, PostForm
+from .utils.emailjs_utils import send_email_via_emailjs
+
+
+@login_required
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Post created successfully!')
+            return redirect('post_detail', post_id=post.id)
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_form.html', {'form': form})
+
+@login_required
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        messages.error(request, 'You do not have permission to edit this post.')
+        raise Http404
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Post updated successfully!')
+            return redirect('post_detail', post_id=post.id)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_form.html', {'form': form, 'post': post})
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        messages.error(request, 'You do not have permission to delete this post.')
+        raise Http404
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Post deleted successfully!')
+        return redirect('post_list')
+    return render(request, 'blog/post_confirm_delete.html', {'post': post})
 
 def home_page(request):
     posts = Post.objects.all().order_by('-created_at')

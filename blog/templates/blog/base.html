@@ -2,46 +2,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}AnimeNexus{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <meta charset="UTF-8">
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AnimeNexus{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header class="header">
-        <div class="header__inner">
-            <div class="header__logo">
-                <a href="/" class="logo">AnimeNexus</a>
-            </div>
-            <nav class="nav" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="{% url 'post_list' %}" class="nav__link">Home</a></li>
-                    <li><a href="{% url 'about' %}" class="nav__link">About</a></li>
-                    <li><a href="{% url 'contact' %}" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="header__toggle" id="nav-toggle" aria-label="Toggle Navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
-        </div>
-    </header>
-    <main class="container">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        {% block content %}{% endblock %}
-    </main>
-    <footer class="footer">
-        &copy; {{ year }} AnimeNexus. All rights reserved.
-    </footer>
-    <script src="{% static 'js/script.js' %}"></script>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="logo">AnimeNexus</a>
+      <nav class="nav" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="{% url 'post_list' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          {% if user.is_authenticated %}
+            <li>Olá, {{ user.username }}</li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Registar</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    &copy; {% now "Y" %} AnimeNexus. All rights reserved.
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

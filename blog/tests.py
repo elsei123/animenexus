@@ -44,4 +44,10 @@ class BlogTests(TestCase):
         messages = list(resp.context['messages'])
         self.assertIn('Post created successfully!', [m.message for m in messages])
 
-    
+    def test_edit_post_permission(self):
+        # user2 tries to edit user1's post
+        self.client.login(username='user2', password='pass456')
+        url = reverse('edit_post', kwargs={'post_id': self.post.id})
+        resp = self.client.get(url)
+        self.assertEqual(resp.status_code, 404)
+

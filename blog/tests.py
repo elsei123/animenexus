@@ -66,4 +66,6 @@ class BlogTests(TestCase):
         # only registered users should be allowed to post comments
         url = reverse('post_detail', kwargs={'post_id': self.post.id})
         resp = self.client.post(url, {'body': 'Test'}, follow=True)
-        self.assertEqual(resp.status_code, 200)
+        login_url = reverse('login')
+        expected_redirect = f"{login_url}?next={url}"
+        self.assertRedirects(resp, expected_redirect, fetch_redirect_response=False)

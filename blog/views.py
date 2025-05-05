@@ -4,12 +4,27 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
-from .models import Post, Category
+from .models import Post, Category, Comment
 from .forms import ContactForm, CommentForm, PostForm
 from .utils.emailjs_utils import send_email_via_emailjs
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if comment.user != request.user:
+        messages.error(request, 'You do not have permission to edit this comment.')
+        raise Http404
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comment updated successfully!')
+            return redirect('post_detail', post_id=comment.post.id)
+    else:
+        form = CommentForm(instance=comment)
+    return render(request, 'blog/comment_form.html', {'form': form, 'comment': comment})
 
 @login_required
 def create_post(request):

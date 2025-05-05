@@ -51,3 +51,13 @@ class BlogTests(TestCase):
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 404)
 
+    def test_delete_post(self):
+        self.client.login(username='user1', password='pass123')
+        url = reverse('delete_post', kwargs={'post_id': self.post.id})
+        # GET shows confirmation; POST deletes
+        resp_get = self.client.get(url)
+        self.assertEqual(resp_get.status_code, 200)
+        resp_post = self.client.post(url, follow=True)
+        self.assertFalse(Post.objects.filter(id=self.post.id).exists())
+        messages = [m.message for m in resp_post.context['messages']]
+        self.assertIn('Post deleted successfully!', messages)

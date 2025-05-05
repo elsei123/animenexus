@@ -17,7 +17,7 @@ class BlogTests(TestCase):
         # create a post by user1
         self.post = Post.objects.create(
             title='Test Title',
-            body='Test content',
+            content='Test content',
             author=self.user1,
             category=self.cat
         )
@@ -34,7 +34,7 @@ class BlogTests(TestCase):
         url = reverse('create_post')
         data = {
             'title': 'New Post',
-            'body': 'Content',
+            'content': 'Content',
             'category': self.cat.id,
         }
         resp = self.client.post(url, data, follow=True)

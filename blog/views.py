@@ -9,6 +9,8 @@ from .forms import ContactForm, CommentForm, PostForm
 from .utils.emailjs_utils import send_email_via_emailjs
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import redirect_to_login
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -89,6 +91,8 @@ def post_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comments.filter(approved=True)
     if request.method == 'POST':
+        if not request.user.is_authenticated:
+            return redirect_to_login(request.get_full_path())
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)

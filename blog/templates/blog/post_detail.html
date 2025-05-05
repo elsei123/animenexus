@@ -23,20 +23,28 @@
 <section>
     <h3>Comments</h3>
     <ul>
-        {% for comment in comments %}
-            <li>
-                <strong>{{ comment.name }}</strong> on {{ comment.created|date:"M d, Y" }}<br>
-                {{ comment.body|linebreaks }}
-            </li>
-        {% empty %}
-            <p>No comments yet.</p>
-        {% endfor %}
+      {% for comment in comments %}
+        <li>
+          <strong>{{ comment.user.username }}</strong> 
+          on {{ comment.created|date:"M d, Y" }}
+          
+          {% if user.is_authenticated and comment.user == user %}
+            <a href="{% url 'edit_comment' comment.id %}">Editar</a>
+            <a href="{% url 'delete_comment' comment.id %}">Apagar</a>
+          {% endif %}
+  
+          <p>{{ comment.body|linebreaks }}</p>
+        </li>
+      {% empty %}
+        <p>No comments yet.</p>
+      {% endfor %}
     </ul>
+  
     <h4>Add a Comment</h4>
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit Comment</button>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit Comment</button>
     </form>
-</section>
-{% endblock %}
+  </section>
+  {% endblock %}

@@ -24,7 +24,24 @@ class BlogTests(TestCase):
         self.client = Client()
 
     def test_create_post_requires_login(self):
-    url = reverse('create_post')
-    resp = self.client.get(url)
-    # without login, should redirect to /accounts/login/
-    self.assertRedirects(resp, f"/accounts/login/?next={url}")
+        url = reverse('create_post')
+        resp = self.client.get(url)
+        # without login, should redirect to /accounts/login/
+        self.assertRedirects(resp, f"/accounts/login/?next={url}")
+
+    def test_create_post_success(self):
+        self.client.login(username='user1', password='pass123')
+        url = reverse('create_post')
+        data = {
+            'title': 'New Post',
+            'body': 'Content',
+            'category': self.cat.id,
+        }
+        resp = self.client.post(url, data, follow=True)
+        self.assertEqual(resp.status_code, 200)
+        self.assertTrue(Post.objects.filter(title='New Post').exists())
+        # success message
+        messages = list(resp.context['messages'])
+        self.assertIn('Post created successfully!', [m.message for m in messages])
+
+    

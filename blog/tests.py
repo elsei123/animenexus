@@ -22,3 +22,9 @@ class BlogTests(TestCase):
             category=self.cat
         )
         self.client = Client()
+
+    def test_create_post_requires_login(self):
+    url = reverse('create_post')
+    resp = self.client.get(url)
+    # without login, should redirect to /accounts/login/
+    self.assertRedirects(resp, f"/accounts/login/?next={url}")

@@ -18,21 +18,12 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea, label='Mensagem')
 
 class PostForm(forms.ModelForm):
-    """
-    Form for creating and editing Posts.
-    """
     class Meta:
         model = Post
-        # Adjust these fields according to your Post model
         fields = ['title', 'content', 'category', 'cover_image']
-        widgets = {
-            'title': forms.TextInput(attrs={
-                'placeholder': 'Post title',
-                'class': 'form-control'
-            }),
-            'content': forms.Textarea(attrs={
-                'rows': 5,
-                'placeholder': 'Post content',
-                'class': 'form-control'
-            }),
+        labels = {
+            'title': 'Title',
+            'content': 'Content',
+            'category': 'Category',
+            'cover_image': 'Cover Image',
         }

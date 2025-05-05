@@ -7,6 +7,8 @@ from django.core.paginator import Paginator
 from .models import Post, Category
 from .forms import ContactForm, CommentForm, PostForm
 from .utils.emailjs_utils import send_email_via_emailjs
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 
 @login_required
@@ -118,3 +120,18 @@ def post_list(request):
         'category_filter': category_filter,
         'categories': categories
     })
+
+def signup(request):
+    """
+    View for registering new users.
+    """
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, 'Account successfully created! Welcome, %s.' % user.username)
+            return redirect('post_list')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})

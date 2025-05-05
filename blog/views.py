@@ -27,6 +27,19 @@ def edit_comment(request, comment_id):
     return render(request, 'blog/comment_form.html', {'form': form, 'comment': comment})
 
 @login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if comment.user != request.user:
+        messages.error(request, 'You do not have permission to delete this comment.')
+        raise Http404
+    if request.method == 'POST':
+        post_id = comment.post.id
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully!')
+        return redirect('post_detail', post_id=post_id)
+    return render(request, 'blog/comment_confirm_delete.html', {'comment': comment})
+
+@login_required
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)

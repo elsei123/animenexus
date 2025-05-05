@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
     'animenexus-0cb179340e14.herokuapp.com',
     '8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
     '8001-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
+     '8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
 ]
 
 
@@ -39,7 +40,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
     'https://8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
     'https://8002-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
-    'https://animenexus-34160473ae26.herokuapp.com'
+    'https://animenexus-34160473ae26.herokuapp.com',
+    'https://8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
 
 ]
 

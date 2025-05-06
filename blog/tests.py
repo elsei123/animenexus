@@ -1,11 +1,8 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Post, Comment, Category
+from .models import Post, Category
 
-from django.test import TestCase, Client
-from django.contrib.auth.models import User
-from .models import Category, Post
 
 class BlogTests(TestCase):
     def setUp(self):
@@ -61,7 +58,7 @@ class BlogTests(TestCase):
         self.assertFalse(Post.objects.filter(id=self.post.id).exists())
         messages = [m.message for m in resp_post.context['messages']]
         self.assertIn('Post deleted successfully!', messages)
-    
+
     def test_comment_creation_requires_login(self):
         # only registered users should be allowed to post comments
         url = reverse('post_detail', kwargs={'post_id': self.post.id})

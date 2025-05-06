@@ -12,27 +12,27 @@ class Command(BaseCommand):
     under various categories, each with an associated image.
     """
 
-    help = 'Creates demo posts based on provided content.'
+    help = "Creates demo posts based on provided content."
 
     def handle(self, *args, **options):
         # Create an author user if it does not exist
-        author, created = User.objects.get_or_create(username='admin')
+        author, created = User.objects.get_or_create(username="admin")
         if created:
-            author.set_password('admin')  # Use a secure password in production
+            author.set_password("admin")  # Use a secure password in production
             author.is_superuser = True
             author.is_staff = True
             author.save()
-            self.stdout.write(self.style.SUCCESS('Admin user created.'))
+            self.stdout.write(self.style.SUCCESS("Admin user created."))
 
         # Define categories and their descriptions
         categories_data = {
-            'Best of All Time': 'Top Classic Anime',
-            'Worst of All Time': 'Worst Anime',
-            'Best of the Year': 'Top Anime of the Year',
-            'Worst of the Year': 'Worst Anime of the Year',
-            'Upcoming Releases': 'Anime Set to Premiere',
-            'Best Movies': 'Must-Watch Films',
-            'Annual Winners': 'Award-Winning Anime',
+            "Best of All Time": "Top Classic Anime",
+            "Worst of All Time": "Worst Anime",
+            "Best of the Year": "Top Anime of the Year",
+            "Worst of the Year": "Worst Anime of the Year",
+            "Upcoming Releases": "Anime Set to Premiere",
+            "Best Movies": "Must-Watch Films",
+            "Annual Winners": "Award-Winning Anime",
         }
 
         # Create categories
@@ -40,14 +40,12 @@ class Command(BaseCommand):
         for name, desc in categories_data.items():
             c, _ = Category.objects.get_or_create(name=name, description=desc)
             cats[name] = c
-            self.stdout.write(self.style.SUCCESS(
-                f'Category "{name}" created.'
-            ))
+            self.stdout.write(self.style.SUCCESS(f'Category "{name}" created.'))
 
-        media_path = os.path.join(settings.MEDIA_ROOT, 'posts')
+        media_path = os.path.join(settings.MEDIA_ROOT, "posts")
 
         if not os.path.exists(media_path):
-            self.stdout.write(self.style.ERROR('Media directory not found.'))
+            self.stdout.write(self.style.ERROR("Media directory not found."))
             return
 
         def create_post(title, content, category, image_name):
@@ -64,23 +62,24 @@ class Command(BaseCommand):
             print(f"Looking for image at: {image_path}")
 
             if not os.path.exists(image_path):
-                placeholder = 'placeholder.jpg'
+                placeholder = "placeholder.jpg"
                 image_path = os.path.join(media_path, placeholder)
                 if not os.path.exists(image_path):
-                    self.stdout.write(self.style.ERROR(
-                        f'Placeholder image "{placeholder}" not found.'
-                    ))
+                    self.stdout.write(
+                        self.style.ERROR(
+                            f'Placeholder image "{placeholder}" not found.'
+                        )
+                    )
                     return
-                self.stdout.write(self.style.WARNING(
-                    f'Image "{image_name}" not found, using "{placeholder}".'
-                ))
+                self.stdout.write(
+                    self.style.WARNING(
+                        f'Image "{image_name}" not found, using "{placeholder}".'
+                    )
+                )
 
-            with open(image_path, 'rb') as img_file:
+            with open(image_path, "rb") as img_file:
                 post = Post(
-                    title=title,
-                    content=content,
-                    author=author,
-                    category=category
+                    title=title, content=content, author=author, category=category
                 )
                 post.cover_image.save(image_name, img_file, save=True)
             self.stdout.write(self.style.SUCCESS(f'Post "{title}" created.'))
@@ -102,7 +101,7 @@ class Command(BaseCommand):
                     "storytelling, inspiring message, and notable technical "
                     "quality that remains consistent from start to finish."
                 ),
-                "fullmetal.jpg"
+                "fullmetal.jpg",
             ),
             (
                 "Neon Genesis Evangelion",
@@ -119,7 +118,7 @@ class Command(BaseCommand):
                     "influence, and the reflection it provokes on the human "
                     "condition."
                 ),
-                "evangelion.jpg"
+                "evangelion.jpg",
             ),
             (
                 "Monster",
@@ -134,7 +133,7 @@ class Command(BaseCommand):
                     "narrative rewards the viewer with an intense and unforgettable "
                     "experience."
                 ),
-                "monster.jpg"
+                "monster.jpg",
             ),
             (
                 "Gintama",
@@ -149,7 +148,7 @@ class Command(BaseCommand):
                     "Gintama surprises with its versatility, capable of making you "
                     "laugh uncontrollably and cry from pure emotion."
                 ),
-                "gintama.jpg"
+                "gintama.jpg",
             ),
             (
                 "Death Note",
@@ -164,15 +163,13 @@ class Command(BaseCommand):
                     "greatest strength. I recommend it for its intensity and the ethical "
                     "reflection it inspires about humanity."
                 ),
-                "deathnote.jpg"
+                "deathnote.jpg",
             ),
         ]
         for title, desc, img in best_ever:
-            create_post(title, desc, cats['Best of All Time'], img)
+            create_post(title, desc, cats["Best of All Time"], img)
 
-        self.stdout.write(self.style.SUCCESS(
-            'Demo content created successfully!'
-        ))
+        self.stdout.write(self.style.SUCCESS("Demo content created successfully!"))
 
         # Worst of All Time (Top 5) - shorter descriptions
         worst_ever = [
@@ -190,7 +187,7 @@ class Command(BaseCommand):
                     "Overall, Mars of Destruction fails to deliver the elements that make an "
                     "anime memorable and enjoyable."
                 ),
-                "mars.jpg"
+                "mars.jpg",
             ),
             (
                 "Skelter+Heaven",
@@ -205,7 +202,7 @@ class Command(BaseCommand):
                     "strong, coherent narrative direction makes Skelter+Heaven a frustrating "
                     "experience for those seeking a well-crafted anime."
                 ),
-                "skelter.jpg"
+                "skelter.jpg",
             ),
             (
                 "Pupa",
@@ -220,7 +217,7 @@ class Command(BaseCommand):
                     "fully realize its potential, leaving viewers disappointed despite its "
                     "interesting concept."
                 ),
-                "pupa.jpg"
+                "pupa.jpg",
             ),
             (
                 "Eiken",
@@ -235,7 +232,7 @@ class Command(BaseCommand):
                     "meaningful content. Ultimately, Eiken fails to provide a satisfying "
                     "experience for audiences seeking quality storytelling."
                 ),
-                "eiken.jpg"
+                "eiken.jpg",
             ),
             (
                 "Vampire Holmes",
@@ -250,11 +247,11 @@ class Command(BaseCommand):
                     "making the series predictable and unengaging. Vampire Holmes does not "
                     "meet expectations, resulting in a lackluster and forgettable anime."
                 ),
-                "holmes.jpg"
-            )
+                "holmes.jpg",
+            ),
         ]
         for title, desc, img in worst_ever:
-            create_post(title, desc, cats['Worst of All Time'], img)
+            create_post(title, desc, cats["Worst of All Time"], img)
 
         # Best of This Year (Top 5) - Complete Descriptions
         best_this_year = [
@@ -273,7 +270,7 @@ class Command(BaseCommand):
                     "Overall, Season 3 solidifies Jujutsu Kaisen as a standout in the shonen "
                     "genre, offering both excitement and emotional depth."
                 ),
-                "jujutsu.jpg"
+                "jujutsu.jpg",
             ),
             (
                 "Solo Leveling",
@@ -290,7 +287,7 @@ class Command(BaseCommand):
                     "for the action-packed narrative. Solo Leveling successfully captures the "
                     "essence of the webtoon, making it a must-watch for fans of the genre."
                 ),
-                "sololeveling.jpg"
+                "sololeveling.jpg",
             ),
             (
                 "Chainsaw Man Season 2",
@@ -307,7 +304,7 @@ class Command(BaseCommand):
                     "the story fresh and engaging. Overall, Season 2 enhances the Chainsaw Man "
                     "experience, making it a must-watch for fans of unconventional anime."
                 ),
-                "chainsaw2.jpg"
+                "chainsaw2.jpg",
             ),
             (
                 "Vinland Saga Season 3",
@@ -324,7 +321,7 @@ class Command(BaseCommand):
                     "place as a thoughtful and emotionally resonant epic, appealing to viewers "
                     "seeking depth and complexity in their anime."
                 ),
-                "vinland3.jpg"
+                "vinland3.jpg",
             ),
             (
                 "Spy x Family Season 2",
@@ -341,12 +338,12 @@ class Command(BaseCommand):
                     "engaging. Spy x Family Season 2 is a delightful continuation that captures "
                     "the essence of what makes the series so endearing to fans."
                 ),
-                "spyxfamily2.jpg"
-            )
+                "spyxfamily2.jpg",
+            ),
         ]
         for title, desc, img in best_this_year:
-            create_post(title, desc, cats['Best of the Year'], img)
-        
+            create_post(title, desc, cats["Best of the Year"], img)
+
         # Worst of This Year (Top 5) - Complete Descriptions
         worst_this_year = [
             (
@@ -363,7 +360,7 @@ class Command(BaseCommand):
                     "narrative. As a result, Zombie Idol Fever fails to deliver on its "
                     "unique premise, leaving viewers disappointed and uninterested."
                 ),
-                "zombieidol.jpg"
+                "zombieidol.jpg",
             ),
             (
                 "Love in the Outer Dimensions",
@@ -381,7 +378,7 @@ class Command(BaseCommand):
                     "struggles to maintain engagement, resulting in a monotonous and "
                     "unremarkable romantic saga."
                 ),
-                "loveouter.jpg"
+                "loveouter.jpg",
             ),
             (
                 "Kitten Warriors",
@@ -398,7 +395,7 @@ class Command(BaseCommand):
                     "could have been an endearing and entertaining show but instead ends up being "
                     "a disappointing portrayal of what could have been a delightful concept."
                 ),
-                "kitten.jpg"
+                "kitten.jpg",
             ),
             (
                 "Cyber Fairyland",
@@ -415,12 +412,12 @@ class Command(BaseCommand):
                     "imaginative experience, Cyber Fairyland ends up being a boring and uninspired "
                     "series that does not live up to its potential."
                 ),
-                "cyberfairyland.jpg"
-            )
+                "cyberfairyland.jpg",
+            ),
         ]
         for title, desc, img in worst_this_year:
-            create_post(title, desc, cats['Worst of the Year'], img)
-        
+            create_post(title, desc, cats["Worst of the Year"], img)
+
         future_releases = [
             (
                 "Attack on Titan: A New Era",
@@ -440,7 +437,7 @@ class Command(BaseCommand):
                     "aims to revitalize the franchise and keep audiences engaged with its "
                     "compelling narrative and stunning visuals."
                 ),
-                "aot_newera.jpg"
+                "aot_newera.jpg",
             ),
             (
                 "Demon Slayer: Pillar Chronicles",
@@ -461,7 +458,7 @@ class Command(BaseCommand):
                     "between the audience and their favorite warriors, adding layers of depth "
                     "to an already beloved series."
                 ),
-                "ds_pillar.jpg"
+                "ds_pillar.jpg",
             ),
             (
                 "My Hero Academia: Final Arc",
@@ -483,7 +480,7 @@ class Command(BaseCommand):
                     "celebrating the journey of its characters and the enduring spirit of "
                     "heroism."
                 ),
-                "mha_final.jpg"
+                "mha_final.jpg",
             ),
             (
                 "One Punch Man Season 3",
@@ -492,7 +489,7 @@ class Command(BaseCommand):
                     "blend of over-the-top battles and nuanced character development. Fans "
                     "can look forward to even more insane and visually spectacular fight "
                     "scenes as Saitama faces new and formidable opponents. This season is "
-                    "expected to delve deeper into the backgrounds and motivations of both "                            
+                    "expected to delve deeper into the backgrounds and motivations of both "
                     "heroes and villains, adding layers of complexity to the narrative. The "
                     "animation maintains its high energy and fluidity, enhancing the comedic "
                     "and action-packed moments that define the series. Additionally, new "
@@ -503,7 +500,7 @@ class Command(BaseCommand):
                     "exhilarating battles, this season promises to keep fans on the edge of "
                     "their seats."
                 ),
-                    "opm_s3.jpg"
+                "opm_s3.jpg",
             ),
             (
                 "Haikyuu!! Next Generation",
@@ -525,7 +522,7 @@ class Command(BaseCommand):
                     "and emotionally resonant storytelling that defines the 'Haikyuu!!' "
                     "experience."
                 ),
-                "haikyuu_next.jpg"
+                "haikyuu_next.jpg",
             ),
             (
                 "Mushoku Tensei Season 3",
@@ -545,7 +542,7 @@ class Command(BaseCommand):
                     "arcs. 'Mushoku Tensei Season 3' promises to continue delivering a "
                     "captivating and enchanting isekai experience for its dedicated fanbase."
                 ),
-                "mushoku3.jpg"
+                "mushoku3.jpg",
             ),
             (
                 "Tokyo Revengers: The Final Time Leap",
@@ -565,7 +562,7 @@ class Command(BaseCommand):
                     "to the 'Tokyo Revengers' story, ensuring that fans leave with a sense "
                     "of completion and satisfaction."
                 ),
-                "tokyorev_final.jpg"
+                "tokyorev_final.jpg",
             ),
             (
                 "Chainsaw Man Season 3",
@@ -586,7 +583,7 @@ class Command(BaseCommand):
                     "of its bizarre and thrilling universe, keeping audiences hooked with "
                     "every episode."
                 ),
-                "chainsaw3.jpg"
+                "chainsaw3.jpg",
             ),
             (
                 "Jujutsu Kaisen: Ancients",
@@ -606,7 +603,7 @@ class Command(BaseCommand):
                     "series. Fans can expect a captivating exploration of the foundational "
                     "aspects of jujutsu, adding new dimensions to an already beloved anime."
                 ),
-                "jjk_ancients.jpg"
+                "jjk_ancients.jpg",
             ),
             (
                 "Sword Art Online: New Frontier",
@@ -628,11 +625,11 @@ class Command(BaseCommand):
                     "captivating storytelling, this new frontier aims to elevate the franchise "
                     "to new heights."
                 ),
-                "sao_newfrontier.jpg"
-            )
+                "sao_newfrontier.jpg",
+            ),
         ]
         for title, desc, img in future_releases:
-            create_post(title, desc, cats['Upcoming Releases'], img)
+            create_post(title, desc, cats["Upcoming Releases"], img)
         # Best Movies - Full Descriptions
         movies = [
             (
@@ -653,7 +650,7 @@ class Command(BaseCommand):
                     "romance with elements of mystery and fantasy, making it a universally "
                     "relatable and emotionally impactful cinematic experience."
                 ),
-                "yourname.jpg"
+                "yourname.jpg",
             ),
             (
                 "Spirited Away",
@@ -673,7 +670,7 @@ class Command(BaseCommand):
                     "'Spirited Away' as a timeless classic that continues to inspire and "
                     "captivate."
                 ),
-                "chihiro.jpg"
+                "chihiro.jpg",
             ),
             (
                 "A Silent Voice",
@@ -693,7 +690,7 @@ class Command(BaseCommand):
                     "and reconciliation, offering a moving and thought-provoking viewing "
                     "experience."
                 ),
-                "vozsilencio.jpg"
+                "vozsilencio.jpg",
             ),
             (
                 "Your Lie in April: The Movie",
@@ -715,7 +712,7 @@ class Command(BaseCommand):
                     "essence of the series, offering a poignant and memorable cinematic "
                     "experience."
                 ),
-                "yourlie.jpg"
+                "yourlie.jpg",
             ),
             (
                 "Made in Abyss: Dawn of the Deep Soul",
@@ -734,13 +731,13 @@ class Command(BaseCommand):
                     "depth to the characters' motivations and the overarching lore of the "
                     "Abyss. 'Made in Abyss: Dawn of the Deep Soul' is a testament to the "
                     "series' ability to blend dark fantasy with emotional storytelling, making "
-                   "it a standout addition to the franchise."
+                    "it a standout addition to the franchise."
                 ),
-                "madeinabyss.jpg"
-            )
+                "madeinabyss.jpg",
+            ),
         ]
         for title, desc, img in movies:
-            create_post(title, desc, cats['Best Movies'], img)
+            create_post(title, desc, cats["Best Movies"], img)
 
         # Annual Winners - Full Descriptions
         winners = [
@@ -760,7 +757,7 @@ class Command(BaseCommand):
                     "moments of humor and emotional depth, making it a compelling and impactful "
                     "series that continues to garner widespread acclaim."
                 ),
-                "jujutsu2020.jpg"
+                "jujutsu2020.jpg",
             ),
             (
                 "Attack on Titan: The Final Season Part 1 (2021)",
@@ -778,7 +775,7 @@ class Command(BaseCommand):
                     "The Final Season Part 1' sets a high bar for the concluding chapters, promising "
                     "a gripping and unforgettable finale for fans."
                 ),
-                "aot2021.jpg"
+                "aot2021.jpg",
             ),
             (
                 "Cyberpunk: Edgerunners (2022)",
@@ -796,7 +793,7 @@ class Command(BaseCommand):
                     "game into a captivating anime experience, balancing action with emotional "
                     "storytelling to create a memorable and impactful series."
                 ),
-                "edgerunners2022.jpg"
+                "edgerunners2022.jpg",
             ),
             (
                 "Oshi no Ko (2023)",
@@ -814,7 +811,7 @@ class Command(BaseCommand):
                     "approach, making it a compelling watch for those interested in character-driven "
                     "dramas."
                 ),
-                "oshinoko2023.jpg"
+                "oshinoko2023.jpg",
             ),
             (
                 "Solo Leveling (2024)",
@@ -833,12 +830,10 @@ class Command(BaseCommand):
                     "making it a standout addition to the action-fantasy genre and a must-watch for "
                     "fans of the source material."
                 ),
-                "sololeveling2024.jpg"
-            )
+                "sololeveling2024.jpg",
+            ),
         ]
         for title, desc, img in winners:
-            create_post(title, desc, cats['Annual Winners'], img)
-        
-        self.stdout.write(
-            self.style.SUCCESS('Demo content created successfully!')
-)
+            create_post(title, desc, cats["Annual Winners"], img)
+
+        self.stdout.write(self.style.SUCCESS("Demo content created successfully!"))

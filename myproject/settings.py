@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
-from decouple import config 
-from dotenv import load_dotenv 
+from decouple import config
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,26 +23,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY", default="django-insecure-f%zwu(e_il2x0r6=d963-3&sybjjby^*ov30$w95t27aetlyb*")
+SECRET_KEY = config(
+    "SECRET_KEY",
+    default="django-insecure-f%zwu(e_il2x0r6=d963-3&sybjjby^*ov30$w95t27aetlyb*",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'animenexus-0cb179340e14.herokuapp.com',
-    '8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
-    '8001-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
-     '8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
+    "animenexus-0cb179340e14.herokuapp.com",
+    "8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
+    "8001-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
+    "8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
-    'https://8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
-    'https://8002-elsei123-animenexus-fnqjono20l.app.codeanywhere.com',
-    'https://animenexus-34160473ae26.herokuapp.com',
-    'https://8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com',
-
+    "https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
+    "https://8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
+    "https://8002-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
+    "https://animenexus-34160473ae26.herokuapp.com",
+    "https://8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
 ]
 
 # Application definition
@@ -75,7 +77,7 @@ ROOT_URLCONF = "myproject.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates'],  # Usando Path
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,27 +90,27 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = "myproject.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = config('DATABASE_URL', default=f'sqlite:///{BASE_DIR / "myproject" / "db.sqlite3"}')
+DATABASE_URL = config(
+    "DATABASE_URL", default=f'sqlite:///{BASE_DIR / "myproject" / "db.sqlite3"}'
+)
 
-if 'sqlite' in DATABASE_URL:
+if "sqlite" in DATABASE_URL:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'myproject', 'db.sqlite3'),
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "myproject", "db.sqlite3"),
         }
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(
-            DATABASE_URL,
-            conn_max_age=600,
-            ssl_require=True
+        "default": dj_database_url.parse(
+            DATABASE_URL, conn_max_age=600, ssl_require=True
         )
     }
 
@@ -118,7 +120,8 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation."
+        "UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -147,29 +150,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / 'blog/static',
+    BASE_DIR / "blog/static",
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 WHITENOISE_MANIFEST_STRICT = False
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 load_dotenv()
 
-CLOUDINARY_CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
-CLOUDINARY_API_KEY = os.getenv('CLOUDINARY_API_KEY')
-CLOUDINARY_API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+CLOUDINARY_CLOUD_NAME = os.getenv("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.getenv("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
 
-print("Cloudinary Cloud Name:", os.getenv('CLOUDINARY_CLOUD_NAME'))
-print("Cloudinary API Key:", os.getenv('CLOUDINARY_API_KEY'))
-print("Cloudinary API Secret:", os.getenv('CLOUDINARY_API_SECRET'))
+print("Cloudinary Cloud Name:", os.getenv("CLOUDINARY_CLOUD_NAME"))
+print("Cloudinary API Key:", os.getenv("CLOUDINARY_API_KEY"))
+print("Cloudinary API Secret:", os.getenv("CLOUDINARY_API_SECRET"))
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 # Default primary key field type
@@ -178,12 +181,14 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-EMAIL_HOST = config('EMAIL_HOST', default='smtp-relay.sendinblue.com')
-EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = config(
+    "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
+)
+EMAIL_HOST = config("EMAIL_HOST", default="smtp-relay.sendinblue.com")
+EMAIL_PORT = config("EMAIL_PORT", default=587, cast=int)
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=True, cast=bool)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
-LOGIN_REDIRECT_URL = "/" 
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"

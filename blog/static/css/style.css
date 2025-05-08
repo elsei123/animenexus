@@ -276,7 +276,9 @@ Responsive Menu
 /* ------
 Hero & Banner Section
 ------ */
-/* Full-width container with background image */
+/*--------
+Full-width container with background image
+---------*/
 .hero {
   position: relative;
   width: 100%;
@@ -290,7 +292,9 @@ Hero & Banner Section
   text-align: center;
 }
 
-/* Dark overlay for readability */
+/*--
+Dark overlay for readability
+--*/
 .hero::before {
   content: '';
   position: absolute;
@@ -298,6 +302,15 @@ Hero & Banner Section
   background: rgba(0, 0, 0, 0.4);
 }
 
+/*------
+Centered content
+-------*/
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 1rem;
+}
 
 /* Main Layout and Content */
   

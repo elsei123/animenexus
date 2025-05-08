@@ -496,6 +496,49 @@ Section headings
   margin-bottom: 1rem;
 }
 
+/*-----
+Contact Form
+-----*/
+.contact-text form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.contact-text form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.contact-text form input,
+.contact-text form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-header-bg);
+  border-radius: var(--btn-radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  transition: border-color var(--transition-fast),
+              background var(--transition-fast),
+              color var(--transition-fast);
+}
+.contact-text form input:focus,
+.contact-text form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+.contact-text form button {
+  justify-self: start;
+}
+.contact-text form .btn {
+  background-color: var(--color-primary);
+  transition: background-color var(--transition-fast);
+}
+.contact-text form .btn:hover,
+.contact-text form .btn:focus {
+  background-color: var(--color-primary-hover);
+}
+
   /*Footer*/
   
   .footer {

@@ -156,15 +156,16 @@ Utility class for truncating text
   /* Header and Navigation */
   
   .header {
-    background: var(--header-bg);
-    padding: 0em 2em;
-    border-bottom: 1px solid #ccc;
+    background-color: var(--color-header-bg);
+    padding: 0.75rem 1rem;
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    box-sizing: border-box;
+    transition: background-color var(--transition-fast);
   }
+  
   
   .header__inner {
     display: flex;

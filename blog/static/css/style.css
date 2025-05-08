@@ -1,6 +1,10 @@
-/* General Styles */
+/*---------------
+General Styles 
+---------------*/
 :root {
-  /* Colors */
+  /*-------
+  Colors 
+  --------*/
   --color-bg: #ffffff;
   --color-text: #222222;
   --color-header-bg: #f8f8f8;
@@ -13,21 +17,27 @@
 }
 
 :root {
-  /* Typography */
+  /*----------
+  Typography 
+  ----------*/
   --font-body: 'Open Sans', sans-serif;
   --font-heading: 'Montserrat', sans-serif;
   --line-height: 1.6;
 }
 
 :root {
-  /* Buttons and Forms */
+  /*-----------------
+  Buttons and Forms 
+  -----------------*/
   --btn-padding: 0.75rem 1.25rem;
   --btn-radius: 4px;
   --transition-fast: 0.2s ease-in-out;
 }
 
 
-/* Dark Mode */
+/*--------
+Dark Mode
+--------*/
 [data-theme="dark"] {
   --color-bg: #121212;
   --color-text: #eeeeee;
@@ -40,7 +50,9 @@
   --color-accent-hover: #f50057;
 }
 
-  /* Global Styles */
+  /*------------ 
+  Global Styles
+  -------------*/
 
   *,
   *::before,
@@ -63,7 +75,9 @@
                 color var(--transition-fast);
   }
   
-  /* Links */
+  /*-----
+  Links
+  -----*/
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -74,19 +88,25 @@ a:focus {
   color: var(--color-primary-hover);
 }
   
-/* Headings */
+/*-------
+Headings
+-------*/
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   margin-bottom: 0.5em;
   color: var(--color-text);
 }
 
-/* Unstyled lists */
+/*------
+Unstyled lists
+------*/
 ul, ol {
   list-style: none;
 }
 
-/* Responsive images */
+/*--------
+Responsive images
+--------*/
 img {
   max-width: 100%;
   display: block;
@@ -95,12 +115,32 @@ img {
 /* --------
    Utility Classes
    -------*/
-   
-/* Centered container */
+
+/*-------
+Centered container
+-------*/
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+/*-----
+Default button
+-----*/
+.btn {
+  display: inline-block;
+  padding: var(--btn-padding);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--btn-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-primary-hover);
 }
 
   

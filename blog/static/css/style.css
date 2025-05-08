@@ -205,15 +205,18 @@ Utility class for truncating text
     transition: color var(--transition-fast);
   }
   
-  
   .nav__link:hover,
   .nav__link:focus {
     color: var(--accent-color);
   }
   
-  /* Mobile Menu Toggle */
+  /*----
+  Mobile Menu Toggle
+  ----*/
   .header__toggle {
     display: none;
+    flex-direction: column;
+    gap: 0.25rem;
     background: none;
     border: none;
     cursor: pointer;

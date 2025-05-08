@@ -418,6 +418,22 @@ Content Area
   margin-bottom: 1rem;
 }
 
+/* Card Meta & Action */
+.post-card__meta {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+.post-card__actions {
+  margin-top: auto;
+}
+.post-card__link {
+  @extend .btn;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
   /* About Page */
   
   .about-container,

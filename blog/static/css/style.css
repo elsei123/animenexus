@@ -29,20 +29,17 @@
 
 /* Dark Mode */
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #eeeeee;
-  --header-bg: #1f1f1f;
-  --footer-bg: #1f1f1f;
-  --card-bg: #1f1f1f;
-  --primary-color: #bb86fc;
-  --accent-color: #ff4081;
-  --form-bg: #1f1f1f;
-  --form-text: #eeeeee;
-  --button-bg: #bb86fc;
-  --button-text: #ffffff;
-  --button-hover-bg: #8853ff;
-  --button-hover-text: #ffffff;
+  --color-bg: #121212;
+  --color-text: #eeeeee;
+  --color-header-bg: #1f1f1f;
+  --color-footer-bg: #1f1f1f;
+  --color-card-bg: #1f1f1f;
+  --color-primary: #bb86fc;
+  --color-primary-hover: #8853ff;
+  --color-accent: #ff4081;
+  --color-accent-hover: #f50057;
 }
+
 
   /* Global Styles */
   body {

@@ -12,6 +12,13 @@
   --color-accent-hover: #e64a19;
 }
 
+:root {
+  /* Typography */
+  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --line-height: 1.6;
+}
+
 
 /* Dark Mode */
 [data-theme="dark"] {

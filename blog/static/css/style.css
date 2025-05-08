@@ -371,8 +371,7 @@ Post Card
   transition: transform var(--transition-fast),
               box-shadow var(--transition-fast);
 }
-  
-  
+
 .post-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -424,15 +423,26 @@ Content Area
   color: #777;
   margin-bottom: 0.5rem;
 }
+
 .post-card__actions {
   margin-top: auto;
 }
+
 .post-card__link {
-  @extend .btn;
   display: inline-block;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+  padding: var(--btn-padding);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--btn-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
 }
+.post-card__link:hover,
+.post-card__link:focus {
+  background-color: var(--color-primary-hover);
+}
+
 
   /* About Page */
   

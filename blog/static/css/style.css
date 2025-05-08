@@ -397,35 +397,27 @@ Image Container
   transform: scale(1.05);
 }
 
-.post-card:hover .post-card__image img {
-    opacity: 0.95;
-  }
-  
-  .post-card__content {
-    padding: 1em;
-    flex-grow: 1;
-  }
-  
-  .post-card__title {
-    margin: 0 0 0.5em;
-    font-size: 1.2rem;
-  }
-  
-  .post-card__link {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  
-  .post-card__link:hover,
-  .post-card__link:focus {
-    text-decoration: underline;
-  }
-  
-  .post-card__meta {
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
+/*-----
+Content Area
+-----*/
+.post-card__content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.post-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+.post-card__excerpt {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
   /* About Page */
   
   .about-container,

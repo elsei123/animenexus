@@ -444,20 +444,31 @@ Content Area
 }
 
 
-  /* About Page */
+/*---
+About Page
+---*/
   
-  .about-container,
-  .contact-container {
-    min-height: 100vh;
-    background: no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    color: #fff;
-  }
-  
+.about-container,
+.contact-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+/* Overlay for contrast */
+.about-container::before,
+.contact-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
   .about-text,
   .contact-text {
     max-width: 800px;

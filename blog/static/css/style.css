@@ -229,18 +229,27 @@ Utility class for truncating text
     transition: background-color var(--transition-fast);
   }
   
+  /*----
+  Theme toggle icon
+  ----*/
+
   .theme-toggle {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
     color: var(--text-color);
-    transition: color 0.3s;
+    transition: color var(--transition-fast);
   }
   
-  [data-theme="dark"] .theme-toggle {
-    color: var(--accent-color);
-  }
+  /* Dark mode overrides for header */
+[data-theme="dark"] .header {
+  background-color: var(--color-header-bg);
+}
+[data-theme="dark"] .header__toggle span,
+[data-theme="dark"] .theme-toggle {
+  color: var(--color-accent);
+}
   
   /* Main Layout and Content */
   

@@ -183,6 +183,11 @@ Utility class for truncating text
     transition: color var(--transition-fast);
   }
   
+  .header__logo .logo:hover,
+.header__logo .logo:focus {
+  color: var(--color-accent);
+}
+
   
   .nav {
     display: flex;

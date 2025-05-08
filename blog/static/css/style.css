@@ -55,13 +55,14 @@
   }
 
   body {
-    margin: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: var(--line-height);
+    transition: background-color var(--transition-fast),
+                color var(--transition-fast);
   }
+  
   
   /* Dark Mode Transitions */
   

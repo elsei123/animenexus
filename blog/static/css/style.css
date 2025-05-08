@@ -523,17 +523,20 @@ Contact Form
   background-color: var(--color-primary-hover);
 }
 
-  /*Footer*/
-  
-  .footer {
-    text-align: center;
-    background: var(--footer-bg);
-    padding: 1em;
-    font-size: 0.9rem;
-    border-top: 1px solid #ccc;
-    width: 100%;
-  }
-  
+/*----
+Footer
+-----*/
+.site-footer,
+.footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-text);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-top: 1px solid var(--color-header-bg);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
   /* Pagination*/
   
   .pagination {

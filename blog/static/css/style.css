@@ -428,22 +428,6 @@ Content Area
   margin-top: auto;
 }
 
-.post-card__link {
-  display: inline-block;
-  padding: var(--btn-padding);
-  background-color: var(--color-primary);
-  color: #ffffff;
-  border-radius: var(--btn-radius);
-  text-align: center;
-  cursor: pointer;
-  transition: background-color var(--transition-fast);
-}
-.post-card__link:hover,
-.post-card__link:focus {
-  background-color: var(--color-primary-hover);
-}
-
-
 /*---
 About Page
 ---*/

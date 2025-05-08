@@ -290,10 +290,18 @@ Hero & Banner Section
   text-align: center;
 }
 
+/* Dark overlay for readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
 
-  /* Main Layout and Content */
+
+/* Main Layout and Content */
   
-  /* Container */
+/* Container */
   .container {
     max-width: 1200px;
     margin: 6em auto 2em;

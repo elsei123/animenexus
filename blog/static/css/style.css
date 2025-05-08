@@ -1,20 +1,17 @@
 /* General Styles */
 :root {
-  /* Light Mode */
-  --bg-color: #ffffff;
-  --text-color: #222222;
-  --header-bg: #f8f8f8;
-  --footer-bg: #f2f2f2;
-  --card-bg: #ffffff;
-  --primary-color: #3f51b5;
-  --accent-color: #ff5722;
-  --form-bg: #f9f9f9;
-  --form-text: #333333;
-  --button-bg: #3f51b5;
-  --button-text: #ffffff;
-  --button-hover-bg: #303f9f;
-  --button-hover-text: #ffffff;
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-header-bg: #f8f8f8;
+  --color-footer-bg: #f2f2f2;
+  --color-card-bg: #ffffff;
+  --color-primary: #3f51b5;
+  --color-primary-hover: #303f9f;
+  --color-accent: #ff5722;
+  --color-accent-hover: #e64a19;
 }
+
 
 /* Dark Mode */
 [data-theme="dark"] {

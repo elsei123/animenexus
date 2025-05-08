@@ -63,6 +63,16 @@
                 color var(--transition-fast);
   }
   
+  /* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover,
+a:focus {
+  color: var(--color-primary-hover);
+}
   
   /* Dark Mode Transitions */
   

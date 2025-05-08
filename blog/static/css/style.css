@@ -469,22 +469,33 @@ About Page
   background: rgba(0, 0, 0, 0.4);
 }
 
-  .about-text,
-  .contact-text {
-    max-width: 800px;
-    background: rgba(240, 240, 240, 0.9);
-    color: #000000;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .about-text h2,
-  .contact-text h2 {
-    margin: 0 0 1rem;
-    font-size: 2rem;
-  }
-  
+/*-----
+Central text container
+-----*/
+.about-text,
+.contact-text {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  padding: 2rem;
+  border-radius: var(--btn-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+/*-----
+Section headings
+-----*/
+.about-text h2,
+.contact-text h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
   /*Footer*/
   
   .footer {

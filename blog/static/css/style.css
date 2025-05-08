@@ -191,21 +191,20 @@ Utility class for truncating text
   
   .nav {
     display: flex;
+    align-items: center;
   }
   
   .nav__list {
     display: flex;
     gap: 1.5em;
-    list-style: none;
-    margin: 0;
-    padding: 0;
   }
   
   .nav__link {
-    text-decoration: none;
-    color: var(--text-color);
     font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
   }
+  
   
   .nav__link:hover,
   .nav__link:focus {

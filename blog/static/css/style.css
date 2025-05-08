@@ -537,6 +537,32 @@ Footer
               color var(--transition-fast);
 }
 
+.site-footer .footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.social-list {
+  display: flex;
+  gap: 1rem;
+}
+.social-list a {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+.social-list a:hover,
+.social-list a:focus {
+  color: var(--color-accent);
+}
+
   /* Pagination*/
   
   .pagination {

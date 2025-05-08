@@ -223,12 +223,10 @@ Utility class for truncating text
   }
   
   .header__toggle span {
-    display: block;
     width: 25px;
     height: 3px;
-    margin: 5px 0;
-    background: var(--text-color);
-    transition: 0.3s;
+    background-color: var(--color-text);
+    transition: background-color var(--transition-fast);
   }
   
   .theme-toggle {

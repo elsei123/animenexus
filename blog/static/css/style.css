@@ -81,6 +81,16 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text);
 }
 
+/* Unstyled lists */
+ul, ol {
+  list-style: none;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  display: block;
+}
 
   
   /* Header and Navigation */

@@ -143,6 +143,15 @@ Default button
   background-color: var(--color-primary-hover);
 }
 
+/*------
+Utility class for truncating text
+------*/
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
   
   /* Header and Navigation */
   

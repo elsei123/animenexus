@@ -92,6 +92,17 @@ img {
   display: block;
 }
 
+/* --------
+   Utility Classes
+   -------*/
+   
+/* Centered container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
   
   /* Header and Navigation */
   

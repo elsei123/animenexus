@@ -345,49 +345,59 @@ Call-to-action button
   background-color: var(--color-accent-hover);
 }
 
-/* Main Layout and Content */
+/*--
+Main Layout and Content
+--*/
+
+/*---
+Posts Grid
+---*/
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2em;
+}
   
-/* Container */
-  .container {
-    max-width: 1200px;
-    margin: 6em auto 2em;
-    padding: 0 1em;
-    box-sizing: border-box;
-  }
-  
-  /* Posts Grid */
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2em;
-  }
-  
-  /* Post Card */
-  .post-card {
-    background-color: var(--color-card-bg);
-    border-radius: var(--btn-radius);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform var(--transition-fast),
-                box-shadow var(--transition-fast);
-  }
+/*--
+Post Card
+--*/
+.post-card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--btn-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
   
   
-  .post-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .post-card__image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: opacity 0.3s;
-  }
-  
-  .post-card:hover .post-card__image img {
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/*---
+Image Container
+---*/
+.post-card__image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+.post-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: scale var(--transition-fast);
+}
+.post-card:hover .post-card__image img {
+  transform: scale(1.05);
+}
+
+.post-card:hover .post-card__image img {
     opacity: 0.95;
   }
   

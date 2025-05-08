@@ -331,6 +331,20 @@ Subtitle
   font-weight: 300;
 }
 
+/*------------
+Call-to-action button
+------------*/
+.hero .btn {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-accent);
+  transition: background-color var(--transition-fast);
+}
+.hero .btn:hover,
+.hero .btn:focus {
+  background-color: var(--color-accent-hover);
+}
+
 /* Main Layout and Content */
   
 /* Container */

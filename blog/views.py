@@ -11,6 +11,9 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import redirect_to_login
 
+from .forms import SignUpForm
+from django.contrib.auth import login
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -191,5 +194,5 @@ def signup(request):
             )
             return redirect("post_list")
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, "registration/signup.html", {"form": form})

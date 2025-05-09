@@ -702,4 +702,14 @@ Pagination
   transition: background-color var(--transition-fast),
               color var(--transition-fast);
 }
-  
+
+.pagination a:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.pagination .current {
+  background-color: var(--color-primary);
+  color: #fff;
+  pointer-events: none;
+}

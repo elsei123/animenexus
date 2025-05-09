@@ -39,3 +39,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.user.username} on "{self.post.title}"'
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='profile'
+    )
+    date_of_birth = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f"Profile of {self.user.username}"

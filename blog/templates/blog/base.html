@@ -21,26 +21,22 @@
 </head>
 <body>
   <header class="header">
-    <div class="header__inner">
-      <a href="{% url 'post_list' %}" class="logo">AnimeNexus</a>
-      <button class="header__toggle" id="nav-toggle" aria-label="Toggle Navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav" id="nav-menu">
+    <div class="header__inner container">
+      <a href="/" class="logo">AnimeNexus</a>
+      <nav class="nav">
         <ul class="nav__list">
-          <li><a href="{% url 'post_list' %}" class="nav__link">Home</a></li>
-          <li><a href="{% url 'about' %}" class="nav__link">About</a></li>
-          <li><a href="{% url 'contact' %}" class="nav__link">Contact</a></li>
+          <li><a href="{% url 'post_list' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
           {% if user.is_authenticated %}
-            <li class="nav__item">Hello, {{ user.username }}</li>
-            <li><a href="{% url 'logout' %}" class="nav__link">Logout</a></li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
           {% else %}
-            <li><a href="{% url 'login' %}" class="nav__link">Login</a></li>
-            <li><a href="{% url 'signup' %}" class="nav__link">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
           {% endif %}
         </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
       </nav>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
     </div>
   </header>
 

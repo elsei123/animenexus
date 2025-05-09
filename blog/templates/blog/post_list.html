@@ -6,51 +6,34 @@
 
 {% block content %}
 
-<!-- Category Filter -->
-<div class="category-filter">
-  <span>Filter by category:</span>
-  <select onchange="location = this.value;">
-    <option value="{% url 'post_list' %}">All</option>
-    {% for cat in categories %}
-      <option value="?category={{ cat.name }}" {% if category_filter == cat.name %}selected{% endif %}>{{ cat.name }}</option>
-    {% endfor %}
-  </select>
-</div>
-
-<div class="posts-grid" id="posts-container">
-  {% for post in page_obj %}
-  <article class="post-card">
-    {% if post.cover_image %}
-      <div class="post-card__image">
-        <img src="{{ post.cover_image.url }}" alt="{{ post.title }}">
-      </div>
-    {% endif %}
-    <div class="post-card__content">
-      <h2 class="post-card__title">
-        <a href="{% url 'post_detail' post.pk %}" class="post-card__link">{{ post.title }}</a>
-      </h2>
-      <p class="post-card__meta">
-        Category: {% if post.category %}{{ post.category.name }}{% else %}Uncategorized{% endif %}<br>
-        By {{ post.author }} on {{ post.created_at|date:"m/d/Y" }}
-      </p>
-      <p class="post-card__excerpt">{{ post.content|truncatewords:30 }}</p>
+<div class="container">
+  <section class="destaque">
+    <h2>Animes em Destaque</h2>
+    <div class="posts-grid">
+      {% for post in destaque %}
+        {% include 'blog/post_card.html' with post=post %}
+      {% endfor %}
     </div>
-  </article>
-  {% empty %}
-  <p>No posts found.</p>
-  {% endfor %}
-</div>
+  </section>
 
-<!-- Pagination -->
-<div class="pagination">
-  {% if page_obj.has_previous %}
-    <a href="?page={{ page_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">Previous</a>
-  {% endif %}
-  
-  <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-  
-  {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">Next</a>
-  {% endif %}
+  <div class="main-content">
+    <section class="novas-publicacoes">
+      <h2>Novas Publicações</h2>
+      <div class="posts-grid">
+        {% for post in novas %}
+          {% include 'blog/post_card.html' with post=post %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Categorias</h3>
+      <ul>
+        {% for cat in categorias %}
+          <li><a href="?category={{ cat.name }}">{{ cat.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+  </div>
 </div>
 {% endblock %}

@@ -653,3 +653,31 @@ Dark mode override
   background-color: var(--color-card-bg);
   border-color: var(--color-primary);
 }
+
+/* -----
+Category Filter
+----- */
+.category-filter {
+  margin: 2rem 0;
+  text-align: center;
+}
+  
+.category-filter select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-header-bg);
+  border-radius: var(--btn-radius);
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+  
+.category-filter select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+  
+[data-theme="dark"] .category-filter select {
+  border-color: var(--color-primary);
+}
+  

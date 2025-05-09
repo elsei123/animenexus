@@ -1,0 +1,27 @@
+```django
+<article class="post-card">
+  <div class="post-card__image">
+    <a href="{% url 'post_detail' post.id %}">
+      {% if post.cover %}
+        <img src="{{ post.cover.url }}" alt="{{ post.title }}">
+      {% else %}
+        <img src="/static/images/default_cover.jpg" alt="{{ post.title }}">
+      {% endif %}
+    </a>
+  </div>
+  <div class="post-card__content">
+    <h3 class="post-card__title">
+      <a class="post-card__link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+    </h3>
+    <p class="post-card__excerpt truncate">
+      {{ post.excerpt|default:post.body|truncatewords:20 }}
+    </p>
+    <div class="post-card__meta">
+      {{ post.created_at|date:"d M Y" }}
+    </div>
+    <div class="post-card__actions">
+      <a href="{% url 'post_detail' post.id %}" class="btn">Read more</a>
+    </div>
+  </div>
+</article>
+```

@@ -620,3 +620,14 @@ Post Detail & Comments
   transition: background-color var(--transition-fast),
               border-color var(--transition-fast);
 }
+
+.comment-item__meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.comment-item__body {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}

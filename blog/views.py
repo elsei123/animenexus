@@ -91,6 +91,12 @@ def delete_post(request, post_id):
     return render(request, "blog/post_confirm_delete.html", {"post": post})
 
 
+@login_required
+def profile(request):
+    profile = request.user.profile
+    return render(request, 'blog/profile.html', {'profile': profile})
+
+
 def home_page(request):
     posts = Post.objects.all().order_by("-created_at")
     return render(request, "blog/home.html", {"posts": posts})

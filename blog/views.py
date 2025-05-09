@@ -150,34 +150,15 @@ def contact_page(request):
 
 
 def post_list(request):
-    """
-    View to list posts with support for category filtering and pagination.
-    """
-    category_filter = request.GET.get("category", "")
-
-    posts_list = Post.objects.all().order_by("-created_at")
-
-    if category_filter:
-        posts_list = posts_list.filter(category__name__iexact=category_filter)
-
-    if not posts_list.exists():
-        messages.info(request, "No posts found for the selected category.")
-
-    paginator = Paginator(posts_list, 6)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-
+    featured_posts = Post.objects.filter(featured=True).order_by('-created_at')[:3]
+    recent_posts = Post.objects.all().order_by('-created_at')[:6]
     categories = Category.objects.all()
 
-    return render(
-        request,
-        "blog/post_list.html",
-        {
-            "page_obj": page_obj,
-            "category_filter": category_filter,
-            "categories": categories,
-        },
-    )
+    return render(request, 'blog/post_list.html', {
+        'featured_posts': featured_posts,
+        'recent_posts': recent_posts,
+        'categories': categories,
+    })
 
 
 def signup(request):

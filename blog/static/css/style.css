@@ -586,3 +586,19 @@ Responsive Adjustments
     font-size: 1.5rem;
   }
 }
+
+/* --
+Post Detail & Comments
+-- */
+.post-detail__content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: var(--line-height);
+}
+  
+.post-detail__content h1,
+.post-detail__content h2 {
+  margin-bottom: 1rem;
+}
+  

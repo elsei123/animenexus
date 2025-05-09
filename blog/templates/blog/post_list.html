@@ -7,33 +7,35 @@
 {% block content %}
 
 <div class="container">
-  <section class="destaque">
-    <h2>Animes em Destaque</h2>
+  <section class="featured-posts">
+    <h2>Featured Anime</h2>
     <div class="posts-grid">
-      {% for post in destaque %}
-        {% include 'blog/post_card.html' with post=post %}
+      {% for post in featured_posts %}
+      {% include 'blog/post_card.html' with post=post %}
+      {% empty %}
+      <p>No featured anime.</p>
+      {% endfor %}
+    </div>
+  </section>
+  
+  <section class="recent-posts">
+    <h2>Recent Posts</h2>
+    <div class="posts-grid">
+      {% for post in recent_posts %}
+      {% include 'blog/post_card.html' with post=post %}
+      {% empty %}
+      <p>No posts yet.</p>
       {% endfor %}
     </div>
   </section>
 
-  <div class="main-content">
-    <section class="novas-publicacoes">
-      <h2>Novas Publicações</h2>
-      <div class="posts-grid">
-        {% for post in novas %}
-          {% include 'blog/post_card.html' with post=post %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <aside class="sidebar">
-      <h3>Categorias</h3>
-      <ul>
-        {% for cat in categorias %}
-          <li><a href="?category={{ cat.name }}">{{ cat.name }}</a></li>
-        {% endfor %}
-      </ul>
-    </aside>
-  </div>
+  <aside class="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      {% for cat in categories %}
+        <li><a href="?category={{ cat.name }}">{{ cat.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
 </div>
 {% endblock %}

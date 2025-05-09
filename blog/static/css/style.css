@@ -680,4 +680,26 @@ Category Filter
 [data-theme="dark"] .category-filter select {
   border-color: var(--color-primary);
 }
+
+/* -------
+Pagination
+-------- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+  
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
   

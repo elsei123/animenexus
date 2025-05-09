@@ -631,3 +631,17 @@ Post Detail & Comments
   font-size: 0.95rem;
   color: var(--color-text);
 }
+
+.comment-item__actions {
+  margin-top: 0.5rem;
+}
+
+.comment-item__actions a {
+  font-size: 0.85rem;
+  margin-right: 1rem;
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+.comment-item__actions a:hover {
+  color: var(--color-accent);
+}

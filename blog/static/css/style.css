@@ -713,3 +713,36 @@ Pagination
   color: #fff;
   pointer-events: none;
 }
+
+/* --------------------------------------------------
+   Auth Container (Login/Signup)
+   -------------------------------------------------- */
+   .auth-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: var(--color-card-bg);
+    border-radius: var(--btn-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .auth-container h2 {
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+  }
+  .auth-container form {
+    display: grid;
+    gap: 1rem;
+  }
+  .auth-switch {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  .auth-switch a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .auth-switch a:hover {
+    color: var(--color-accent);
+  }
+  

@@ -1,5 +1,8 @@
 from django import forms
 from .models import Comment, Post
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Profile
 
 
 class CommentForm(forms.ModelForm):
@@ -30,3 +33,14 @@ class PostForm(forms.ModelForm):
             "category": "Category",
             "cover_image": "Cover Image",
         }
+
+
+class SignUpForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}),
+        required=True
+    )
+    

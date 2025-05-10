@@ -6,11 +6,14 @@
   <meta name="description" content="{% block meta_description %}{% endblock %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}AnimeNexus{% endblock %}</title>
+  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
   />
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,27 +23,47 @@
   />
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <div class="header__inner container">
-      <a href="/" class="logo">AnimeNexus</a>
+      <a href="{% url 'post_list' %}" class="logo">AnimeNexus</a>
       <nav class="nav">
         <ul class="nav__list">
-          <li><a href="{% url 'post_list' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
+            <a href="{% url 'post_list' %}">Home</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+            <a href="{% url 'about' %}">About</a>
+          </li>
+          <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+            <a href="{% url 'contact' %}">Contact</a>
+          </li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
+              <a href="{% url 'profile' %}">Profile</a>
+            </li>
+            <li>
+              <a href="{% url 'logout' %}">Logout</a>
+            </li>
           {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
+            <li class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
+              <a href="{% url 'login' %}">Login</a>
+            </li>
           {% endif %}
         </ul>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
+        <button class="header__toggle" id="nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+          ☾
+        </button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero section -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero__inner">
       <h1 class="hero__title">Welcome to AnimeNexus</h1>
@@ -49,6 +72,7 @@
     </div>
   </section>
 
+  <!-- Main Content -->
   <main class="container" id="post-list">
     {% if messages %}
       <ul class="messages">
@@ -60,29 +84,31 @@
     {% block content %}{% endblock %}
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-inner">
       <p>&copy; {% now "Y" %} AnimeNexus. All rights reserved.</p>
       <ul class="social-list">
         <li>
           <a href="https://twitter.com/your_profile" target="_blank" rel="noopener" aria-label="Twitter">
-            <i class="fa-brands fa-square-x-twitter"></i>
+            <i class="fab fa-twitter"></i>
           </a>
         </li>
         <li>
           <a href="https://facebook.com/your_profile" target="_blank" rel="noopener" aria-label="Facebook">
-            <i class="fa-brands fa-facebook"></i>
+            <i class="fab fa-facebook-f"></i>
           </a>
         </li>
         <li>
           <a href="https://instagram.com/your_profile" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fab fa-instagram"></i>
           </a>
         </li>
       </ul>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

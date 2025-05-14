@@ -1,9 +1,43 @@
 {% extends "blog/base.html" %}
+
+{% block meta_description %}
+Profile of {{ profile.user.username }} on AnimeNexus
+{% endblock %}
+
+{% block title %}
+Profile – {{ profile.user.username }}
+{% endblock %}
+
 {% block content %}
-<div class="profile-container">
-  <h2>Profile of {{ request.user.username }}</h2>
-  <p><strong>Email:</strong> {{ request.user.email }}</p>
-  <p><strong>Name:</strong> {{ request.user.first_name }} {{ request.user.last_name }}</p>
-  <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
-</div>
+  <section class="profile-section">
+    <header class="profile-header">
+      <h1 class="profile-username">
+        {{ profile.user.get_full_name|default:profile.user.username }}
+      </h1>
+      <a href="{% url 'blog:edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+    </header>
+
+    <dl class="profile-details">
+      <div class="profile-detail-item">
+        <dt>Email</dt>
+        <dd>{{ profile.user.email }}</dd>
+      </div>
+      <div class="profile-detail-item">
+        <dt>Username</dt>
+        <dd>{{ profile.user.username }}</dd>
+      </div>
+      {% if profile.date_of_birth %}
+        <div class="profile-detail-item">
+          <dt>Date of Birth</dt>
+          <dd><time datetime="{{ profile.date_of_birth }}">{{ profile.date_of_birth|date:"F j, Y" }}</time></dd>
+        </div>
+      {% endif %}
+      {% if profile.bio %}
+        <div class="profile-detail-item">
+          <dt>About</dt>
+          <dd>{{ profile.bio|linebreaks }}</dd>
+        </div>
+      {% endif %}
+    </dl>
+  </section>
 {% endblock %}

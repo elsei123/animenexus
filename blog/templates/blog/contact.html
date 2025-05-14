@@ -1,29 +1,44 @@
 {% extends "blog/base.html" %}
 
-{% block meta_description %}Contact AnimeNexus{% endblock %}
+{% block meta_description %}
+Contact us at AnimeNexus for inquiries, feedback, or collaborations.
+{% endblock %}
 
-{% block title %}Contact | AnimeNexus{% endblock %}
+{% block title %}
+Contact | AnimeNexus
+{% endblock %}
 
 {% block content %}
-<div class="contact-container">
-    <div class="contact-text">
-        <h2>Contact</h2>
-        <p>
-            Get in touch with us for any questions, suggestions, or collaborations.
-        </p>
-        <form action="/contact/" method="post">
-            {% csrf_token %}
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  <section class="contact-section">
+    <h1>Contact Us</h1>
+    <p class="contact-intro">
+      Have questions, suggestions, or want to collaborate? Fill out the form below and we'll get back to you.
+    </p>
+    <form method="post" action="{% url 'blog:contact' %}" class="contact-form">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <div class="form-group">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+        {{ form.name.errors }}
+      </div>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+      <div class="form-group">
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.errors }}
+      </div>
 
-            <button type="submit">Send</button>
-        </form>
-    </div>
-</div>
+      <div class="form-group">
+        {{ form.message.label_tag }}
+        {{ form.message }}
+        {{ form.message.errors }}
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+    </form>
+  </section>
 {% endblock %}

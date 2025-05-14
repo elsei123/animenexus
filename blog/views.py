@@ -155,6 +155,12 @@ def delete_comment(request, comment_id):
         return redirect(reverse('blog:post_detail', args=[post_id]))
     return render(request, 'blog/comment_confirm_delete.html', {'comment': comment})
 
+@login_required
+def profile(request):
+    """Render user profile page."""
+    return render(request, 'blog/profile.html')
+
+
 
 def about(request):
     """Render static About page."""

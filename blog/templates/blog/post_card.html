@@ -1,27 +1,31 @@
-{% extends "blog/base.html" %}
+{% load static %}
+
 <article class="post-card">
-  <div class="post-card__image">
-    <a href="{% url 'post_detail' post.id %}">
-      {% if post.cover %}
-        <img src="{{ post.cover.url }}" alt="{{ post.title }}">
-      {% else %}
-        <img src="/static/images/default_cover.jpg" alt="{{ post.title }}">
-      {% endif %}
-    </a>
-  </div>
+  <a href="{% url 'blog:post_detail' post.id %}" class="post-card__image-link">
+    {% if post.cover_image %}
+      <img src="{{ post.cover_image.url }}" alt="Cover for {{ post.title }}" class="post-card__image">
+    {% else %}
+      <img src="{% static 'blog/images/default_cover.jpg' %}" alt="Default cover" class="post-card__image">
+    {% endif %}
+  </a>
+
   <div class="post-card__content">
-    <h3 class="post-card__title">
-      <a class="post-card__link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-    </h3>
-    <p class="post-card__excerpt truncate">
-        {{ post.content|truncatewords:20 }}
+    <h2 class="post-card__title">
+      <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+    </h2>
+
+    <p class="post-card__excerpt">
+      {{ post.content|truncatewords:20 }}
     </p>
+
     <div class="post-card__meta">
-      {{ post.created_at|date:"d M Y" }}
+      by <a href="{% url 'blog:profile' %}" class="post-card__author">{{ post.author.username }}</a>
+      &bull;
+      <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"d M Y" }}</time>
     </div>
+
     <div class="post-card__actions">
-      <a href="{% url 'post_detail' post.id %}" class="btn">Read more</a>
+      <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-outline">Read more</a>
     </div>
   </div>
 </article>
-

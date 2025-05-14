@@ -161,6 +161,11 @@ def profile(request):
     return render(request, 'blog/profile.html', {'profile': profile_obj})
 
 
+@login_required
+def logout_view(request):
+    logout(request)
+    messages.success(request, "You logout")
+    return redirect('blog:post_list')
 
 
 def about(request):

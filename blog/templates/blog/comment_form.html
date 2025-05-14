@@ -1,9 +1,16 @@
 {% extends "blog/base.html" %}
+{% block title %}Edit Comment{% endblock %}
+
 {% block content %}
-  <h2>Edit Comment</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-  </form>
+  <section class="comment-form-section">
+    <h1>Edit Comment</h1>
+    <form method="post" class="comment-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Update Comment</button>
+        <a href="{% url 'blog:post_detail' comment.post.id %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </section>
 {% endblock %}

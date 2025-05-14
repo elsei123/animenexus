@@ -1,17 +1,43 @@
 {% extends "blog/base.html" %}
 
-{% block meta_description %}AnimeNexus - Your Hub for Anime Reviews and News{% endblock %}
+{% block meta_description %}
+AnimeNexus - Your Hub for Anime Reviews and News
+{% endblock %}
 
-{% block title %}AnimeNexus - Home{% endblock %}
+{% block title %}
+AnimeNexus - Home
+{% endblock %}
 
 {% block content %}
-<h2>Latest Posts</h2>
-<ul>
-    {% for post in posts %}
-    <li>
-        <a href="{% url 'post_detail' post_id=post.id %}">{{ post.title }}</a>
-        by {{ post.author }} on {{ post.created_at|date:"M d, Y" }}
-    </li>
-    {% endfor %}
-</ul>
+  <section class="home-latest-posts">
+    <h1>Latest Posts</h1>
+
+    {% if page_obj.object_list %}
+      <ul class="post-list">
+        {% for post in page_obj.object_list %}
+          <li class="post-item">
+            <a href="{% url 'blog:post_detail' post.id %}" class="post-title">{{ post.title }}</a>
+            <p class="post-meta">
+              by <a href="{% url 'blog:profile' %}" class="post-author">{{ post.author.username }}</a>
+              on <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time>
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <nav class="pagination">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" class="prev-page">Previous</a>
+        {% endif %}
+
+        <span class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" class="next-page">Next</a>
+        {% endif %}
+      </nav>
+    {% else %}
+      <p>No posts available.</p>
+    {% endif %}
+  </section>
 {% endblock %}

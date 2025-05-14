@@ -6,13 +6,16 @@
   <meta name="description" content="{% block meta_description %}{% endblock %}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}AnimeNexus{% endblock %}</title>
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap"
     rel="stylesheet"
   />
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
   <!-- Font Awesome -->
   <link
     rel="stylesheet"
@@ -22,7 +25,7 @@
     referrerpolicy="no-referrer"
   />
 </head>
-<body>
+<body data-theme="light">
   <!-- Header -->
   <header class="header">
     <div class="header__inner container">
@@ -56,9 +59,7 @@
           <span></span>
           <span></span>
         </button>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-          ☾
-        </button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
       </nav>
     </div>
   </header>
@@ -86,7 +87,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-inner container">
       <p>&copy; {% now "Y" %} AnimeNexus. All rights reserved.</p>
       <ul class="social-list">
         <li>
@@ -109,6 +110,20 @@
   </footer>
 
   <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navList   = document.querySelector('.nav__list');
+    navToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+
+    // Theme toggle (optional)
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    });
+  </script>
   <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

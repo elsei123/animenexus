@@ -1,41 +1,46 @@
 {% extends "blog/base.html" %}
+{% load static %}
 
-{% block meta_description %}Browse the latest Anime posts on AnimeNexus{% endblock %}
-
-{% block title %}Home | AnimeNexus{% endblock %}
+{% block title %}Home – AnimeNexus{% endblock %}
 
 {% block content %}
+  <main class="container" id="post-list">
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
-<div class="container">
-  <section class="featured-posts">
-    <h2>Featured Anime</h2>
+    {% if category_filter %}
+      <h2>Categoria: {{ category_filter }}</h2>
+    {% endif %}
+
     <div class="posts-grid">
-      {% for post in featured_posts %}
-      {% include 'blog/post_card.html' with post=post %}
+      {% for post in page_obj %}
+        {% include "blog/post_card.html" with post=post %}
       {% empty %}
-      <p>No featured anime.</p>
+        <p>Nenhum post encontrado.</p>
       {% endfor %}
     </div>
-  </section>
-  
-  <section class="recent-posts">
-    <h2>Recent Posts</h2>
-    <div class="posts-grid">
-      {% for post in recent_posts %}
-      {% include 'blog/post_card.html' with post=post %}
-      {% empty %}
-      <p>No posts yet.</p>
-      {% endfor %}
-    </div>
-  </section>
 
-  <aside class="sidebar">
-    <h3>Categories</h3>
-    <ul>
-      {% for cat in categories %}
-        <li><a href="?category={{ cat.name }}">{{ cat.name }}</a></li>
-      {% endfor %}
-    </ul>
-  </aside>
-</div>
+    {% if page_obj.has_other_pages %}
+      <div class="pagination">
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">
+            « Anterior
+          </a>
+        {% endif %}
+        <span class="current">
+          Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+        </span>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}">
+            Próxima »
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </main>
 {% endblock %}

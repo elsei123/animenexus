@@ -21,13 +21,23 @@ def home(request):
 
 
 def post_list(request):
-    """List view: featured, recent posts and categories."""
-    featured = Post.objects.filter(featured=True).order_by('-created_at')[:3]
-    recent = Post.objects.all().order_by('-created_at')[:6]
+    category_filter = request.GET.get('category', '')
+    posts_list = Post.objects.all().order_by('-created_at')
+
+    if category_filter:
+        posts_list = posts_list.filter(category__name__iexact=category_filter)
+        if not posts_list.exists():
+            messages.info(request, f"No posts found in category “{category_filter}”.")
+    
+    paginator = Paginator(posts_list, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     categories = Category.objects.all()
+
     return render(request, 'blog/post_list.html', {
-        'featured_posts': featured,
-        'recent_posts': recent,
+        'page_obj': page_obj,
+        'category_filter': category_filter,
         'categories': categories,
     })
 

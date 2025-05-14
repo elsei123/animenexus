@@ -23,6 +23,7 @@ class Post(models.Model):
     cover_image = models.ImageField(upload_to="posts/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

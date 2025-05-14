@@ -1,4 +1,4 @@
-```django
+{% extends "blog/base.html" %}
 <article class="post-card">
   <div class="post-card__image">
     <a href="{% url 'post_detail' post.id %}">
@@ -14,7 +14,7 @@
       <a class="post-card__link" href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
     </h3>
     <p class="post-card__excerpt truncate">
-      {{ post.excerpt|default:post.body|truncatewords:20 }}
+        {{ post.content|truncatewords:20 }}
     </p>
     <div class="post-card__meta">
       {{ post.created_at|date:"d M Y" }}
@@ -24,4 +24,4 @@
     </div>
   </div>
 </article>
-```
+

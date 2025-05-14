@@ -14,7 +14,6 @@ Profile – {{ profile.user.username }}
       <h1 class="profile-username">
         {{ profile.user.get_full_name|default:profile.user.username }}
       </h1>
-      <a href="{% url 'blog:edit_profile' %}" class="btn btn-primary">Edit Profile</a>
     </header>
 
     <dl class="profile-details">

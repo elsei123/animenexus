@@ -7,10 +7,9 @@ from django.contrib.auth.views import redirect_to_login
 from django.core.paginator import Paginator
 from django.urls import reverse, reverse_lazy
 
-from .models import Post, Category, Comment
+from .models import Post, Category, Comment,  Profile
 from .forms import ContactForm, CommentForm, PostForm, SignUpForm
 from .utils.emailjs_utils import send_email_via_emailjs
-
 
 def home(request):
     """Display homepage with paginated list of posts."""
@@ -157,8 +156,10 @@ def delete_comment(request, comment_id):
 
 @login_required
 def profile(request):
-    """Render user profile page."""
-    return render(request, 'blog/profile.html')
+    """Render user profile page, creating Profile if missing."""
+    profile_obj, created = Profile.objects.get_or_create(user=request.user)
+    return render(request, 'blog/profile.html', {'profile': profile_obj})
+
 
 
 

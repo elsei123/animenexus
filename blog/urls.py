@@ -10,6 +10,7 @@ urlpatterns = [
     path('post/new/', views.create_post, name='create_post'),
     path('post/<int:post_id>/edit/', views.edit_post, name='edit_post'),
     path('post/<int:post_id>/delete/', views.delete_post, name='delete_post'),
+    path("", views.post_list,     name="post_list"),
 
     # Comments management
     path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),

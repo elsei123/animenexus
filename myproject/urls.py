@@ -26,7 +26,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', blog_views.signup, name='signup'),
-    path('', include(('blog.urls', 'blog'), namespace='blog')),
+    path('', include('blog.urls', namespace='Animenexus')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('logout/',
+         auth_views.LogoutView.as_view(next_page='login'),
+         name='logout'),
+
 ]
 
 if settings.DEBUG:

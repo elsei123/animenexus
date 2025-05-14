@@ -10,7 +10,7 @@
     <header class="post-detail__header">
       <h1 class="post-detail__title">{{ post.title }}</h1>
       <p class="post-detail__meta">
-        by <a href="{% url 'blog:profile' %}" class="Post-detail__author">{{ post.author.username }}</a>
+        by <a href="{% url 'Animenexus:profile' %}" class="Post-detail__author">{{ post.author.username }}</a>
         on <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time>
       </p>
     </header>
@@ -40,8 +40,8 @@
               <time datetime="{{ comment.created_at|date:'Y-m-d' }}">{{ comment.created_at|date:"M d, Y" }}</time>
               {% if user.is_authenticated and comment.user == user %}
                 <span class="comment-actions">
-                  <a href="{% url 'blog:edit_comment' comment.id %}" class="btn btn-link">Edit</a>
-                  <a href="{% url 'blog:delete_comment' comment.id %}" class="btn btn-link text-danger">Delete</a>
+                  <a href="{% url 'Animenexus:edit_comment' comment.id %}" class="btn btn-link">Edit</a>
+                  <a href="{% url 'Animenexus:delete_comment' comment.id %}" class="btn btn-link text-danger">Delete</a>
                 </span>
               {% endif %}
             </div>

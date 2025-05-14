@@ -14,7 +14,7 @@ Contact | AnimeNexus
     <p class="contact-intro">
       Have questions, suggestions, or want to collaborate? Fill out the form below and we'll get back to you.
     </p>
-    <form method="post" action="{% url 'blog:contact' %}" class="contact-form">
+    <form method="post" action="{% url 'Animenexus:contact' %}" class="contact-form">
       {% csrf_token %}
       {{ form.non_field_errors }}
 

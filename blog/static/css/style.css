@@ -635,3 +635,13 @@ Footer
 .social-list a:focus {
   color: var(--color-accent); 
 }
+
+@media (max-width: 768px) {
+  .header__toggle {
+    margin-left: 2rem;
+    margin-right: 0.5rem;
+  }
+  .theme-toggle {
+    margin-left: 1rem;
+  }
+}

@@ -144,7 +144,8 @@ Header & Navigation
 }
 .nav { 
   display: flex; 
-  align-items: center; 
+  align-items: center;
+  font-size: x-large;
 }
 .nav__list {
   display: flex; 
@@ -183,6 +184,7 @@ Header & Navigation
   background-color: var(--color-accent); 
 }
 .theme-toggle { 
+  margin-left: 7rem;
   background: none; 
   border: none; 
   cursor: pointer; 
@@ -242,13 +244,13 @@ Hero
 }
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 4rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 1rem);
+  margin-bottom:rem;
   line-height: 1.2;
 }
 .hero__subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1.3rem, 8vw, 1.5rem);
+  margin-bottom: 0rem;
   font-weight: 300;
 }
 .hero .btn {
@@ -644,4 +646,36 @@ Footer
   .theme-toggle {
     margin-left: 1rem;
   }
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-header-bg);
+  border-radius: var(--btn-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+.dropdown-menu li {
+  margin: 0;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--color-text);
+}
+.dropdown-menu a:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
 }

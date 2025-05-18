@@ -63,7 +63,7 @@ def post_detail(request, post_id):
             comment.user = request.user
             comment.save()
             messages.success(request, 'Your comment has been submitted and is awaiting approval.')
-            return redirect(reverse('blog:post_detail', args=[post.id]))
+            return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = CommentForm()
 
@@ -84,7 +84,7 @@ def create_post(request):
             post.author = request.user
             post.save()
             messages.success(request, 'Post created successfully.')
-            return redirect(reverse('blog:post_detail', args=[post.id]))
+            return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {'form': form})
@@ -102,7 +102,7 @@ def edit_post(request, post_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Post updated successfully.')
-            return redirect(reverse('blog:post_detail', args=[post.id]))
+            return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_form.html', {'form': form, 'post': post})
@@ -118,7 +118,7 @@ def delete_post(request, post_id):
     if request.method == 'POST':
         post.delete()
         messages.success(request, 'Post deleted successfully.')
-        return redirect(reverse('blog:post_list'))
+        return redirect(reverse('post_list'))
     return render(request, 'blog/post_confirm_delete.html', {'post': post})
 
 
@@ -134,7 +134,7 @@ def edit_comment(request, comment_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Comment updated successfully.')
-            return redirect(reverse('blog:post_detail', args=[comment.post.id]))
+            return redirect(reverse('post_detail', args=[comment.post.id]))
     else:
         form = CommentForm(instance=comment)
     return render(request, 'blog/comment_form.html', {'form': form})
@@ -151,7 +151,7 @@ def delete_comment(request, comment_id):
         post_id = comment.post.id
         comment.delete()
         messages.success(request, 'Comment deleted successfully.')
-        return redirect(reverse('blog:post_detail', args=[post_id]))
+        return redirect(reverse('post_detail', args=[post_id]))
     return render(request, 'blog/comment_confirm_delete.html', {'comment': comment})
 
 @login_required
@@ -165,7 +165,7 @@ def profile(request):
 def logout_view(request):
     logout(request)
     messages.success(request, "You logout")
-    return redirect('blog:post_list')
+    return redirect('post_list')
 
 
 def about(request):
@@ -184,7 +184,7 @@ def contact(request):
                 messages.success(request, 'Message sent successfully.')
             else:
                 messages.error(request, 'Failed to send message; please try again later.')
-            return redirect(reverse_lazy('blog:contact'))
+            return redirect(reverse_lazy('contact'))
     else:
         form = ContactForm()
     return render(request, 'blog/contact.html', {'form': form})
@@ -198,7 +198,7 @@ def signup(request):
             user = form.save()
             auth_login(request, user)
             messages.success(request, f"Welcome, {user.username}! Your account has been created.")
-            return redirect(reverse('blog:post_list'))
+            return redirect(reverse('post_list'))
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})

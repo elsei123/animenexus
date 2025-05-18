@@ -16,9 +16,9 @@ AnimeNexus - Home
       <ul class="post-list">
         {% for post in page_obj.object_list %}
           <li class="post-item">
-            <a href="{% url 'blog:post_detail' post.id %}" class="post-title">{{ post.title }}</a>
+            <a href="{% url 'post_detail' post.id %}" class="post-title">{{ post.title }}</a>
             <p class="post-meta">
-              by <a href="{% url 'blog:profile' %}" class="post-author">{{ post.author.username }}</a>
+              by <a href="{% url 'profile' %}" class="post-author">{{ post.author.username }}</a>
               on <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time>
             </p>
           </li>

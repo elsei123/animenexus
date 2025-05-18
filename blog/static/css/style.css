@@ -188,7 +188,7 @@ Header & Navigation
   background: none; 
   border: none; 
   cursor: pointer; 
-  font-size: 1.5rem; 
+  font-size: 2rem; 
   color: var(--color-text);
   transition: color var(--transition-fast);
 }
@@ -206,6 +206,7 @@ Header & Navigation
     border-radius: 0 0 var(--btn-radius) var(--btn-radius); 
     display: none; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 0.5rem !important;
   }  
   .nav__list.active { 
     display: flex; 
@@ -247,6 +248,7 @@ Hero
   font-size: clamp(2rem, 5vw, 1rem);
   margin-bottom:rem;
   line-height: 1.2;
+  color: #ffffff !important;
 }
 .hero__subtitle {
   font-size: clamp(1.3rem, 8vw, 1.5rem);
@@ -678,4 +680,23 @@ Footer
 .dropdown-menu a:hover {
   background: var(--color-primary-hover);
   color: #fff;
+}
+.dropdown-menu,
+.dropdown-menu .dropdown-item {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 768px) {
+  .header__inner {
+    justify-content: flex-start;
+  }
+  .logo {
+    margin-right: 1rem;
+  }
+  .header__toggle {
+    display: flex; 
+    margin: 0;
+  }
 }

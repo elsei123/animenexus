@@ -83,7 +83,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', kwargs={'pk': self.pk})
+        return reverse('post_detail', kwargs={'post_id': self.id})
 
     def publish(self):
         """
@@ -160,4 +160,4 @@ class Profile(models.Model):
         return f"Profile of {self.user.username}"
 
     def get_absolute_url(self):
-        return reverse('blog:profile', kwargs={'username': self.user.username})
+        return reverse('profile', kwargs={'username': self.user.username})

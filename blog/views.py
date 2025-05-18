@@ -10,6 +10,7 @@ from django.urls import reverse, reverse_lazy
 from .models import Post, Category, Comment,  Profile
 from .forms import ContactForm, CommentForm, PostForm, SignUpForm
 from .utils.emailjs_utils import send_email_via_emailjs
+from django.contrib.auth.models import User
 
 def home(request):
     """Display homepage with paginated list of posts."""
@@ -202,3 +203,14 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def profile(request, username=None):
+    if username:
+        user = get_object_or_404(User, username=username)
+    else:
+        if not request.user.is_authenticated:
+            return redirect('login')
+        user = request.user
+
+    return render(request, 'blog/profile.html', {'profile': user.profile})

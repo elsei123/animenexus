@@ -700,3 +700,98 @@ Footer
     margin: 0;
   }
 }
+
+/* ------
+   Signup 
+------- */
+.auth-section {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  background: var(--color-card-bg);
+  border-radius: var(--btn-radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.auth-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.auth-section h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.auth-form .form-group input,
+.auth-form .form-group textarea {
+  width: 100%;
+  border: 1px solid var(--color-header-bg);
+  padding: 0.75rem 1rem;
+  border-radius: var(--btn-radius);
+  transition: border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+.auth-form .form-group input:focus,
+.auth-form .form-group textarea:focus {
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.95);
+}
+.auth-form .form-group .errorlist {
+  margin-top: 0.25rem;
+  list-style: none;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+}
+.auth-section .btn-primary {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--btn-radius);
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+.auth-section .btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.auth-switch a {
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+.auth-switch a:hover {
+  color: var(--color-accent);
+}
+  
+@media (max-width: 600px) {
+  .auth-section {
+    margin: 2rem 1rem;
+    padding: 2rem 1rem;
+  }
+  .auth-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .auth-section .btn-primary {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+  }
+}
+  

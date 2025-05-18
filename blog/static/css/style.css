@@ -915,4 +915,18 @@ Footer
     padding: 0.75rem;
   }
 }
-  
+
+/*-- 
+Fix fixed header hiding contact heading
+--*/
+.contact-section {
+  padding-top: 6rem;
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding-top: 5rem;
+    scroll-margin-top: 5rem;
+  }
+}

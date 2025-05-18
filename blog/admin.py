@@ -6,13 +6,13 @@ from .models import Category, Post, Comment, Profile
 def make_public(modeladmin, request, queryset):
     """Custom action to mark selected posts as featured."""
     queryset.update(featured=True)
-make_public.short_description = "Mark selected posts as featured"
+    make_public.short_description = "Mark selected posts as featured"
 
 
 def make_unpublic(modeladmin, request, queryset):
     """Custom action to unmark selected posts as featured."""
     queryset.update(featured=False)
-make_unpublic.short_description = "Unmark selected posts as featured"
+    make_unpublic.short_description = "Unmark selected posts as featured"
 
 
 @admin.register(Category)

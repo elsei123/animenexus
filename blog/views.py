@@ -12,6 +12,7 @@ from .forms import ContactForm, CommentForm, PostForm, SignUpForm
 from .utils.emailjs_utils import send_email_via_emailjs
 from django.contrib.auth.models import User
 
+
 def home(request):
     """Display homepage with paginated list of posts."""
     posts = (
@@ -63,7 +64,8 @@ def post_detail(request, post_id):
             comment.post = post
             comment.user = request.user
             comment.save()
-            messages.success(request, 'Your comment has been submitted and is awaiting approval.')
+            messages.success(request,
+            'Your comment has been submitted and is awaiting approval.')
             return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = CommentForm()
@@ -155,6 +157,7 @@ def delete_comment(request, comment_id):
         return redirect(reverse('post_detail', args=[post_id]))
     return render(request, 'blog/comment_confirm_delete.html', {'comment': comment})
 
+
 @login_required
 def profile(request):
     """Render user profile page, creating Profile if missing."""
@@ -180,11 +183,13 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            success = send_email_via_emailjs(data['name'], data['email'], data['message'])
+            success = send_email_via_emailjs(data['name'],
+            data['email'], data['message'])
             if success:
                 messages.success(request, 'Message sent successfully.')
             else:
-                messages.error(request, 'Failed to send message; please try again later.')
+                messages.error(request, 
+                'Failed to send message;please try again later.')
             return redirect(reverse_lazy('contact'))
     else:
         form = ContactForm()
@@ -198,7 +203,8 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            messages.success(request, f"Welcome, {user.username}! Your account has been created.")
+            messages.success(request,
+            f"Welcome, {user.username}! Your account has been created.")
             return redirect(reverse('post_list'))
     else:
         form = SignUpForm()

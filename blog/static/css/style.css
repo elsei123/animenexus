@@ -604,6 +604,35 @@ About & Contact
 }
 
 /*----
+Contact
+----*/
+.contact-section {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2.5rem 2rem;
+  background-color: var(--color-card-bg);
+  border-radius: var(--btn-radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.contact-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.contact-section h1,
+.contact-section h2 {
+  font-size: 2.25rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+
+
+/*----
 Footer
 ----*/
 .site-footer { 
@@ -702,7 +731,7 @@ Footer
 }
 
 /* ------
-   Signup 
+  Signup 
 ------- */
 .auth-section {
   max-width: 500px;

@@ -125,10 +125,10 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 - Checked with the W3C Jigsaw Validator, with no markup errors.
 
 ### JavaScript
-- Passed through JSHint.
+- Linted and unit-tested with Jest & Testing Library.
 
 ### Python
-- No erros were returned from PEP8
+- No erros were returned from PEP8 (flake8)
 
 ---
 
@@ -159,7 +159,7 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 ## Unfixed Bugs
 
-- **Image Bug**: In some posts, images do not appear correctly in the production environment, or are lost after server restarts. This is the only bug still unfixed.
+- No known bugs remain at this time.
 
 ---
 

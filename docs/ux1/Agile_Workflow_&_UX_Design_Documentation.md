@@ -61,7 +61,7 @@ A GitHub Project (or Trello board) tracks all Epics and User Stories through the
 - **Done**:  
   - Stories fully implemented, tested, and reviewed.
 
-> ![Agile Board Mapping](docs/ux1/wireframes/board_mapping.png)  
+> ![Agile Board Mapping](./wireframes/board_mapping.png)  
 
 ## 2. UX Design
 
@@ -75,9 +75,9 @@ A GitHub Project (or Trello board) tracks all Epics and User Stories through the
 
 ### 2.2 Wireframes & Mockups
 
-> ![Homepage Wireframe Layout](docs/ux1/wireframes/board_mapping.png)
-> ![Post Detail Wireframe Layout](docs/ux1/wireframes/board_mapping.png)
-> ![Post Form Wireframe](docs/ux1/wireframes/board_mapping.png) 
+> ![Homepage Wireframe Layout](./wireframes/home.png)
+> ![Post Detail Wireframe Layout](./wireframes/post_detail.png)
+> ![Post Form Wireframe](./wireframes/post_form.png) 
 
 ### 2.3 Design Rationale
 

@@ -10,7 +10,7 @@ Browse all posts or filter by category on AnimeNexus.
 {% endblock %}
 
 {% block content %}
-  <main id="post-list" class="post-list container">
+  <section id="post-list" class="post-list container">
     {% if messages %}
       <ul class="messages">
         {% for message in messages %}
@@ -46,5 +46,5 @@ Browse all posts or filter by category on AnimeNexus.
         {% endif %}
       </nav>
     {% endif %}
-  </main>
+  </section>
 {% endblock %}

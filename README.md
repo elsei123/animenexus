@@ -166,14 +166,15 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 ## Deployment
 
 **AnimeNexus** is currently live on Heroku:  
-- [AnimeNexus on Heroku](https://animenexus-0cb179340e14.herokuapp.com/)
+- [AnimeNexus on Heroku](https://animenexus-cfbf85db2b0e.herokuapp.com/)
 
 ### Deployment Steps Heroku
-1. Connect the GitHub repository to Heroku via the **Deploy** tab.  
-2. Insert environment variables.  
-3. Use automatic deployment from GitHub to push changes.  
-4. Heroku installs the dependencies listed in `requirements.txt`.  
-5. The application becomes accessible at the generated link, ready for use.
+1. Heroku: Log into the Heroku dashboard.  
+2. New App: Click New → Create new app.
+3. Settings > Config Vars: Add all required environment variables
+4. Connect the GitHub repository to Heroku via the Deploy tab.  
+5. Use automatic deployment from GitHub to push changes.  
+6. The app becomes accessible at the generated link, ready for use.
 
 ---
 
@@ -181,7 +182,8 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 - **Knowledge Base**: Official Django documentation and the open-source community.  
 - **Layout Inspiration**: User feedback and references from UI/UX for pop culture websites.  
-- **Images and Assets**: Google images  
+- **Images and Assets**: Google images.
+- **Cloudinary** for media hosting solutions.
 - **Ebook**: Special thanks to the database structure ebook that served as a reference.  
 - **Python Code**: Some logic snippets were inspired by Code Institute lessons ('I Think Therefore I Blog' and 'The Flask Framework'), adapted to this project.
 

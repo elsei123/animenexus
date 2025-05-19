@@ -10,6 +10,7 @@ from django.urls import reverse, reverse_lazy
 from .models import Post, Category, Comment,  Profile
 from .forms import ContactForm, CommentForm, PostForm, SignUpForm
 from .utils.emailjs_utils import send_email_via_emailjs
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 
 
@@ -64,8 +65,9 @@ def post_detail(request, post_id):
             comment.post = post
             comment.user = request.user
             comment.save()
-            messages.success(request,
-            'Your comment has been submitted and is awaiting approval.')
+            messages.success(
+                request, 'Your comment has been submitted and is awaiting approval.'
+            )
             return redirect(reverse('post_detail', args=[post.id]))
     else:
         form = CommentForm()
@@ -183,13 +185,15 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            success = send_email_via_emailjs(data['name'],
-            data['email'], data['message'])
+            success = send_email_via_emailjs(
+                data['name'], data['email'], data['message']
+            )
             if success:
                 messages.success(request, 'Message sent successfully.')
             else:
-                messages.error(request, 
-                'Failed to send message;please try again later.')
+                messages.error(
+                    request, 'Failed to send message;please try again later.'
+                )
             return redirect(reverse_lazy('contact'))
     else:
         form = ContactForm()
@@ -203,8 +207,9 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            messages.success(request,
-            f"Welcome, {user.username}! Your account has been created.")
+            messages.success(
+                request, f"Welcome, {user.username}! Your account has been created."
+            )
             return redirect(reverse('post_list'))
     else:
         form = SignUpForm()

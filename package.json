@@ -1,6 +1,15 @@
 {
   "devDependencies": {
     "stylelint": "^16.19.1",
-    "stylelint-config-standard": "^38.0.0"
+    "stylelint-config-standard": "^38.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "@testing-library/dom": "^9.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "babel-jest": "^29.7.0",
+    "@babel/preset-env": "^7.22.0"
+  },
+  "scripts": {
+    "test:js": "jest"
   }
 }

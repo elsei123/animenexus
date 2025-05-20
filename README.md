@@ -38,26 +38,33 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 ### JavaScript
 - Manages dynamic interactions.
 
+### Cloudinary 
+- For media storage
+
+### Gunicorn & Whitenoise
+- For production static serving
+
 ---
 
 ## Features
 
 ### Header
 - The header highlights the **AnimeNexus** name, making the site immediately recognizable.
-- Provides main navigation to sections such as *Home*, *About* and *Contact*.
+- Provides main navigation to sections such as *Home*, *Categories*, *About*, *Contact* and *Login*.
 
-<img width="1387" alt="header" src="https://github.com/user-attachments/assets/897b5888-2056-43db-9f91-85946ce7e564" />
+<img width="1006" alt="Header" src="https://github.com/user-attachments/assets/58a6ca7c-66e1-486c-9348-d8247edb9ba8" />
+
 
 ### About Page
 - Dedicated to explaining the site’s purpose and its context.
 
-<img width="1054" alt="About Page" src="https://github.com/user-attachments/assets/7305fd57-703e-4d9d-bb8e-00cacbf48e12" />
+<img width="874" alt="About" src="https://github.com/user-attachments/assets/9cf6f0fb-2a9b-46e8-a13c-5919a45cfeff" />
 
 
 ### Contact Page
 - Provides a simple form for users to send questions, suggestions, or feedback.
 
-<img width="995" alt="Contact Page" src="https://github.com/user-attachments/assets/20ef7863-473f-49c7-80c8-394ba88698af" />
+<img width="508" alt="contact" src="https://github.com/user-attachments/assets/4066199f-7c5b-4e3a-be9b-21be95f0cb2d" />
 
 
 ### Posts and Listings

@@ -128,6 +128,31 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 <img width="735" alt="Lighthouse Testing" src="https://github.com/user-attachments/assets/27dd730e-f00d-413b-9d18-daff2dd8fd9d" />
 
+### Python Tests
+
+#### Key Test Scenarios Covered:
+
+- **Post CRUD & Permissions**: Verified create, edit, delete flows with @login_required and ownership checks.
+
+- **Comment Management**: Tested comment submission requiring login, edit and delete with correct context and view fixes.
+
+- **Signup Flow**: Confirmed user and profile creation, auto-login, and welcome message via SignUpForm tests.
+
+- **Contact Form**: Mocked send_email_via_emailjs for success and failure paths, ensuring appropriate feedback messages.
+
+- **Profile View**: Handled both own and other user profiles, auto-creating missing Profile instances.
+
+#### Common Issues & Fixes:
+
+- Missing context in edit_comment view: tests failed with NoReverseMatch until the comment object was passed into the template context.
+
+- Incorrect signature in profile view: NameError: username fixed by adding username=None parameter and unifying both definitions.
+
+- Assertion adjustments: replaced assertQuerysetEqual with assertEqual(list(...), []) for comments list.
+
+- Message punctuation: updated tests to expect periods instead of exclamation marks for success messages ('Post created successfully.', 'Post deleted successfully.').
+
+
 
 
 ---

@@ -73,26 +73,30 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
   - Lists featured posts or displays them in order by date/category.  
   - Shows the title, cover image, and a brief summary.
 
-<img width="1435" alt="Home Page" src="https://github.com/user-attachments/assets/7136c238-3d3a-4390-a728-830dd544aea8" />
+      <img width="844" alt="Home page" src="https://github.com/user-attachments/assets/9cfa29d5-53f3-485e-8980-332113667306" />
 
 
 - **Post Detail Page**  
   - Displays the full post, including attached images and a comments section.
  
-<img width="1126" alt="Post Detail Page" src="https://github.com/user-attachments/assets/703de32e-a710-47e2-83ea-e6b8aa22a823" />
+      <img width="556" alt="Post Detail Page" src="https://github.com/user-attachments/assets/6fb73e9f-93cf-422e-8d03-2bc63ef05c92" />
+
 
 
 - **Category Filter**  
   - Allows users to filter posts by specific topics (e.g., “Upcoming Releases,” “Best of the Year,” “Worse of All Time,” etc.).
  
-    <img width="398" alt="Category Filter" src="https://github.com/user-attachments/assets/60608d2f-be62-4f0f-af90-feaae08f8489" />
+    <img width="340" alt="Category Filter" src="https://github.com/user-attachments/assets/6ef7c0c8-8104-4103-b456-01d737892c96" />
+
 
 
 ### Comments
-- A dedicated space for visitors to share opinions on the post’s topic.
+- A dedicated space for visitors to share opinions on the post’s topic, firt they need to login.
 - Can be moderated via the Django admin panel.
 
-<img width="599" alt="comments section" src="https://github.com/user-attachments/assets/38ff412d-8fbf-4922-a46a-0104742b2079" />
+<img width="261" alt="comments section" src="https://github.com/user-attachments/assets/e7ade89f-3fdf-449a-a13f-7aa1de200192" />
+
+<img width="359" alt="comments section after login" src="https://github.com/user-attachments/assets/2808fc79-b61e-4f7d-a45d-b59f25a1a19a" />
 
 ---
 
@@ -118,7 +122,8 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 - **Functionality**: Comments are saved correctly, links and categories work.  
 - **Layout**: Verified on multiple screen sizes (smartphones, tablets, desktops).
 
- <img width="698" alt="testing" src="https://github.com/user-attachments/assets/50e4dc78-c1a3-43a4-988e-bfa8c5ce2fd8" />
+<img width="735" alt="Lighthouse Testing" src="https://github.com/user-attachments/assets/27dd730e-f00d-413b-9d18-daff2dd8fd9d" />
+
 
 
 ---

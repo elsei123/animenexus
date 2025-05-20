@@ -1,4 +1,4 @@
-# AnimeNexus
+# [AnimeNexus](https://animenexus-cfbf85db2b0e.herokuapp.com/)
 
 **AnimeNexus** is an interactive web application focused on creating, reading, and discussing anime, manga, and the broader Japanese pop culture universe. It provides a platform where users can explore posts, comment, and engage with different anime-related content in an intuitive, responsive way.
 

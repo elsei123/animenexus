@@ -144,13 +144,13 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 #### Common Issues & Fixes:
 
-- Missing context in edit_comment view: tests failed with NoReverseMatch until the comment object was passed into the template context.
+- Missing context in *edit_comment* view: tests failed with *NoReverseMatch* until the comment object was passed into the template context.
 
-- Incorrect signature in profile view: NameError: username fixed by adding username=None parameter and unifying both definitions.
+- Incorrect signature in *profile* view: *NameError: username* fixed by adding *username=None* parameter and unifying both definitions.
 
-- Assertion adjustments: replaced assertQuerysetEqual with assertEqual(list(...), []) for comments list.
+- Assertion adjustments: replaced *assertQuerysetEqual* with *assertEqual(list(...), [])* for comments list.
 
-- Message punctuation: updated tests to expect periods instead of exclamation marks for success messages ('Post created successfully.', 'Post deleted successfully.').
+- Message punctuation: updated tests to expect periods instead of exclamation marks for success messages *('Post created successfully.', 'Post deleted successfully.')*.
 
 
 

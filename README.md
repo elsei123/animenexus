@@ -91,7 +91,7 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 
 ### Comments
-- A dedicated space for visitors to share opinions on the post’s topic, firt they need to login.
+- A dedicated space for visitors to share opinions on the post’s topic, first they need to login.
 - Can be moderated via the Django admin panel.
 
 <img width="261" alt="comments section" src="https://github.com/user-attachments/assets/e7ade89f-3fdf-449a-a13f-7aa1de200192" />

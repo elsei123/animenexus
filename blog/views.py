@@ -167,9 +167,9 @@ def delete_comment(request, comment_id):
 def profile(request, username=None):
     """Render user profile page, creating Profile if missing."""
     if username:
-         user_obj = get_object_or_404(User, username=username)
+        user_obj = get_object_or_404(User, username=username)
     else:
-         user_obj = request.user
+        user_obj = request.user
 
     profile_obj, created = Profile.objects.get_or_create(user=user_obj)
     return render(request, 'blog/profile.html', {'profile': profile_obj})
@@ -221,13 +221,4 @@ def signup(request):
             return redirect(reverse('post_list'))
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
-
-    if username:
-        user = get_object_or_404(User, username=username)
-    else:
-        if not request.user.is_authenticated:
-            return redirect('login')
-        user = request.user
-
-    return render(request, 'blog/profile.html', {'profile': user.profile})
+        return render(request, 'registration/signup.html', {'form': form})

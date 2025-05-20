@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Post, Category, Comment, Profile
 
 from django.contrib.messages import get_messages
-from unittest.mock import patch  
+from unittest.mock import patch
 
 
 class BlogTests(TestCase):
@@ -42,7 +42,7 @@ class BlogTests(TestCase):
         self.assertTrue(Post.objects.filter(title='New Post').exists())
         messages = [m.message for m in get_messages(resp.wsgi_request)]
         self.assertIn('Post created successfully.', messages)
-    
+
     def test_edit_post_permission(self):
         # user2 tries to edit user1's post
         self.client.login(username='user2', password='pass456')
@@ -68,7 +68,7 @@ class BlogTests(TestCase):
         login_url = reverse('login')
         expected_redirect = f"{login_url}?next={url}"
         self.assertRedirects(resp, expected_redirect, fetch_redirect_response=False)
-    
+
     def test_post_detail_get_and_context(self):
         url = reverse('post_detail', kwargs={'post_id': self.post.id})
         resp = self.client.get(url)
@@ -78,7 +78,9 @@ class BlogTests(TestCase):
         self.assertEqual(list(resp.context['comments']), [])
 
     def test_edit_comment_get_and_post(self):
-        comment = Comment.objects.create(post=self.post, user=self.user1, body='Olá', approved=True)
+        comment = Comment.objects.create(
+            post=self.post, user=self.user1, body='Olá', approved=True
+        )
         url = reverse('edit_comment', kwargs={'comment_id': comment.id})
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 302)
@@ -92,7 +94,9 @@ class BlogTests(TestCase):
         self.assertIn('Comment updated successfully.', messages)
 
     def test_delete_comment_get_and_post(self):
-        comment = Comment.objects.create(post=self.post, user=self.user1, body='Para apagar', approved=True)
+        comment = Comment.objects.create(
+            post=self.post, user=self.user1, body='Para apagar', approved=True
+        )
         url = reverse('delete_comment', kwargs={'comment_id': comment.id})
         self.client.login(username='user1', password='pass123')
         resp_get = self.client.get(url)

@@ -75,7 +75,7 @@ A GitHub Project (or Trello board) tracks all Epics and User Stories through the
 
 ### 2.2 Wireframes & Mockups
 
-> ![Homepage Wireframe Layout](./wireframes/home.png)
+> ![Homepage Wireframe Layout](./wireframes/home.png)  
 > ![Post Detail Wireframe Layout](./wireframes/post_detail.png)
 > ![Post Form Wireframe](./wireframes/post_form.png) 
 

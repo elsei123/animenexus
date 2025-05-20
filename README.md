@@ -108,11 +108,15 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 ---
 
-## Features Left to Implement
-- **Leaderboard/Ranking**: Display the most-read or most-commented posts to boost engagement.  
-- **Timelined Updates**: Organize posts by anime seasons (Autumn, Winter, etc.).  
-- **Multi-Language Support**: Make the platform available in additional languages (PT, JP, ES, FR).  
-- **Additional Integrations**: Display event feeds, anime conventions, or streaming resources (Crunchyroll, Netflix).
+## Agile Workflow & UX Design
+
+- See [Agile Documentation](https://github.com/elsei123/animenexus/blob/main/docs/ux1/Agile_Workflow_%26_UX_Design_Documentation.md) for:
+
+- Epics, User Stories & Tasks
+
+- Board Mapping (Backlog, To Do, In Progress, Done)
+
+- Information Hierarchy, Wireframes & Mockups, and Design Rationale
 
 ---
 
@@ -187,6 +191,14 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 4. Connect the GitHub repository to Heroku via the Deploy tab.  
 5. Use automatic deployment from GitHub to push changes.  
 6. The app becomes accessible at the generated link, ready for use.
+
+---
+
+## Features Left to Implement
+- **Leaderboard/Ranking**: Display the most-read or most-commented posts to boost engagement.  
+- **Timelined Updates**: Organize posts by anime seasons (Autumn, Winter, etc.).  
+- **Multi-Language Support**: Make the platform available in additional languages (PT, JP, ES, FR).  
+- **Additional Integrations**: Display event feeds, anime conventions, or streaming resources (Crunchyroll, Netflix).
 
 ---
 

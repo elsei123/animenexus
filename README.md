@@ -153,7 +153,13 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 - Message punctuation: updated tests to expect periods instead of exclamation marks for success messages *('Post created successfully.', 'Post deleted successfully.')*.
 
 
+### JavaScript Tests
 
+#### Test Cases:
+
+- **initNavToggle**: Toggles *.active* class and updates *aria-expanded* attribute on mobile nav button clicks.
+
+- **initThemeToggle**: Applies default theme based on *prefers-color-scheme*, toggles between light/dark modes, updates button label and *localStorage*.
 
 ---
 

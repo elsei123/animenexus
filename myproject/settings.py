@@ -32,10 +32,10 @@ SECRET_KEY = config(
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    "animenexus-cfbf85db2b0e.herokuapp.com",
-    "8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
-    "8001-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
-    "8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
+"127.0.0.1",
+    "localhost",
+    "MacBook-Air-de-Elton.local",
+    "animenexus-cfbf85db2b0e.herokuapp.com"
 ]
 
 

@@ -64,8 +64,9 @@ def post_detail(request, post_id):
             comment = form.save(commit=False)
             comment.post = post
             comment.user = request.user
+            comment.approved = False
             comment.save()
-            messages.success(
+            messages.info(
                 request, 'Your comment has been submitted and is awaiting approval.'
             )
             return redirect(reverse('post_detail', args=[post.id]))

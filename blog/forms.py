@@ -112,6 +112,8 @@ class SignUpForm(UserCreationForm):
     )
     date_of_birth = forms.DateField(
         label='Date of birth',
+        required=False,
+        input_formats=["%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y"],
         widget=forms.DateInput(
             attrs={'placeholder': 'YYYY-MM-DD'}
         )
@@ -132,6 +134,12 @@ class SignUpForm(UserCreationForm):
             'username': 'Required: choose a unique username.'
         }
 
+    def clean_email(self):
+        email = self.cleaned_data["email"].lower()
+        if User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError("A user with that email already exists.")
+        return email
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.email = self.cleaned_data['email']
@@ -139,8 +147,10 @@ class SignUpForm(UserCreationForm):
         user.last_name = self.cleaned_data['last_name']
         if commit:
             user.save()
-            Profile.objects.create(
-                user=user,
-                date_of_birth=self.cleaned_data['date_of_birth']
-            )
+            Profile.objects.get_or_create(
+                user=user)
+            dob = self.cleaned_data.get("date_of_birth")
+            if hasattr(profile, "date_of_birth") and dob:
+                profile.date_of_birth = dob
+                profile.save()
         return user

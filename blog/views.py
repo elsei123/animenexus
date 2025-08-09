@@ -61,7 +61,7 @@ def post_detail(request, post_id):
             return redirect_to_login(request.get_full_path())
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
+            comment = form.save(commit=False)   
             comment.post = post
             comment.user = request.user
             comment.approved = False
@@ -158,7 +158,7 @@ def delete_comment(request, comment_id):
         raise Http404
     if request.method == 'POST':
         post_id = comment.post.id
-        comment.delete()
+        comment.delete()    
         messages.success(request, 'Comment deleted successfully.')
         return redirect(reverse('post_detail', args=[post_id]))
     return render(request, 'blog/comment_confirm_delete.html', {'comment': comment})
@@ -222,4 +222,4 @@ def signup(request):
             return redirect(reverse('post_list'))
     else:
         form = SignUpForm()
-        return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})

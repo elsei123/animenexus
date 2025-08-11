@@ -174,7 +174,7 @@ def profile(request, username=None):
 @login_required
 def logout_view(request):
     logout(request)
-    messages.success(request, "You logout")
+    messages.success(request, "You have been logged out.")
     return redirect("post_list")
 
 

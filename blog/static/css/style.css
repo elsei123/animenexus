@@ -1126,3 +1126,16 @@ Fix fixed header hiding contact heading
   color: var(--color-primary);
   font-weight: 600;
 }
+
+/* Make action links visible & accessible (WCAG AA) */
+a.action-link {
+  color: #0b57d0;
+  text-decoration: underline;
+  font-weight: 600;
+}
+a.action-link:hover,
+a.action-link:focus {
+  text-decoration: none;
+  outline: 2px solid transparent;
+}
+

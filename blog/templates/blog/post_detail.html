@@ -40,8 +40,9 @@
               <time datetime="{{ comment.created_at|date:'Y-m-d' }}">{{ comment.created_at|date:"M d, Y" }}</time>
               {% if user.is_authenticated and comment.user == user %}
                 <span class="comment-actions">
-                  <a href="{% url 'edit_comment' comment.id %}" class="btn btn-link">Edit</a>
-                  <a href="{% url 'delete_comment' comment.id %}" class="btn btn-link text-danger">Delete</a>
+                  <a href="{% url 'edit_comment' comment.id %}" class="action-link">Edit</a>
+                  .
+                  <a href="{% url 'delete_comment' comment.id %}" class="action-link">Delete</a>
                 </span>
               {% endif %}
             </div>

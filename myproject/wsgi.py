@@ -8,9 +8,10 @@ https://docs.djangoproject.com/en/5.1/howto/deployment/wsgi/
 """
 
 import os
+from pathlib import Path
+
 from django.core.wsgi import get_wsgi_application
 from whitenoise import WhiteNoise
-from pathlib import Path
 
 # Defina o BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent

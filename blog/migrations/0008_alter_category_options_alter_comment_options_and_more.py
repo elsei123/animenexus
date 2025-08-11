@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("blog", "0007_post_featured"),
     ]
@@ -47,8 +46,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="profile",
             name="date_of_birth",
-            field=models.DateField(
-                blank=True, help_text="User's date of birth.", null=True
-            ),
+            field=models.DateField(blank=True, help_text="User's date of birth.", null=True),
         ),
     ]

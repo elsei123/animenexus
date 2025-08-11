@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("blog", "0008_alter_category_options_alter_comment_options_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
@@ -28,30 +27,22 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="profile",
             name="bio",
-            field=models.TextField(
-                blank=True, help_text="Short biography of the user."
-            ),
+            field=models.TextField(blank=True, help_text="Short biography of the user."),
         ),
         migrations.AlterField(
             model_name="category",
             name="description",
-            field=models.TextField(
-                blank=True, help_text="Optional description of the category."
-            ),
+            field=models.TextField(blank=True, help_text="Optional description of the category."),
         ),
         migrations.AlterField(
             model_name="category",
             name="name",
-            field=models.CharField(
-                help_text="Name of the category.", max_length=255, unique=True
-            ),
+            field=models.CharField(help_text="Name of the category.", max_length=255, unique=True),
         ),
         migrations.AlterField(
             model_name="comment",
             name="approved",
-            field=models.BooleanField(
-                default=False, help_text="Designates whether the comment is approved."
-            ),
+            field=models.BooleanField(default=False, help_text="Designates whether the comment is approved."),
         ),
         migrations.AlterField(
             model_name="comment",
@@ -84,16 +75,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="post",
             name="created_at",
-            field=models.DateTimeField(
-                auto_now_add=True, help_text="Timestamp when the post was created."
-            ),
+            field=models.DateTimeField(auto_now_add=True, help_text="Timestamp when the post was created."),
         ),
         migrations.AlterField(
             model_name="post",
             name="featured",
-            field=models.BooleanField(
-                default=False, help_text="Mark post as featured on the home page."
-            ),
+            field=models.BooleanField(default=False, help_text="Mark post as featured on the home page."),
         ),
         migrations.AlterField(
             model_name="post",
@@ -103,9 +90,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="post",
             name="updated_at",
-            field=models.DateTimeField(
-                auto_now=True, help_text="Timestamp when the post was last updated."
-            ),
+            field=models.DateTimeField(auto_now=True, help_text="Timestamp when the post was last updated."),
         ),
         migrations.AddIndex(
             model_name="category",
@@ -113,20 +98,14 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="comment",
-            index=models.Index(
-                fields=["created_at"], name="blog_commen_created_4e025c_idx"
-            ),
+            index=models.Index(fields=["created_at"], name="blog_commen_created_4e025c_idx"),
         ),
         migrations.AddIndex(
             model_name="post",
-            index=models.Index(
-                fields=["-created_at"], name="blog_post_created_45f0c6_idx"
-            ),
+            index=models.Index(fields=["-created_at"], name="blog_post_created_45f0c6_idx"),
         ),
         migrations.AddIndex(
             model_name="post",
-            index=models.Index(
-                fields=["featured"], name="blog_post_feature_716fbe_idx"
-            ),
+            index=models.Index(fields=["featured"], name="blog_post_feature_716fbe_idx"),
         ),
     ]

@@ -1,8 +1,10 @@
 import os
+
 import cloudinary
 import cloudinary.uploader
-from django.core.management.base import BaseCommand
 from django.conf import settings
+from django.core.management.base import BaseCommand
+
 from blog.models import Post
 
 
@@ -22,7 +24,7 @@ class Command(BaseCommand):
         media_dir = os.path.join(settings.BASE_DIR, "media")
         folder_to_scan = os.path.join(media_dir, "posts")
 
-        for root, dirs, files in os.walk(folder_to_scan):
+        for root, _dirs, files in os.walk(folder_to_scan):
             for filename in files:
                 local_path = os.path.join(root, filename)
 
@@ -37,9 +39,7 @@ class Command(BaseCommand):
                     for post in posts:
                         post.cover_image = url
                         post.save()
-                        self.stdout.write(
-                            f"Updated Post {post.id} to use Cloudinary URL: {url}"
-                        )
+                        self.stdout.write(f"Updated Post {post.id} to use Cloudinary URL: {url}")
 
                 except Exception as e:
                     self.stderr.write(f"Error uploading {filename}: {str(e)}")

@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-import dj_database_url
 from pathlib import Path
+
+import dj_database_url
 from decouple import config
 from dotenv import load_dotenv
 
@@ -32,10 +33,10 @@ SECRET_KEY = config(
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-"127.0.0.1",
+    "127.0.0.1",
     "localhost",
     "MacBook-Air-de-Elton.local",
-    "animenexus-cfbf85db2b0e.herokuapp.com"
+    "animenexus-cfbf85db2b0e.herokuapp.com",
 ]
 
 
@@ -85,7 +86,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'blog.context_processors.categories',
+                "blog.context_processors.categories",
             ],
         },
     },
@@ -97,9 +98,7 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = config(
-    "DATABASE_URL", default=f'sqlite:///{BASE_DIR / "myproject" / "db.sqlite3"}'
-)
+DATABASE_URL = config("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'myproject' / 'db.sqlite3'}")
 
 if "sqlite" in DATABASE_URL:
     DATABASES = {
@@ -109,11 +108,7 @@ if "sqlite" in DATABASE_URL:
         }
     }
 else:
-    DATABASES = {
-        "default": dj_database_url.parse(
-            DATABASE_URL, conn_max_age=600, ssl_require=True
-        )
-    }
+    DATABASES = {"default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)}
 
 
 # Password validation
@@ -121,8 +116,7 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation."
-        "UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -182,9 +176,7 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email
-EMAIL_BACKEND = config(
-    "EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
-)
+EMAIL_BACKEND = config("EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend")
 EMAIL_HOST = config("EMAIL_HOST", default="smtp-relay.sendinblue.com")
 EMAIL_PORT = config("EMAIL_PORT", default=587, cast=int)
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=True, cast=bool)

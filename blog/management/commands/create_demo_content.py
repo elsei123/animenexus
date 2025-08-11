@@ -1,8 +1,10 @@
 import os
-from django.core.management.base import BaseCommand
-from django.contrib.auth.models import User
+
 from django.conf import settings
-from blog.models import Post, Category
+from django.contrib.auth.models import User
+from django.core.management.base import BaseCommand
+
+from blog.models import Category, Post
 
 
 class Command(BaseCommand):
@@ -65,22 +67,12 @@ class Command(BaseCommand):
                 placeholder = "placeholder.jpg"
                 image_path = os.path.join(media_path, placeholder)
                 if not os.path.exists(image_path):
-                    self.stdout.write(
-                        self.style.ERROR(
-                            f'Placeholder image "{placeholder}" not found.'
-                        )
-                    )
+                    self.stdout.write(self.style.ERROR(f'Placeholder image "{placeholder}" not found.'))
                     return
-                self.stdout.write(
-                    self.style.WARNING(
-                        f'Image "{image_name}" not found, using "{placeholder}".'
-                    )
-                )
+                self.stdout.write(self.style.WARNING(f'Image "{image_name}" not found, using "{placeholder}".'))
 
             with open(image_path, "rb") as img_file:
-                post = Post(
-                    title=title, content=content, author=author, category=category
-                )
+                post = Post(title=title, content=content, author=author, category=category)
                 post.cover_image.save(image_name, img_file, save=True)
             self.stdout.write(self.style.SUCCESS(f'Post "{title}" created.'))
             return post

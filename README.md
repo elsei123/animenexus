@@ -210,6 +210,68 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 ---
 
+## Data Schema
+
+### Entity-Relationship Diagram (ERD)
+
+```mermaid
+erDiagram
+    USER ||--o{ PROFILE : "has"
+    USER ||--o{ POST : "authors"
+    USER ||--o{ COMMENT : "writes"
+
+    CATEGORY ||--o{ POST : "categorizes"
+    POST ||--o{ COMMENT : "receives"
+
+    USER {
+      int id PK
+      varchar username UNIQUE
+      varchar email UNIQUE
+      varchar first_name
+      varchar last_name
+      varchar password (hashed)
+      datetime date_joined
+    }
+
+    PROFILE {
+      int id PK
+      int user_id FK -> USER.id UNIQUE
+      text bio
+      varchar avatar_url
+      datetime created_at
+      datetime updated_at
+    }
+
+    CATEGORY {
+      int id PK
+      varchar name UNIQUE
+      text description
+      datetime created_at
+    }
+
+    POST {
+      int id PK
+      int author_id FK -> USER.id
+      int category_id FK -> CATEGORY.id
+      varchar title
+      text content
+      varchar cover_image_url
+      boolean featured
+      datetime created_at
+      datetime updated_at
+    }
+
+    COMMENT {
+      int id PK
+      int post_id FK -> POST.id
+      int user_id FK -> USER.id
+      text body
+      boolean approved
+      datetime created_at
+      datetime updated_at
+    }
+
+
 ## Deployment
 
 **AnimeNexus** is currently live on Heroku:  

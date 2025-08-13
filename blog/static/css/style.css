@@ -1139,3 +1139,43 @@ a.action-link:focus {
   outline: 2px solid transparent;
 }
 
+/* Accessible toast messages */
+.messages {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 640px);
+  z-index: 1000;
+}
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  background: #f0f4ff;
+  border-left: 6px solid #0b57d0;
+}
+.toast.success { background: #eaf7ee; border-left-color: #1b8f3a; }
+.toast.info    { background: #eef5ff; border-left-color: #0b57d0; }
+.toast.warning { background: #fff8e6; border-left-color: #b58100; }
+.toast.error   { background: #ffefef; border-left-color: #c62828; }
+.toast__text { margin-right: 1rem; }
+.toast__close {
+  border: 0;
+  background: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .toast { animation: slideDown 240ms ease-out; }
+  @keyframes slideDown {
+    from { transform: translateY(-8px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+}
+

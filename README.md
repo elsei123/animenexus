@@ -214,14 +214,12 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 
 ### Entity-Relationship Diagram (ERD)
 
-```mermaid
 erDiagram
-    USER ||--o{ PROFILE : "has"
-    USER ||--o{ POST : "authors"
-    USER ||--o{ COMMENT : "writes"
-
-    CATEGORY ||--o{ POST : "categorizes"
-    POST ||--o{ COMMENT : "receives"
+    USER ||--o{ PROFILE : has
+    USER ||--o{ POST : authors
+    USER ||--o{ COMMENT : writes
+    CATEGORY ||--o{ POST : categorizes
+    POST ||--o{ COMMENT : receives
 
     USER {
       int id PK
@@ -229,13 +227,13 @@ erDiagram
       varchar email UNIQUE
       varchar first_name
       varchar last_name
-      varchar password (hashed)
+      varchar password
       datetime date_joined
     }
 
     PROFILE {
       int id PK
-      int user_id FK -> USER.id UNIQUE
+      int user_id FK
       text bio
       varchar avatar_url
       datetime created_at
@@ -251,8 +249,8 @@ erDiagram
 
     POST {
       int id PK
-      int author_id FK -> USER.id
-      int category_id FK -> CATEGORY.id
+      int author_id FK
+      int category_id FK
       varchar title
       text content
       varchar cover_image_url
@@ -263,12 +261,13 @@ erDiagram
 
     COMMENT {
       int id PK
-      int post_id FK -> POST.id
-      int user_id FK -> USER.id
+      int post_id FK
+      int user_id FK
       text body
       boolean approved
       datetime created_at
-      datetime updated_at }
+      datetime updated_at
+    }
 
 
 ## Deployment

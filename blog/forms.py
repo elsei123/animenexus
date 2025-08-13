@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 from .models import Comment, Post, Profile
 
@@ -14,7 +15,14 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ["body"]
         labels = {"body": "Comment"}
-        widgets = {"body": forms.Textarea(attrs={"rows": 4, "placeholder": "Write your comment here..."})}
+        widgets = {
+            "body": forms.Textarea(
+                attrs={
+                    "rows": 4,
+                    "placeholder": "Write your comment here..."
+                }
+            )
+        }
         help_texts = {"body": "Enter your comment text."}
 
 
@@ -28,10 +36,14 @@ class ContactForm(forms.Form):
         label="Name",
         widget=forms.TextInput(attrs={"placeholder": "Your full name"}),
     )
-    email = forms.EmailField(label="Email address", widget=forms.EmailInput(attrs={"placeholder": "you@example.com"}))
+    email = forms.EmailField(
+        label="Email address",
+        widget=forms.EmailInput(attrs={"placeholder": "you@example.com"}),
+    )
     message = forms.CharField(
         label="Message",
-        widget=forms.Textarea(attrs={"rows": 6, "placeholder": "Type your message here"}),
+        widget=forms.Textarea(
+            attrs={"rows": 6, "placeholder": "Type your message here"}),
     )
 
 
@@ -50,8 +62,12 @@ class PostForm(forms.ModelForm):
             "cover_image": "Cover image (optional)",
         }
         widgets = {
-            "title": forms.TextInput(attrs={"placeholder": "Enter post title"}),
-            "content": forms.Textarea(attrs={"rows": 8, "placeholder": "Write your post content here..."}),
+            "title": forms.TextInput(
+                attrs={"placeholder": "Enter post title"}
+            ),
+            "content": forms.Textarea(
+                attrs={"rows": 8, "placeholder": "Write your post content here..."}
+            ),
         }
         help_texts = {
             "title": "Provide a concise title for your post.",
@@ -59,7 +75,27 @@ class PostForm(forms.ModelForm):
             "category": "Select an optional category.",
             "cover_image": "Upload an optional cover image.",
         }
+   
+    def clean_title(self):
+        title = self.cleaned_data["title"].strip()
+        if len(title) < 3:
+            raise ValidationError("Title must be at least 3 characters long.")
+        return title
 
+    def clean_content(self):
+        content = self.cleaned_data["content"].strip()
+        if len(content) < 10:
+            raise ValidationError("Content must be at least 10 characters long.")
+        return content
+
+    def clean_cover_image(self):
+        """
+        Defensive check: limit image size to ~5MB (works for local and Cloudinary).
+        """
+        image = self.cleaned_data.get("cover_image")
+        if image and hasattr(image, "size") and image.size > 5 * 1024 * 1024:
+            raise ValidationError("Image file too large (max 5MB).")
+        return image
 
 class SignUpForm(UserCreationForm):
     """
@@ -84,7 +120,9 @@ class SignUpForm(UserCreationForm):
         label="Date of birth",
         required=False,
         input_formats=["%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y"],
-        widget=forms.DateInput(attrs={"placeholder": "YYYY-MM-DD"}),
+        widget=forms.DateInput(
+            attrs={"placeholder": "YYYY-MM-DD","type": "date"}
+        ),
     )
 
     class Meta:
@@ -111,11 +149,12 @@ class SignUpForm(UserCreationForm):
         user.email = self.cleaned_data["email"]
         user.first_name = self.cleaned_data["first_name"]
         user.last_name = self.cleaned_data["last_name"]
+        
         if commit:
             user.save()
             profile, _ = Profile.objects.get_or_create(user=user)
             dob = self.cleaned_data.get("date_of_birth")
-            if hasattr(profile, "date_of_birth") and dob:
+            if dob:
                 profile.date_of_birth = dob
                 profile.save()
 

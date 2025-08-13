@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import sys
+
 import os
 from pathlib import Path
 
@@ -31,6 +33,8 @@ SECRET_KEY = config(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
+if "test" in sys.argv:
+    DEBUG = True
 
 ALLOWED_HOSTS = config (
     "ALLOWED_HOSTS",
@@ -94,6 +98,7 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 # Use DATABASE_URL if provided (Heroku), otherwise fall back to SQLite for dev
 
+
 DATABASE_URL = config("DATABASE_URL", default="")
 
 if DATABASE_URL:
@@ -105,6 +110,14 @@ else:
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "myproject" / "db.sqlite3",
+        }
+    }
+
+if "test" in sys.argv:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "test_db.sqlite3",
         }
     }
 

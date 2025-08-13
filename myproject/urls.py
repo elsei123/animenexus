@@ -20,12 +20,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-import blog.views as blog_views
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("", include("blog.urls")),
+    path("", include(("blog.urls", "blog"), namespace="blog")),
 ]
 
 if settings.DEBUG:

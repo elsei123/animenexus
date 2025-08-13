@@ -66,14 +66,19 @@ class SignUpForm(UserCreationForm):
     User registration form extending Django's UserCreationForm.
     """
 
-    email = forms.EmailField(label="Email address", widget=forms.EmailInput(attrs={"placeholder": "you@example.com"}))
+    email = forms.EmailField(
+        label="Email address",
+        widget=forms.EmailInput(attrs={"placeholder": "you@example.com"})
+    )
     first_name = forms.CharField(
         max_length=30,
         label="First name",
         widget=forms.TextInput(attrs={"placeholder": "First name"}),
     )
     last_name = forms.CharField(
-        max_length=30, label="Last name", widget=forms.TextInput(attrs={"placeholder": "Last name"})
+        max_length=30,
+        label="Last name",
+        widget=forms.TextInput(attrs={"placeholder": "Last name"})
     )
     date_of_birth = forms.DateField(
         label="Date of birth",

@@ -10,6 +10,7 @@
 
 #### Epic 1: Content Management
 - **US1.1**: As an authenticated user, I want to create a new post with title, content, category, and cover image so that I can share insights.
+
   **Acceptance Criteria:**  
   - Given I am logged in, when I submit valid post data, then the post is saved and I’m redirected to its detail page with a success message.  
   - Given a required field is missing, when I submit the form, then I see inline validation errors and the post is not created.  
@@ -44,24 +45,54 @@
   - Task 1.3.3: Create `post_confirm_delete.html` for confirmation prompt.  
 
 #### Epic 2: User Management
-- **US2.1**: As a new user, I want to sign up with email, name, and date of birth so that I can create an account.  
+
+- **US2.1**: As a new user, I want to sign up with email, name, and date of birth so that I can create an account.
+
+  **Acceptance Criteria:**  
+  - Given I provide valid registration details, when I submit the form, then my account is created and I’m logged in automatically.  
+  - Given I enter invalid or duplicate data, when I submit the form, then I see clear error messages without losing my input.  
+  
+  **Tasks:**
   - Task 2.1.1: Extend `UserCreationForm` to `SignUpForm`.  
   - Task 2.1.2: Develop `signup` view and `signup.html` template.  
   - Task 2.1.3: Implement automatic login after successful registration.  
 
-- **US2.2**: As an authenticated user, I want to log in/out and view my profile so that I can access personalized features.  
+- **US2.2**: As an authenticated user, I want to log in/out and view my profile so that I can access personalized features.
+
+  **Acceptance Criteria:**  
+  - Given I have a valid account, when I log in, then I am redirected to my profile page.  
+  - Given I am logged in, when I log out, then my session ends and I see a confirmation message.  
+  - Given I visit my profile for the first time, when no `Profile` exists, then one is automatically created.  
+  
+  **Tasks:**
   - Task 2.2.1: Configure `LoginView` and `LogoutView` in URLs.  
   - Task 2.2.2: Create `login.html` and `signup.html` templates with clear navigation.  
   - Task 2.2.3: Build `profile` view that auto-creates a `Profile` if missing.  
 
 #### Epic 3: UI & Theming
-- **US3.1**: As a mobile user, I want a collapsible menu so I can navigate easily on small screens.  
+- **US3.1**: As a mobile user, I want a collapsible menu so I can navigate easily on small screens.
+
+  **Acceptance Criteria:**  
+  - Given I am on a small screen, when I click the nav toggle button, then the menu expands/collapses with updated ARIA attributes.  
+  
+  **Tasks:** 
   - Task 3.1.1: Implement `#nav-toggle` button and `initNavToggle` function in JS.  
   - Task 3.1.2: Style `.nav__list` for mobile via media queries.  
 
-- **US3.2**: As a user, I want to switch between light and dark modes with clear feedback.  
+- **US3.2**: As a user, I want to switch between light and dark modes with clear feedback.
+
+  **Acceptance Criteria:**  
+  - Given my system preference is dark mode, when I first visit the site, then dark mode is applied automatically.  
+  - Given I toggle the theme button, when I refresh the page, then my preference persists via `localStorage`.  
+  
+  **Tasks:** 
   - Task 3.2.1: Add `#theme-toggle` button with appropriate ARIA labels.  
-  - Task 3.2.2: Implement `initThemeToggle` function using `localStorage`.  
+  - Task 3.2.2: Implement `initThemeToggle` function using `localStorage`.
+
+ ### MoSCoW Summary
+- **MUST:** US1.1, US1.3, US2.1, US2.2, US3.1  
+- **SHOULD:** US1.2, US3.2  
+- **COULD:** Future profile enhancements, advanced search  
 
 ### 1.3 Board Mapping
 

@@ -215,6 +215,7 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 ### Entity-Relationship Diagram (ERD)
 
 erDiagram
+
     USER ||--o{ PROFILE : has
     USER ||--o{ POST : authors
     USER ||--o{ COMMENT : writes

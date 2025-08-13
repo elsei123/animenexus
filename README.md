@@ -123,22 +123,26 @@ The application is built using **Django (Python)**, **HTML**, **CSS**, and **Jav
 ## Testing
 
 - **Browsers**: Tested on Chrome, Firefox, and Safari.  
-- **Functionality**: Comments are saved correctly, links and categories work.  
-- **Layout**: Verified on multiple screen sizes (smartphones, tablets, desktops).
+- **Functionality**: Comments are saved correctly, links and categories work.
+- **Responsiveness**: Verified on smartphones, tablets, and desktop
+- **Layout**: All UI elements render correctly, with consistent spacing and alignment.
 
 <img width="735" alt="Lighthouse Testing" src="https://github.com/user-attachments/assets/27dd730e-f00d-413b-9d18-daff2dd8fd9d" />
 
 ### Python Tests
-
+#### Python Unit Tests
+Command:
+- `python manage.py test`
+  
 #### Key Test Scenarios Covered:
 
-- **Post CRUD & Permissions**: Verified create, edit, delete flows with @login_required and ownership checks.
+- **Post CRUD & Permissions**: Verified create, edit, delete flows with `@login_required` and ownership checks.
 
 - **Comment Management**: Tested comment submission requiring login, edit and delete with correct context and view fixes.
 
 - **Signup Flow**: Confirmed user and profile creation, auto-login, and welcome message via SignUpForm tests.
 
-- **Contact Form**: Mocked send_email_via_emailjs for success and failure paths, ensuring appropriate feedback messages.
+- **Contact Form**: Mocked `send_email_via_emailjs` for success and failure paths, ensuring appropriate feedback messages.
 
 - **Profile View**: Handled both own and other user profiles, auto-creating missing Profile instances.
 

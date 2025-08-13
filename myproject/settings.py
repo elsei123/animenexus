@@ -92,19 +92,21 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# Use DATABASE_URL if provided (Heroku), otherwise fall back to SQLite for dev
 
-DATABASE_URL = config("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'myproject' / 'db.sqlite3'}")
+DATABASE_URL = config("DATABASE_URL", default="")
 
-if "sqlite" in DATABASE_URL:
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+    }
+else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "myproject", "db.sqlite3"),
+            "NAME": BASE_DIR / "myproject" / "db.sqlite3",
         }
     }
-else:
-    DATABASES = {"default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

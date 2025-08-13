@@ -9,11 +9,15 @@
 ### 1.2 User Stories & Tasks
 
 #### Epic 1: Content Management
-- **US1.1**: As an authenticated user, I want to create a new post with title, content, category, and cover image so that I can share insights.  
-  - Task 1.1.1: Define the `Post` model in `models.py`.  
-  - Task 1.1.2: Implement `PostForm` with necessary validations in `forms.py`.  
-  - Task 1.1.3: Add `create_post` view and corresponding URL.  
-  - Task 1.1.4: Develop `post_form.html` template with labeled inputs and error feedback.  
+- **US1.1**: As an authenticated user, I want to create a new post with title, content, category, and cover image so that I can share insights.
+  **Acceptance Criteria:**  
+  - Given I am logged in, when I submit valid post data, then the post is saved and I’m redirected to its detail page with a success message.  
+  - Given a required field is missing, when I submit the form, then I see inline validation errors and the post is not created.  
+  **Tasks:**
+    - Task 1.1.1: Define the `Post` model in `models.py`.
+    - Task 1.1.2: Implement `PostForm` with necessary validations in `forms.py`.  
+    - Task 1.1.3: Add `create_post` view and corresponding URL.  
+    - Task 1.1.4: Develop `post_form.html` template with labeled inputs and error feedback.  
 
 - **US1.2**: As a visitor, I want to browse a paginated list of posts filtered by category so that I can explore topics of interest.  
   - Task 1.2.1: Create `post_list` view with filtering logic.  

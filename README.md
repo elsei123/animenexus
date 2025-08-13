@@ -140,17 +140,17 @@ Command:
 
 - **Comment Management**: Tested comment submission requiring login, edit and delete with correct context and view fixes.
 
-- **Signup Flow**: Confirmed user and profile creation, auto-login, and welcome message via SignUpForm tests.
+- **Signup Flow**: User + profile creation, auto-login, welcome message via `SignUpForm`.
 
-- **Contact Form**: Mocked `send_email_via_emailjs` for success and failure paths, ensuring appropriate feedback messages.
+- **Contact Form**: Mocked `send_email_via_emailjs` for success/failure paths with proper feedback.
 
-- **Profile View**: Handled both own and other user profiles, auto-creating missing Profile instances.
+- **Profile View**: Own and other user profiles tested; auto-create profile when missing.
 
 #### Common Issues & Fixes:
 
-- Missing context in `edit_comment` view: tests failed with `NoReverseMatch` until the comment object was passed into the template context.
+- Added missing context in `edit_comment` view to fix `NoReverseMatch`.
 
-- Incorrect signature in `profile` view: `NameError: username` fixed by adding `username=None` parameter and unifying both definitions.
+- Fixed `profile` view `NameError` by adding `username=None` parameter and unifying both definitions.
 
 - Assertion adjustments: replaced `assertQuerysetEqual` with `assertEqual(list(...), [])` for comments list.
 
@@ -158,8 +158,9 @@ Command:
 
 
 ### JavaScript Tests
-
-#### Test Cases:
+#### command: 
+- `npm test`
+#### Test Cases Covered:
 
 - **initNavToggle**: Toggles `.active` class and updates `aria-expanded` attribute on mobile nav button clicks.
 

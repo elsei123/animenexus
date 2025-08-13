@@ -13,18 +13,28 @@
   **Acceptance Criteria:**  
   - Given I am logged in, when I submit valid post data, then the post is saved and I’m redirected to its detail page with a success message.  
   - Given a required field is missing, when I submit the form, then I see inline validation errors and the post is not created.  
+  
   **Tasks:**
     - Task 1.1.1: Define the `Post` model in `models.py`.
     - Task 1.1.2: Implement `PostForm` with necessary validations in `forms.py`.  
     - Task 1.1.3: Add `create_post` view and corresponding URL.  
     - Task 1.1.4: Develop `post_form.html` template with labeled inputs and error feedback.  
 
-- **US1.2**: As a visitor, I want to browse a paginated list of posts filtered by category so that I can explore topics of interest.  
-  - Task 1.2.1: Create `post_list` view with filtering logic.  
-  - Task 1.2.2: Build `post_list.html` with a responsive grid.  
-  - Task 1.2.3: Design `post_card.html` component to display post previews.  
+- **US1.2**: As a visitor, I want to browse a paginated list of posts filtered by category so that I can explore topics of interest.
+  **Acceptance Criteria:**
+  - Given I am on the post list page, when I select a category filter, then only posts in that category are shown.  
+  - Given the list has more than 10 posts, when I scroll, then pagination controls allow navigation between pages.  
+  **Tasks:**
+    - Task 1.2.1: Create `post_list` view with filtering logic.  
+    - Task 1.2.2: Build `post_list.html` with a responsive grid.  
+    - Task 1.2.3: Design `post_card.html` component to display post previews.  
 
-- **US1.3**: As an author, I want to edit and delete my own posts to maintain content accuracy.  
+- **US1.3**: As an author, I want to edit and delete my own posts to maintain content accuracy.
+  **Acceptance Criteria:**  
+  - Given I am logged in as the post’s author, when I click “Edit”, then I can modify and save the post.  
+  - Given I am logged in as the post’s author, when I click “Delete” and confirm, then the post is removed from the database.  
+  - Given I am not the author, when I try to edit or delete, then I am redirected with an error message.  
+  **Tasks:**
   - Task 1.3.1: Protect `edit_post` and `delete_post` views with `@login_required`.  
   - Task 1.3.2: Verify ownership before allowing edits or deletions.  
   - Task 1.3.3: Create `post_confirm_delete.html` for confirmation prompt.  

@@ -30,51 +30,58 @@
     <div class="header__inner container" style="justify-content: center;">
       <a href="{% url 'post_list' %}" class="logo" style="font-size:2rem; text-align:center;">AnimeNexus</a>
       <nav class="nav header__inner container" style="justify-content: center;">
-        <ul class="nav__list">
+        <ul class="nav__list" id="primary-nav">
           <li class="{% if request.resolver_match.url_name == 'post_list' %}active{% endif %}">
             <a href="{% url 'post_list' %}" class="nav__link">Home</a>
           </li>
-          <li class="dropdown">
-            <a href="#" class="nav__link">Categories</a>
-            <ul class="dropdown-menu">
+
+          <li class="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">Categories</a>
+            <ul class="dropdown-menu" role="menu">
               {% for category in all_categories %}
-                <li>
-                  <a href="{% url 'post_list' %}?category={{ category.name|urlencode }}" class="nav__link">
+                <li role="none">
+                  <a role="menuitem"
+                     href="{% url 'post_list' %}?category={{ category.name|urlencode }}"
+                     class="nav__link">
                     {{ category.name }}
                   </a>
-                </li>
+                 </li>
               {% endfor %}
             </ul>
-          </li>
-          <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-            <a href="{% url 'about' %}" class="nav__link">About</a>
-          </li>
-          <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
-            <a href="{% url 'contact' %}" class="nav__link">Contact</a>
-          </li>
-          {% if user.is_authenticated %}
-            <li class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
-              <a href="{% url 'profile' %}" class="nav__link">Profile</a>
-            </li>
-            <li>
-              <form action="{% url 'logout' %}" method="post" class="logout-form">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-link">Logout</button>
-              </form>
-            </li>
-          {% else %}
-            <li class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
-              <a href="{% url 'login' %}" class="nav__link">Login</a>
-            </li>
-          {% endif %}
-        </ul>
-        <button class="header__toggle" id="nav-toggle" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
-      </nav>
+           </li>
+
+           <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+             <a href="{% url 'about' %}" class="nav__link">About</a>
+           </li>
+           <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+             <a href="{% url 'contact' %}" class="nav__link">Contact</a>
+           </li>
+
+           {% if user.is_authenticated %}
+             <li class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}">
+               <a href="{% url 'profile' %}" class="nav__link">Profile</a>
+             </li>
+             <li>
+               <form action="{% url 'logout' %}" method="post" class="logout-form">
+                 {% csrf_token %}
+                 <button type="submit" class="btn btn-link">Logout</button>
+               </form>
+             </li>
+           {% else %}
+             <li class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
+               <a href="{% url 'login' %}" class="nav__link">Login</a>
+             </li>
+             <li class="{% if request.resolver_match.url_name == 'signup' %}active{% endif %}">
+               <a href="{% url 'signup' %}" class="nav__link">Signup</a>
+             </li>
+           {% endif %}
+         </ul>
+
+         <button class="header__toggle" id="nav-toggle" aria-label="Toggle Navigation" aria-controls="primary-nav" aria-expanded="false">
+         <span></span><span></span><span></span>
+         </button>
+         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">☾</button>
+       </nav>
     </div>
   </header>
 
@@ -88,27 +95,19 @@
   </section>
   {% endif %}
 
-<!-- Flash messages -->
-<div id="flash-messages" class="messages" role="status" aria-live="polite">
-  {% if messages %}
-    {% for message in messages %}
-      <div class="toast {{ message.tags }}">
-        <span class="toast__text">{{ message }}</span>
-        <button class="toast__close" aria-label="Dismiss message" type="button">&times;</button>
-      </div>
-    {% endfor %}
-  {% endif %}
-</div>
-
+  <!-- Flash messages -->
+  <div id="flash-messages" class="messages" aria-live="polite">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="toast {{ message.tags }}" role="{% if 'error' in message.tags or 'danger' in message.tags %}alert{% else %}status{% endif %}">
+          <span class="toast__text">{{ message }}</span>
+          <button class="toast__close" aria-label="Dismiss message" type="button">&times;</button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
   <!-- Main Content -->
   <main class="container" id="post-list">
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li class="message {{ message.tags }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
     {% block content %}{% endblock %}
   </main>
 

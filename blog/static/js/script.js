@@ -53,3 +53,25 @@ if (typeof window !== 'undefined') {
     initThemeToggle();
   });
 }
+
+(function initToasts() {
+  const container = document.getElementById('flash-messages');
+  if (!container) return;
+
+  // close on click
+  container.addEventListener('click', (e) => {
+    const btn = e.target.closest('.toast__close');
+    if (!btn) return;
+    const toast = btn.closest('.toast');
+    if (toast) toast.remove();
+  });
+
+  // auto-dismiss after 4s
+  const toasts = container.querySelectorAll('.toast');
+  toasts.forEach((t) => {
+    setTimeout(() => {
+      if (t && t.parentNode) t.remove();
+    }, 4000);
+  });
+})();
+

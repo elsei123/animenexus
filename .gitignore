@@ -43,3 +43,6 @@ venv.bak/
 *.env
 *.env.*
 EOL
+# Ignore runtime artefacts
+media/
+staticfiles/

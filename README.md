@@ -268,8 +268,7 @@ erDiagram
       text body
       boolean approved
       datetime created_at
-      datetime updated_at
-    }
+      datetime updated_at }
 
 
 ## Deployment

@@ -32,21 +32,16 @@ SECRET_KEY = config(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "MacBook-Air-de-Elton.local",
-    "animenexus-cfbf85db2b0e.herokuapp.com",
-]
+ALLOWED_HOSTS = config (
+    "ALLOWED_HOSTS",
+    default="127.0.0.1,localhost,animenexus.herokuapp.com"
+).split(",")
 
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://8000-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
-    "https://8001-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
-    "https://8002-elsei123-animenexus-fnqjono20l.app.codeanywhere.com",
-    "https://animenexus-34160473ae26.herokuapp.com",
-    "https://8000-elsei123-animenexus-qh8ex7j7pn.app.codeanywhere.com",
-]
+CSRF_TRUSTED_ORIGINS = config(
+    "CSRF_TRUSTED_ORIGINS",
+    default="https://animenexus.herokuapp.com"
+).split(",")
 
 # Application definition
 

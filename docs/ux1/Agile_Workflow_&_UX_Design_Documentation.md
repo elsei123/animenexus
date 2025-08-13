@@ -21,19 +21,23 @@
     - Task 1.1.4: Develop `post_form.html` template with labeled inputs and error feedback.  
 
 - **US1.2**: As a visitor, I want to browse a paginated list of posts filtered by category so that I can explore topics of interest.
+
   **Acceptance Criteria:**
   - Given I am on the post list page, when I select a category filter, then only posts in that category are shown.  
   - Given the list has more than 10 posts, when I scroll, then pagination controls allow navigation between pages.  
+  
   **Tasks:**
     - Task 1.2.1: Create `post_list` view with filtering logic.  
     - Task 1.2.2: Build `post_list.html` with a responsive grid.  
     - Task 1.2.3: Design `post_card.html` component to display post previews.  
 
 - **US1.3**: As an author, I want to edit and delete my own posts to maintain content accuracy.
+
   **Acceptance Criteria:**  
   - Given I am logged in as the post’s author, when I click “Edit”, then I can modify and save the post.  
   - Given I am logged in as the post’s author, when I click “Delete” and confirm, then the post is removed from the database.  
   - Given I am not the author, when I try to edit or delete, then I am redirected with an error message.  
+  
   **Tasks:**
   - Task 1.3.1: Protect `edit_post` and `delete_post` views with `@login_required`.  
   - Task 1.3.2: Verify ownership before allowing edits or deletions.  

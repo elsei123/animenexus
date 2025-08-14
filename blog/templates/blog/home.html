@@ -1,43 +1,89 @@
+{# blog/templates/blog/home.html #}
 {% extends "blog/base.html" %}
+{% load humanize %}
 
 {% block meta_description %}
-AnimeNexus - Your Hub for Anime Reviews and News
+AnimeNexus — Latest anime reviews, news and editorials.
 {% endblock %}
 
-{% block title %}
-AnimeNexus - Home
-{% endblock %}
+{% block title %}AnimeNexus — Home{% endblock %}
 
 {% block content %}
-  <section class="home-latest-posts">
-    <h1>Latest Posts</h1>
+<section class="home-latest-posts" aria-labelledby="latest-posts-heading">
+  <h1 id="latest-posts-heading">Latest Posts</h1>
 
-    {% if page_obj.object_list %}
-      <ul class="post-list">
-        {% for post in page_obj.object_list %}
-          <li class="post-item">
-            <a href="{% url 'post_detail' post.id %}" class="post-title">{{ post.title }}</a>
+  {% if page_obj.object_list %}
+    <ul class="post-list" role="list">
+      {% for post in page_obj.object_list %}
+        <li class="post-item">
+          <article class="post-card">
+            <h2 class="post-card__title">
+              {# Prefer get_absolute_url if your Post model implements it #}
+              <a href="{{ post.get_absolute_url|default:'' }}"{% if not post.get_absolute_url %} 
+                 href="{% url 'blog:post_detail' post.pk %}"{% endif %} class="post-title">
+                {{ post.title }}
+              </a>
+            </h2>
+
             <p class="post-meta">
-              by <a href="{% url 'profile' %}" class="post-author">{{ post.author.username }}</a>
-              on <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"M d, Y" }}</time>
+              <span>by</span>
+              {# Avoid NoReverseMatch: either use author.get_absolute_url or pass a slug/username expected by your URLconf #}
+              {% if post.author.get_absolute_url %}
+                <a href="{{ post.author.get_absolute_url }}" class="post-author">
+                  {{ post.author.get_full_name|default:post.author.username }}
+                </a>
+              {% else %}
+                {# Update this to your actual profile URL pattern if needed, e.g. 'profiles:detail' username=... #}
+                <a href="{% url 'profiles:detail' username=post.author.username %}" class="post-author">
+                  {{ post.author.get_full_name|default:post.author.username }}
+                </a>
+              {% endif %}
+
+              {# Prefer published_at when available; fallback to created_at #}
+              {% with dt=post.published_at|default:post.created_at %}
+                <span>on</span>
+                <time datetime="{{ dt|date:'c' }}" title="{{ dt|date:'DATETIME_FORMAT' }}">
+                  {{ dt|date:"M d, Y" }}
+                </time>
+                <span class="post-meta__sep">•</span>
+                <span class="post-meta__rel">{{ dt|naturaltime }}</span>
+              {% endwith %}
             </p>
-          </li>
-        {% endfor %}
-      </ul>
 
-      <nav class="pagination">
-        {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}" class="prev-page">Previous</a>
-        {% endif %}
+            {# Optional excerpt if you store it; safe by default (auto-escaped) #}
+            {% if post.excerpt %}
+              <p class="post-excerpt">{{ post.excerpt }}</p>
+            {% endif %}
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
 
-        <span class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    <nav class="pagination" aria-label="Pagination">
+      {% if page_obj.has_previous %}
+        <a rel="prev" href="?page={{ page_obj.previous_page_number }}" class="prev-page">Previous</a>
+      {% endif %}
 
-        {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="next-page">Next</a>
-        {% endif %}
-      </nav>
-    {% else %}
+      <span class="current-page" aria-current="page">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+      </span>
+
+      {% if page_obj.has_next %}
+        <a rel="next" href="?page={{ page_obj.next_page_number }}" class="next-page">Next</a>
+      {% endif %}
+    </nav>
+  {% else %}
+    <div class="empty-state" role="status" aria-live="polite">
       <p>No posts available.</p>
-    {% endif %}
-  </section>
+
+      {# Show a CTA only to users with permission to add posts #}
+      {% if perms.blog.add_post %}
+        <p>
+          <a class="btn btn-primary" href="{% url 'blog:post_create' %}">Create the first post</a>
+        </p>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
 {% endblock %}
+

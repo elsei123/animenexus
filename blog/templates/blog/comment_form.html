@@ -4,9 +4,24 @@
 {% block content %}
   <section class="comment-form-section">
     <h1>Edit Comment</h1>
-    <form method="post" class="comment-form">
+
+    <form method="post" class="comment-form" novalidate>
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form.non_field_errors }}
+
+      <div class="form-group">
+        {{ form.body.label_tag }}
+        {{ form.body.as_widget(attrs={
+          "rows": "5",
+          "required": "required",
+          "aria-describedby": "help-body"
+        }) }}
+        {% if form.body.help_text %}
+          <small id="help-body" class="form-help">{{ form.body.help_text }}</small>
+        {% endif %}
+        {{ form.body.errors }}
+      </div>
+
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Update Comment</button>
         <a href="{% url 'post_detail' comment.post.id %}" class="btn btn-secondary">Cancel</a>
@@ -14,3 +29,4 @@
     </form>
   </section>
 {% endblock %}
+

@@ -1,11 +1,22 @@
 {% load static %}
 
 <article class="post-card">
-  <a href="{% url 'post_detail' post.id %}" class="post-card__image-link">
+  <a href="{% url 'post_detail' post.id %}" class="post-card__image-link" aria-label="Open post: {{ post.title }}">
     {% if post.cover_image %}
-      <img src="{{ post.cover_image.url }}" alt="Cover for {{ post.title }}" class="post-card__image">
+      <img
+        src="{{ post.cover_image.url }}"
+        alt="Cover for {{ post.title }}"
+        class="post-card__image"
+        loading="lazy"
+        decoding="async">
     {% else %}
-      <img src="{% static 'blog/images/default_cover.jpg' %}" alt="Default cover" class="post-card__image">
+      {# usa um ficheiro existente; se tiveres default_cover.jpg em static/images, troca o caminho #}
+      <img
+        src="{% static 'images/hero-bg.jpg' %}"
+        alt="Default cover"
+        class="post-card__image"
+        loading="lazy"
+        decoding="async">
     {% endif %}
   </a>
 
@@ -15,11 +26,14 @@
     </h2>
 
     <p class="post-card__excerpt">
-      {{ post.content|truncatewords:20 }}
+      {{ post.content|striptags|truncatewords:20 }}
     </p>
 
     <div class="post-card__meta">
-      by <a href="{% url 'profile' %}" class="post-card__author">{{ post.author.username }}</a>
+      by
+      <a href="{% url 'profile_detail' post.author.username %}" class="post-card__author">
+        {{ post.author.username }}
+      </a>
       &bull;
       <time datetime="{{ post.created_at|date:'Y-m-d' }}">{{ post.created_at|date:"d M Y" }}</time>
     </div>

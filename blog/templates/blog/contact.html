@@ -14,31 +14,57 @@ Contact | AnimeNexus
     <p class="contact-intro">
       Have questions, suggestions, or want to collaborate? Fill out the form below and we'll get back to you.
     </p>
-    <form method="post" action="{% url 'contact' %}" class="contact-form">
+
+    <form method="post" action="{% url 'contact' %}" class="contact-form" novalidate>
       {% csrf_token %}
       {{ form.non_field_errors }}
 
       <div class="form-group">
         {{ form.name.label_tag }}
-        {{ form.name }}
+        {{ form.name.as_widget(attrs={
+          "autocomplete": "name",
+          "required": "required",
+          "aria-describedby": "help-name"
+        }) }}
+        {% if form.name.help_text %}
+          <small id="help-name" class="form-help">{{ form.name.help_text }}</small>
+        {% endif %}
         {{ form.name.errors }}
       </div>
 
       <div class="form-group">
         {{ form.email.label_tag }}
-        {{ form.email }}
+        {{ form.email.as_widget(attrs={
+          "type": "email",
+          "autocomplete": "email",
+          "required": "required",
+          "aria-describedby": "help-email"
+        }) }}
+        {% if form.email.help_text %}
+          <small id="help-email" class="form-help">{{ form.email.help_text }}</small>
+        {% endif %}
         {{ form.email.errors }}
       </div>
 
       <div class="form-group">
         {{ form.message.label_tag }}
-        {{ form.message }}
+        {{ form.message.as_widget(attrs={
+          "rows": "6",
+          "required": "required",
+          "aria-describedby": "help-message"
+        }) }}
+        {% if form.message.help_text %}
+          <small id="help-message" class="form-help">{{ form.message.help_text }}</small>
+        {% endif %}
         {{ form.message.errors }}
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.textContent='Sending…'; this.form.submit();">
+          Send Message
+        </button>
       </div>
     </form>
   </section>
 {% endblock %}
+

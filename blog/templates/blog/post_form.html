@@ -11,31 +11,59 @@
 {% block content %}
   <section class="post-form-section">
     <h1>{% if post %}Edit{% else %}New{% endif %} Post</h1>
-    <form method="post" enctype="multipart/form-data" class="post-form">
+
+    <form method="post" enctype="multipart/form-data" class="post-form" novalidate>
       {% csrf_token %}
       {{ form.non_field_errors }}
 
       <div class="form-group">
         {{ form.title.label_tag }}
-        {{ form.title }}
+        {{ form.title.as_widget(attrs={
+          "required": "required",
+          "aria-describedby": "help-title"
+        }) }}
+        {% if form.title.help_text %}
+          <small id="help-title" class="form-help">{{ form.title.help_text }}</small>
+        {% endif %}
         {{ form.title.errors }}
       </div>
 
       <div class="form-group">
         {{ form.content.label_tag }}
-        {{ form.content }}
+        {{ form.content.as_widget(attrs={
+          "required": "required",
+          "aria-describedby": "help-content"
+        }) }}
+        {% if form.content.help_text %}
+          <small id="help-content" class="form-help">{{ form.content.help_text }}</small>
+        {% endif %}
         {{ form.content.errors }}
       </div>
 
       <div class="form-group">
         {{ form.category.label_tag }}
-        {{ form.category }}
+        {{ form.category.as_widget(attrs={
+          "aria-describedby": "help-category"
+        }) }}
+        {% if form.category.help_text %}
+          <small id="help-category" class="form-help">{{ form.category.help_text }}</small>
+        {% endif %}
         {{ form.category.errors }}
       </div>
 
       <div class="form-group">
         {{ form.cover_image.label_tag }}
-        {{ form.cover_image }}
+        {% if post and post.cover_image %}
+          <div class="current-image" style="margin-bottom: .5rem;">
+            <img src="{{ post.cover_image.url }}" alt="Current cover image for {{ post.title }}" style="max-width: 240px; height: auto;">
+          </div>
+        {% endif %}
+        {{ form.cover_image.as_widget(attrs={
+          "aria-describedby": "help-cover"
+        }) }}
+        {% if form.cover_image.help_text %}
+          <small id="help-cover" class="form-help">{{ form.cover_image.help_text }}</small>
+        {% endif %}
         {{ form.cover_image.errors }}
       </div>
 
@@ -43,8 +71,11 @@
         <button type="submit" class="btn btn-primary">
           {% if post %}Update Post{% else %}Create Post{% endif %}
         </button>
-        <a href="{% if post %}{% url 'post_detail' post.id %}{% else %}{% url 'blog:post_list' %}{% endif %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% if post %}{% url 'post_detail' post.id %}{% else %}{% url 'post_list' %}{% endif %}" class="btn btn-secondary">
+          Cancel
+        </a>
       </div>
     </form>
   </section>
 {% endblock %}
+

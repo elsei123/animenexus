@@ -18,7 +18,6 @@ AnimeNexus — Latest anime reviews, news and editorials.
         <li class="post-item">
           <article class="post-card">
             <h2 class="post-card__title">
-              {# Prefer get_absolute_url if your Post model implements it #}
               <a href="{{ post.get_absolute_url|default:'' }}"{% if not post.get_absolute_url %} 
                  href="{% url 'blog:post_detail' post.pk %}"{% endif %} class="post-title">
                 {{ post.title }}
@@ -27,19 +26,16 @@ AnimeNexus — Latest anime reviews, news and editorials.
 
             <p class="post-meta">
               <span>by</span>
-              {# Avoid NoReverseMatch: either use author.get_absolute_url or pass a slug/username expected by your URLconf #}
-              {% if post.author.get_absolute_url %}
+               {% if post.author.get_absolute_url %}
                 <a href="{{ post.author.get_absolute_url }}" class="post-author">
                   {{ post.author.get_full_name|default:post.author.username }}
                 </a>
               {% else %}
-                {# Update this to your actual profile URL pattern if needed, e.g. 'profiles:detail' username=... #}
-                <a href="{% url 'profiles:detail' username=post.author.username %}" class="post-author">
+                <a href="{% url 'profile' username=post.author.username %}" class="post-author">
                   {{ post.author.get_full_name|default:post.author.username }}
                 </a>
               {% endif %}
 
-              {# Prefer published_at when available; fallback to created_at #}
               {% with dt=post.published_at|default:post.created_at %}
                 <span>on</span>
                 <time datetime="{{ dt|date:'c' }}" title="{{ dt|date:'DATETIME_FORMAT' }}">
@@ -50,7 +46,6 @@ AnimeNexus — Latest anime reviews, news and editorials.
               {% endwith %}
             </p>
 
-            {# Optional excerpt if you store it; safe by default (auto-escaped) #}
             {% if post.excerpt %}
               <p class="post-excerpt">{{ post.excerpt }}</p>
             {% endif %}
@@ -76,7 +71,6 @@ AnimeNexus — Latest anime reviews, news and editorials.
     <div class="empty-state" role="status" aria-live="polite">
       <p>No posts available.</p>
 
-      {# Show a CTA only to users with permission to add posts #}
       {% if perms.blog.add_post %}
         <p>
           <a class="btn btn-primary" href="{% url 'blog:post_create' %}">Create the first post</a>

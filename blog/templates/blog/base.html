@@ -94,7 +94,8 @@
     </div>
   </section>
   {% endif %}
-
+    
+  {% block flash_messages %}
   <!-- Flash messages -->
   <div id="flash-messages" class="messages" aria-live="polite">
     {% if messages %}
@@ -106,6 +107,8 @@
       {% endfor %}
     {% endif %}
   </div>
+  {% endblock %} 
+
   <!-- Main Content -->
   <main class="container" id="post-list">
     {% block content %}{% endblock %}

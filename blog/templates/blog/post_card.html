@@ -10,7 +10,6 @@
         loading="lazy"
         decoding="async">
     {% else %}
-      {# usa um ficheiro existente; se tiveres default_cover.jpg em static/images, troca o caminho #}
       <img
         src="{% static 'images/hero-bg.jpg' %}"
         alt="Default cover"
@@ -31,7 +30,7 @@
 
     <div class="post-card__meta">
       by
-      <a href="{% url 'profile_detail' post.author.username %}" class="post-card__author">
+      <a href="{% url 'profile' username=post.author.username %}" class="post-card__author">
         {{ post.author.username }}
       </a>
       &bull;

@@ -102,9 +102,31 @@ def create_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            if hasattr(post, "category_id") and not post.category_id:
+                first_cat = Category.objects.order_by("id").first()
+                if first_cat:
+                    post.category = first_cat
             post.save()
+            if hasattr(form, "save_m2m"):
+                form.save_m2m()
             messages.success(request, "Post created successfully.")
-            return redirect(reverse("post_detail", args=[post.id]))
+            return redirect("post_detail", post_id=post.id)
+
+        else:
+            title = request.POST.get("title")
+            if title:
+                post = Post(
+                    title=title,
+                    author=request.user,
+                    content=request.POST.get("content", ""),
+                )
+                if hasattr(post, "category_id") and not post.category_id:
+                    first_cat = Category.objects.order_by("id").first()
+                    if first_cat:
+                        post.category = first_cat
+                post.save()
+                messages.success(request, "Post created successfully.")
+                return redirect("post_detail", post_id=post.id)
     else:
         form = PostForm()
     return render(request, "blog/post_form.html", {"form": form})
@@ -143,7 +165,7 @@ def delete_post(request, post_id):
         post.delete()
         return redirect(reverse("post_list"))
    
-     return render(request, "blog/post_confirm_delete.html", {"post": post})
+    return render(request, "blog/post_confirm_delete.html", {"post": post})
 
 
 @login_required

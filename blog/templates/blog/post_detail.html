@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
+{% block flash_messages %}{% endblock %}
 {% block meta_description %}{{ post.title }} | AnimeNexus{% endblock %}
 
 {% block title %}{{ post.title }} - AnimeNexus{% endblock %}

@@ -16,17 +16,13 @@ Sign Up | AnimeNexus
       {% csrf_token %}
       {{ form.non_field_errors }}
 
-      {# preserva redirect se veio de ?next=... #}
       {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}">
       {% endif %}
 
       <div class="form-group">
         {{ form.username.label_tag }}
-        {{ form.username.as_widget(attrs={
-          "autocomplete": "username",
-          "required": "required"
-        }) }}
+        {{ form.username }}
         {% if form.username.help_text %}
           <small id="help-username" class="form-help">{{ form.username.help_text }}</small>
         {% endif %}
@@ -35,11 +31,7 @@ Sign Up | AnimeNexus
 
       <div class="form-group">
         {{ form.email.label_tag }}
-        {{ form.email.as_widget(attrs={
-          "type": "email",
-          "autocomplete": "email",
-          "required": "required"
-        }) }}
+        {{ form.email }}
         {% if form.email.help_text %}
           <small id="help-email" class="form-help">{{ form.email.help_text }}</small>
         {% endif %}
@@ -48,27 +40,19 @@ Sign Up | AnimeNexus
 
       <div class="form-group">
         {{ form.first_name.label_tag }}
-        {{ form.first_name.as_widget(attrs={
-          "autocomplete": "given-name",
-          "required": "required"
-        }) }}
+        {{ form.first_name }}
         {{ form.first_name.errors }}
       </div>
 
       <div class="form-group">
         {{ form.last_name.label_tag }}
-        {{ form.last_name.as_widget(attrs={
-          "autocomplete": "family-name",
-          "required": "required"
-        }) }}
+        {{ form.last_name }}
         {{ form.last_name.errors }}
       </div>
 
       <div class="form-group">
         {{ form.date_of_birth.label_tag }}
-        {{ form.date_of_birth.as_widget(attrs={
-          "autocomplete": "bday"
-        }) }}
+        {{ form.date_of_birth }}
         {% if form.date_of_birth.help_text %}
           <small id="help-dob" class="form-help">{{ form.date_of_birth.help_text }}</small>
         {% endif %}
@@ -77,10 +61,7 @@ Sign Up | AnimeNexus
 
       <div class="form-group">
         {{ form.password1.label_tag }}
-        {{ form.password1.as_widget(attrs={
-          "autocomplete": "new-password",
-          "required": "required"
-        }) }}
+        {{ form.password1 }}
         {% if form.password1.help_text %}
           <small id="help-password1" class="form-help">{{ form.password1.help_text|safe }}</small>
         {% endif %}
@@ -89,10 +70,7 @@ Sign Up | AnimeNexus
 
       <div class="form-group">
         {{ form.password2.label_tag }}
-        {{ form.password2.as_widget(attrs={
-          "autocomplete": "new-password",
-          "required": "required"
-        }) }}
+        {{ form.password2 }}
         {% if form.password2.help_text %}
           <small id="help-password2" class="form-help">{{ form.password2.help_text|safe }}</small>
         {% endif %}
@@ -112,4 +90,3 @@ Sign Up | AnimeNexus
     </p>
   </section>
 {% endblock %}
-

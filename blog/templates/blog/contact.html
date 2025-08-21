@@ -21,40 +21,27 @@ Contact | AnimeNexus
 
       <div class="form-group">
         {{ form.name.label_tag }}
-        {{ form.name.as_widget(attrs={
-          "autocomplete": "name",
-          "required": "required",
-          "aria-describedby": "help-name"
-        }) }}
+        {{ form.name }}
         {% if form.name.help_text %}
-          <small id="help-name" class="form-help">{{ form.name.help_text }}</small>
+          <small class="form-help">{{ form.name.help_text }}</small>
         {% endif %}
         {{ form.name.errors }}
       </div>
 
       <div class="form-group">
         {{ form.email.label_tag }}
-        {{ form.email.as_widget(attrs={
-          "type": "email",
-          "autocomplete": "email",
-          "required": "required",
-          "aria-describedby": "help-email"
-        }) }}
+        {{ form.email }}
         {% if form.email.help_text %}
-          <small id="help-email" class="form-help">{{ form.email.help_text }}</small>
+          <small class="form-help">{{ form.email.help_text }}</small>
         {% endif %}
         {{ form.email.errors }}
       </div>
 
       <div class="form-group">
         {{ form.message.label_tag }}
-        {{ form.message.as_widget(attrs={
-          "rows": "6",
-          "required": "required",
-          "aria-describedby": "help-message"
-        }) }}
+        {{ form.message }}
         {% if form.message.help_text %}
-          <small id="help-message" class="form-help">{{ form.message.help_text }}</small>
+          <small class="form-help">{{ form.message.help_text }}</small>
         {% endif %}
         {{ form.message.errors }}
       </div>
@@ -67,4 +54,3 @@ Contact | AnimeNexus
     </form>
   </section>
 {% endblock %}
-

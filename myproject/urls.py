@@ -41,7 +41,7 @@ urlpatterns = [
     path("profile/<str:username>/", blog_views.profile, name="profile"),
     path("accounts/", include("django.contrib.auth.urls")),
     
-    path("", include("blog.urls")),
+   # path("", include("blog.urls")),
 ]
 
 if settings.DEBUG:

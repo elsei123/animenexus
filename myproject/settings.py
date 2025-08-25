@@ -26,26 +26,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config(
-    "SECRET_KEY",
-    default="django-insecure-f%zwu(e_il2x0r6=d963-3&sybjjby^*ov30$w95t27aetlyb*",
-)
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 if "test" in sys.argv:
     DEBUG = True
 
-ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS",
-    default="127.0.0.1,localhost,animenexus.herokuapp.com"
-).split(",")
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in config(
+        "ALLOWED_HOSTS", default="127.0.0.1,localhost,animenexus.herokuapp.com"
+    ).split(",")
+    if h.strip()
+]
 
 
-CSRF_TRUSTED_ORIGINS = config(
-    "CSRF_TRUSTED_ORIGINS",
-    default="https://animenexus.herokuapp.com"
-).split(",")
+CSRF_TRUSTED_ORIGINS = [
+    o.strip()
+    for o in config(
+        "CSRF_TRUSTED_ORIGINS",
+        default="https://animenexus.herokuapp.com"
+    ).split(",")
+    if o.strip()
+]
 
 # Application definition
 
@@ -203,3 +207,12 @@ else:
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 ano
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

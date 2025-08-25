@@ -56,7 +56,8 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     """Admin view for blog comments."""
 
-    list_display = ("post_link", "user_link", "short_body", "approved", "created_at")
+    list_display = (
+        "post_link", "user_link", "short_body", "approved", "created_at")
     list_filter = ("approved", "created_at")
     list_editable = ("approved",)
     search_fields = ("body", "user__username", "post__title")
@@ -64,7 +65,7 @@ class CommentAdmin(admin.ModelAdmin):
     date_hierarchy = "created_at"
 
     def short_body(self, obj):
-        return (obj.body[:75] + "...") if len(obj.body) > 75 else obj.body
+        return (obj.body[:75] + "...")if len(obj.body) > 75 else obj.body
 
     short_body.short_description = "Comment"
 

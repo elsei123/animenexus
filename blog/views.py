@@ -62,7 +62,8 @@ def post_detail(request, post_id):
         Post.objects.select_related("author", "category"),
         id=post_id,
     )
-    approved_comments = post.comments.filter(approved=True).order_by("-created_at")
+    approved_comments = post.comments.filter(
+        approved=True).order_by("-created_at")
 
     if request.method == "POST":
         if not request.user.is_authenticated:
@@ -81,7 +82,8 @@ def post_detail(request, post_id):
             )
             return redirect(reverse("post_detail", args=[post.id]))
     else:
-        form = CommentForm()
+        messages.error(
+            request, "Unable to submit your comment. Please try again.")
 
     return render(
         request,
@@ -128,7 +130,8 @@ def create_post(request):
                 messages.success(request, "Post created successfully.")
                 return redirect("post_detail", post_id=post.id)
     else:
-        form = PostForm()
+        messages.error(
+            request, "Unable to create the post. Please check the fields and try again.")
     return render(request, "blog/post_form.html", {"form": form})
 
 
@@ -147,7 +150,8 @@ def edit_post(request, post_id):
             messages.success(request, "Post updated successfully.")
             return redirect(reverse("post_detail", args=[post.id]))
     else:
-        form = PostForm(instance=post)
+        messages.error(
+            request, "Unable to update the post. Please check and try again.")
 
     return render(request, "blog/post_form.html", {"form": form, "post": post})
 
@@ -183,7 +187,8 @@ def edit_comment(request, comment_id):
             messages.success(request, "Comment updated successfully.")
             return redirect(reverse("post_detail", args=[comment.post.id]))
     else:
-        form = CommentForm(instance=comment)
+        messages.error(
+            request, "Unable to update your comment. Please try again.")
 
     return render(
         request,
@@ -200,7 +205,8 @@ def delete_comment(request, comment_id):
     """Delete a comment after confirmation (owners only)."""
     comment = get_object_or_404(Comment, id=comment_id)
     if comment.user != request.user:
-        messages.error(request, "Permission denied: cannot delete this comment.")
+        messages.error(
+            request, "Permission denied: cannot delete this comment.")
         raise Http404
 
     if request.method == "POST":
@@ -209,13 +215,15 @@ def delete_comment(request, comment_id):
         messages.success(request, "Comment deleted successfully.")
         return redirect(reverse("post_detail", args=[post_id]))
 
-    return render(request, "blog/comment_confirm_delete.html", {"comment": comment})
+    return render(
+        request, "blog/comment_confirm_delete.html", {"comment": comment})
 
 
 @login_required
 def profile(request, username=None):
     """Render user profile page, creating Profile if missing."""
-    user_obj = get_object_or_404(User, username=username) if username else request.user
+    user_obj = get_object_or_404(
+        User, username=username) if username else request.user
     profile_obj, created = Profile.objects.get_or_create(user=user_obj)
     return render(request, "blog/profile.html", {"profile": profile_obj})
 

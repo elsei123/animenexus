@@ -11,8 +11,10 @@ from .models import Category, Comment, Post, Profile
 class BlogTests(TestCase):
     def setUp(self):
         # create two users
-        self.user1 = User.objects.create_user(username="user1", password="pass123")
-        self.user2 = User.objects.create_user(username="user2", password="pass456")
+        self.user1 = User.objects.create_user(
+            username="user1", password="pass123")
+        self.user2 = User.objects.create_user(
+            username="user2", password="pass456")
         # create category
         self.cat = Category.objects.create(name="TestCat")
         # create a post by user1
@@ -66,7 +68,8 @@ class BlogTests(TestCase):
         resp = self.client.post(url, {"body": "Test"}, follow=True)
         login_url = reverse("login")
         expected_redirect = f"{login_url}?next={url}"
-        self.assertRedirects(resp, expected_redirect, fetch_redirect_response=False)
+        self.assertRedirects(
+            resp, expected_redirect, fetch_redirect_response=False)
 
     def test_post_detail_get_and_context(self):
         url = reverse("post_detail", kwargs={"post_id": self.post.id})
@@ -116,10 +119,12 @@ class BlogTests(TestCase):
         }
         resp = self.client.post(url, data, follow=True)
         self.assertTrue(User.objects.filter(username="newuser").exists())
-        self.assertTrue(Profile.objects.filter(user__username="newuser").exists())
+        self.assertTrue(Profile.objects.filter(
+            user__username="newuser").exists())
         self.assertTrue(resp.wsgi_request.user.is_authenticated)
         messages = [m.message for m in get_messages(resp.wsgi_request)]
-        self.assertIn("Welcome, newuser! Your account has been created.", messages)
+        self.assertIn(
+            "Welcome, newuser! Your account has been created.", messages)
 
     @patch("blog.views.send_email_via_emailjs")
     def test_contact_form_success_and_failure(self, mock_send):

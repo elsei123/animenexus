@@ -28,7 +28,8 @@ urlpatterns = [
     path("post/<int:post_id>/", blog_views.post_detail, name="post_detail"),
     path("post/create/", blog_views.create_post, name="create_post"),
     path("post/<int:post_id>/edit/", blog_views.edit_post, name="edit_post"),
-    path("post/<int:post_id>/delete/", blog_views.delete_post, name="delete_post"),
+    path("post/<int:post_id>/delete/",
+         blog_views.delete_post, name="delete_post"),
 
     path("comment/<int:comment_id>/edit/",
          blog_views.edit_comment, name="edit_comment"),
@@ -46,4 +47,5 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

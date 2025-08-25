@@ -66,7 +66,9 @@ class PostForm(forms.ModelForm):
                 attrs={"placeholder": "Enter post title"}
             ),
             "content": forms.Textarea(
-                attrs={"rows": 8, "placeholder": "Write your post content here..."}
+                attrs={
+                    "rows": 8, "placeholder": "Write your post content here..."
+                }
             ),
         }
         help_texts = {
@@ -85,12 +87,14 @@ class PostForm(forms.ModelForm):
     def clean_content(self):
         content = self.cleaned_data["content"].strip()
         if len(content) < 10:
-            raise ValidationError("Content must be at least 10 characters long.")
+            raise ValidationError(
+                "Content must be at least 10 characters long.")
         return content
 
     def clean_cover_image(self):
         """
-        Defensive check: limit image size to ~5MB (works for local and Cloudinary).
+        Defensive check:
+        limit image size to ~5MB (works for local and Cloudinary).
         """
         image = self.cleaned_data.get("cover_image")
         if image and hasattr(image, "size") and image.size > 5 * 1024 * 1024:
@@ -142,7 +146,8 @@ class SignUpForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data["email"].lower()
         if User.objects.filter(email__iexact=email).exists():
-            raise forms.ValidationError("A user with that email already exists.")
+            raise forms.ValidationError(
+                "A user with that email already exists.")
         return email
 
     def save(self, commit=True):

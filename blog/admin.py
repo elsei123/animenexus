@@ -44,7 +44,10 @@ class PostAdmin(admin.ModelAdmin):
     actions = (make_public, make_unpublic)
 
     def author_link(self, obj):
-        return format_html('<a href="{}">{}</a>', obj.author.profile.get_absolute_url(), obj.author.username)
+        return format_html(
+            '<a href="{}">{}</a>', obj.author.profile.get_absolute_url(),
+            obj.author.username
+        )
 
     author_link.short_description = "Author"
 
@@ -89,7 +92,9 @@ class ProfileAdmin(admin.ModelAdmin):
     date_hierarchy = "date_of_birth"
 
     def user_link(self, obj):
-        return format_html('<a href="{}">{}</a>', obj.get_absolute_url(), obj.user.username)
+        return format_html(
+            '<a href="{}">{}</a>', obj.get_absolute_url(),
+            obj.user.username
+        )
 
     user_link.short_description = "User"
-

@@ -7,7 +7,8 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
-EMAILJS_URL = getattr(settings, "EMAILJS_URL", "https://api.emailjs.com/api/v1.0/email/send")
+EMAILJS_URL = getattr(
+    settings, "EMAILJS_URL", "https://api.emailjs.com/api/v1.0/email/send")
 EMAILJS_SERVICE_ID = os.getenv("EMAILJS_SERVICE_ID", "")
 EMAILJS_TEMPLATE_ID = os.getenv("EMAILJS_TEMPLATE_ID", "")
 EMAILJS_USER_ID = os.getenv("EMAILJS_USER_ID", "")
@@ -28,7 +29,7 @@ def _build_payload(name: str, email: str, message: str) -> Dict[str, Any]:
 
 
 def send_email_via_emailjs(name: str, email: str, message: str) -> bool:
- 
+
     if not (EMAILJS_SERVICE_ID and EMAILJS_TEMPLATE_ID and EMAILJS_USER_ID):
         logger.warning("EmailJS not configured; skipping send.")
         return False
@@ -53,4 +54,3 @@ def send_email_via_emailjs(name: str, email: str, message: str) -> bool:
     except requests.RequestException as exc:
         logger.exception("EmailJS request failed: %s", exc)
         return False
-

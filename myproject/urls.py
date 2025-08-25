@@ -30,8 +30,10 @@ urlpatterns = [
     path("post/<int:post_id>/edit/", blog_views.edit_post, name="edit_post"),
     path("post/<int:post_id>/delete/", blog_views.delete_post, name="delete_post"),
 
-    path("comment/<int:comment_id>/edit/", blog_views.edit_comment, name="edit_comment"),
-    path("comment/<int:comment_id>/delete/", blog_views.delete_comment, name="delete_comment"),
+    path("comment/<int:comment_id>/edit/",
+         blog_views.edit_comment, name="edit_comment"),
+    path("comment/<int:comment_id>/delete/",
+         blog_views.delete_comment, name="delete_comment"),
 
     path("about/", blog_views.about, name="about"),
     path("contact/", blog_views.contact, name="contact"),
@@ -40,8 +42,7 @@ urlpatterns = [
     path("profile/", blog_views.profile, name="profile"),
     path("profile/<str:username>/", blog_views.profile, name="profile"),
     path("accounts/", include("django.contrib.auth.urls")),
-    
-   # path("", include("blog.urls")),
+    # path("", include("blog.urls")),
 ]
 
 if settings.DEBUG:

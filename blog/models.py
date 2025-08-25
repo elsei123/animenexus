@@ -10,12 +10,12 @@ class Category(models.Model):
     """
 
     name = models.CharField(
-        max_length=255, 
-        unique=True, 
+        max_length=255,
+        unique=True,
         help_text="Name of the category."
     )
     description = models.TextField(
-        blank=True, 
+        blank=True,
         help_text="Optional description of the category."
     )
 
@@ -38,9 +38,9 @@ class Post(models.Model):
     title = models.CharField(max_length=200, help_text="Title of the post.")
     content = models.TextField(help_text="Content of the post.")
     cover_image = models.ImageField(
-        upload_to="covers/", 
-        blank=True, 
-        null=True, 
+        upload_to="covers/",
+        blank=True,
+        null=True,
         help_text="Optional cover image."
     )
 
@@ -57,22 +57,22 @@ class Post(models.Model):
     )
 
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.CASCADE, 
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
         related_name="authored_posts",
         help_text="Author of the post."
     )
     category = models.ForeignKey(
-        Category, 
-        on_delete=models.SET_NULL, 
-        null=True, 
-        blank=True, 
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         related_name="posts",
         help_text="Optional category for this post."
     )
 
     featured = models.BooleanField(
-        default=False, 
+        default=False,
         help_text="Mark post as featured to pin on top."
     )
 
@@ -104,20 +104,20 @@ class Comment(models.Model):
     """
 
     post = models.ForeignKey(
-        Post, 
-        on_delete=models.CASCADE, 
+        Post,
+        on_delete=models.CASCADE,
         related_name="comments",
         help_text="Post that this comment belongs to."
     )
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.CASCADE, 
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
         related_name="comments",
         help_text="User who wrote the comment."
     )
     body = models.TextField(help_text="Text content of the comment.")
     approved = models.BooleanField(
-        default=False, 
+        default=False,
         help_text="Whether the comment is approved for public display."
     )
     created_at = models.DateTimeField(
@@ -129,7 +129,9 @@ class Comment(models.Model):
         auto_now=True,
         help_text="Timestamp when the comment was last updated."
     )
+
     class Meta:
+
         verbose_name = "comment"
         verbose_name_plural = "comments"
         ordering = ["-created_at"]
@@ -147,18 +149,18 @@ class Profile(models.Model):
     """
 
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.CASCADE, 
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
         related_name="profile",
         help_text="User account this profile belongs to."
     )
     date_of_birth = models.DateField(
-        null=True, 
-        blank=True, 
+        null=True,
+        blank=True,
         help_text="User's date of birth."
     )
     bio = models.TextField(
-        blank=True, 
+        blank=True,
         help_text="Short biography of the user."
     )
 

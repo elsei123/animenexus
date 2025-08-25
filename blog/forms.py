@@ -75,7 +75,7 @@ class PostForm(forms.ModelForm):
             "category": "Select an optional category.",
             "cover_image": "Upload an optional cover image.",
         }
-   
+
     def clean_title(self):
         title = self.cleaned_data["title"].strip()
         if len(title) < 3:
@@ -96,6 +96,7 @@ class PostForm(forms.ModelForm):
         if image and hasattr(image, "size") and image.size > 5 * 1024 * 1024:
             raise ValidationError("Image file too large (max 5MB).")
         return image
+
 
 class SignUpForm(UserCreationForm):
     """
@@ -121,7 +122,7 @@ class SignUpForm(UserCreationForm):
         required=False,
         input_formats=["%Y-%m-%d", "%d-%m-%Y", "%d/%m/%Y"],
         widget=forms.DateInput(
-            attrs={"placeholder": "YYYY-MM-DD","type": "date"}
+            attrs={"placeholder": "YYYY-MM-DD", "type": "date"}
         ),
     )
 
@@ -149,7 +150,7 @@ class SignUpForm(UserCreationForm):
         user.email = self.cleaned_data["email"]
         user.first_name = self.cleaned_data["first_name"]
         user.last_name = self.cleaned_data["last_name"]
-        
+
         if commit:
             user.save()
             profile, _ = Profile.objects.get_or_create(user=user)

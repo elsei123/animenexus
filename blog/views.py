@@ -16,7 +16,7 @@ from .utils.emailjs_utils import send_email_via_emailjs
 
 def home(request):
     """Display homepage with paginated list of posts."""
-    posts = ( 
+    posts = (
         Post.objects.select_related("author", "category")
         .all()
         .order_by("-created_at")
@@ -148,7 +148,7 @@ def edit_post(request, post_id):
             return redirect(reverse("post_detail", args=[post.id]))
     else:
         form = PostForm(instance=post)
-    
+
     return render(request, "blog/post_form.html", {"form": form, "post": post})
 
 
@@ -164,7 +164,7 @@ def delete_post(request, post_id):
         messages.success(request, "Post deleted successfully.")
         post.delete()
         return redirect(reverse("post_list"))
-   
+
     return render(request, "blog/post_confirm_delete.html", {"post": post})
 
 
@@ -175,7 +175,7 @@ def edit_comment(request, comment_id):
     if comment.user != request.user:
         messages.error(request, "Permission denied: cannot edit this comment.")
         raise Http404
-    
+
     if request.method == "POST":
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
@@ -184,7 +184,7 @@ def edit_comment(request, comment_id):
             return redirect(reverse("post_detail", args=[comment.post.id]))
     else:
         form = CommentForm(instance=comment)
-    
+
     return render(
         request,
         "blog/comment_form.html",
@@ -208,7 +208,7 @@ def delete_comment(request, comment_id):
         comment.delete()
         messages.success(request, "Comment deleted successfully.")
         return redirect(reverse("post_detail", args=[post_id]))
-   
+
     return render(request, "blog/comment_confirm_delete.html", {"comment": comment})
 
 
@@ -238,15 +238,19 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            success = send_email_via_emailjs(data["name"], data["email"], data["message"])
+            success = send_email_via_emailjs(
+                data["name"], data["email"], data["message"]
+            )
             if success:
                 messages.success(request, "Message sent successfully.")
             else:
-                messages.error(request, "Failed to send message;please try again later.")
+                messages.error(
+                    request, "Failed to send message;please try again later."
+                )
             return redirect(reverse_lazy("contact"))
     else:
         form = ContactForm()
-    
+
     return render(request, "blog/contact.html", {"form": form})
 
 

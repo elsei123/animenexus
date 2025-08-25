@@ -15,7 +15,8 @@ urlpatterns = [
 
     # Comments
     path("comment/<int:comment_id>/edit/", views.edit_comment, name="edit_comment"),
-    path("comment/<int:comment_id>/delete/", views.delete_comment, name="delete_comment"),
+    path("comment/<int:comment_id>/delete/",
+         views.delete_comment, name="delete_comment"),
 
     # Static/info
     path("about/", views.about, name="about"),
@@ -25,4 +26,3 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("profile/<str:username>/", views.profile, name="profile"),
 ]
-

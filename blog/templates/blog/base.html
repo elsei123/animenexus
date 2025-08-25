@@ -87,16 +87,6 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  {% if request.resolver_match.url_name == 'post_list' %}
-  <section class="hero">
-    <div class="hero__inner">
-      <h1 class="hero__title">Welcome to AnimeNexus</h1>
-      <p class="hero__subtitle">Discover reviews, rankings, and news from the anime world.</p>
-    </div>
-  </section>
-  {% endif %}
-    
   {% block flash_messages %}
   <!-- Flash messages -->
   <div id="flash-messages" class="messages" aria-live="polite">
@@ -110,6 +100,16 @@
     {% endif %}
   </div>
   {% endblock %} 
+
+  <!-- Hero Section -->
+  {% if request.resolver_match.url_name == 'post_list' %}
+  <section class="hero">
+    <div class="hero__inner">
+      <h1 class="hero__title">Welcome to AnimeNexus</h1>
+      <p class="hero__subtitle">Discover reviews, rankings, and news from the anime world.</p>
+    </div>
+  </section>
+  {% endif %}
 
   <!-- Main Content -->
   <main class="container" id="post-list">

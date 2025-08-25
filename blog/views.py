@@ -63,7 +63,8 @@ def post_detail(request, post_id):
         id=post_id,
     )
     approved_comments = post.comments.filter(
-        approved=True).order_by("-created_at")
+        approved=True
+    ).order_by("-created_at")
 
     if request.method == "POST":
         if not request.user.is_authenticated:
@@ -81,9 +82,12 @@ def post_detail(request, post_id):
                 "Your comment has been submitted and is awaiting approval."
             )
             return redirect(reverse("post_detail", args=[post.id]))
+        else:
+            messages.error(
+                request, "Unable to submit your comment. Please try again."
+            )
     else:
-        messages.error(
-            request, "Unable to submit your comment. Please try again.")
+        form = CommentForm()
 
     return render(
         request,
@@ -129,9 +133,13 @@ def create_post(request):
                 post.save()
                 messages.success(request, "Post created successfully.")
                 return redirect("post_detail", post_id=post.id)
+            else:
+                messages.error(
+                    request, "Unable to create the post."
+                    "Please check the fields and try again."
+                )
     else:
-        messages.error(
-            request, "Unable to create the post. Please check the fields and try again.")
+        form = PostForm()
     return render(request, "blog/post_form.html", {"form": form})
 
 
@@ -149,9 +157,12 @@ def edit_post(request, post_id):
             form.save()
             messages.success(request, "Post updated successfully.")
             return redirect(reverse("post_detail", args=[post.id]))
+        else:
+            messages.error(
+                request, "Unable to update the post. Please check and try again."
+            )
     else:
-        messages.error(
-            request, "Unable to update the post. Please check and try again.")
+        form = PostForm(instance=post)
 
     return render(request, "blog/post_form.html", {"form": form, "post": post})
 
@@ -186,9 +197,12 @@ def edit_comment(request, comment_id):
             form.save()
             messages.success(request, "Comment updated successfully.")
             return redirect(reverse("post_detail", args=[comment.post.id]))
+        else:
+            messages.error(
+                request, "Unable to update your comment. Please try again."
+            )
     else:
-        messages.error(
-            request, "Unable to update your comment. Please try again.")
+        form = CommentForm(instance=comment)
 
     return render(
         request,
@@ -198,6 +212,7 @@ def edit_comment(request, comment_id):
             "comment": comment,
         },
     )
+
 
 
 @login_required

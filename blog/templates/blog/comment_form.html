@@ -11,11 +11,7 @@
 
       <div class="form-group">
         {{ form.body.label_tag }}
-        {{ form.body.as_widget(attrs={
-          "rows": "5",
-          "required": "required",
-          "aria-describedby": "help-body"
-        }) }}
+        {{ form.body }}
         {% if form.body.help_text %}
           <small id="help-body" class="form-help">{{ form.body.help_text }}</small>
         {% endif %}

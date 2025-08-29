@@ -3,7 +3,7 @@ black==25.1.0
 certifi==2025.4.26
 charset-normalizer==3.4.1
 click==8.1.8
-cloudinary==1.44.0
+cloudinary==1.44.1
 dj-database-url==2.3.0
 Django==5.2
 django-cloudinary-storage==0.3.0

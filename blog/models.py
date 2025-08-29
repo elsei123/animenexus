@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 class Category(models.Model):
     """
@@ -41,6 +41,7 @@ class Post(models.Model):
         upload_to="covers/",
         blank=True,
         null=True,
+        storage=MediaCloudinaryStorage(),
         help_text="Optional cover image."
     )
 

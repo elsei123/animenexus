@@ -6,7 +6,7 @@ def _get_all_categories():
     cats = cache.get("all_categories")
     if cats is None:
         cats = list(Category.objects.order_by("name"))
-        cache.set("all_categories", categories, 300)
+        cache.set("all_categories", cats, 300)
     return cats
 
 

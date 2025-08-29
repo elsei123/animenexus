@@ -38,10 +38,9 @@ class Post(models.Model):
     title = models.CharField(max_length=200, help_text="Title of the post.")
     content = models.TextField(help_text="Content of the post.")
     cover_image = models.ImageField(
-        upload_to="covers/",
+        upload_to="covers",
         blank=True,
         null=True,
-        storage=MediaCloudinaryStorage(),
         help_text="Optional cover image."
     )
 

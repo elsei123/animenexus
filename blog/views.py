@@ -286,7 +286,7 @@ def signup(request):
             auth_login(request, user)
             messages.success(
                 request,
-                f"Welcome, {user.username}! Your account has been created."
+                f"Welcome aboard, {user.username}! 🚀 Your account is ready to go."
             )
             return redirect(reverse("post_list"))
     else:

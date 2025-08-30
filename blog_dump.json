@@ -1,0 +1,775 @@
+[
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Best of All Time",
+    "description": "Top Classic Anime"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Worst of All Time",
+    "description": "Worst Anime"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Best of the Year",
+    "description": "Top Anime of the Year"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Worst of the Year",
+    "description": "Worst Anime of the Year"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Upcoming Releases",
+    "description": "Anime Set to Premiere"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 6,
+  "fields": {
+    "name": "Best Movies",
+    "description": "Must-Watch Films"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 7,
+  "fields": {
+    "name": "Annual Winners",
+    "description": "Award-Winning Anime"
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 128,
+  "fields": {
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "content": "Fullmetal Alchemist: Brotherhood is often considered the pinnacle of shounen anime. The story follows the Elric brothers on a deep journey of redemption after a failed attempt at human transmutation. Beyond its intense adventure, the anime explores morality, sacrifice, and the search for the meaning of life. Each character is three-dimensional, and the balance between drama, humor, and action is flawless. I recommend it for its captivating storytelling, inspiring message, and notable technical quality that remains consistent from start to finish.",
+    "cover_image": "posts/fullmetal_WyuZgNB.jpg",
+    "created_at": "2025-05-06T19:07:53.650Z",
+    "updated_at": "2025-05-06T19:07:53.650Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 129,
+  "fields": {
+    "title": "Neon Genesis Evangelion",
+    "content": "Neon Genesis Evangelion revolutionized the mecha genre by diving into the psyche of its characters. The series is not just about giant robots but explores themes of loneliness, fear of abandonment, and the search for acceptance. Religious and philosophical symbolism permeates every episode, creating multiple layers of interpretation. The emotional claustrophobia and the tension between the pilots and the NERV organization define the experience. I recommend this anime for its bold narrative, cultural influence, and the reflection it provokes on the human condition.",
+    "cover_image": "posts/evangelion_AiJHotq.jpg",
+    "created_at": "2025-05-06T19:07:53.656Z",
+    "updated_at": "2025-05-06T19:07:53.656Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 130,
+  "fields": {
+    "title": "Monster",
+    "content": "Monster is a unique psychological thriller focused on the pursuit between Dr. Tenma and the enigmatic Johan. Instead of magic or special powers, the story is grounded in realism and moral complexity. Each secondary character is carefully constructed, adding depth to the world and the dilemmas faced. The plot questions the value of life, the weight of responsibility, and what makes us human. The slow and dense narrative rewards the viewer with an intense and unforgettable experience.",
+    "cover_image": "posts/monster_8JkRt1z.jpg",
+    "created_at": "2025-05-06T19:07:53.661Z",
+    "updated_at": "2025-05-06T19:07:53.661Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 131,
+  "fields": {
+    "title": "Gintama",
+    "content": "Gintama is the perfect mix of comedy, satire, and action. Set in a feudal Japan dominated by aliens, the series plays with genre conventions, breaks the fourth wall, and makes numerous pop culture references. But don’t be fooled: behind the nonsensical humor, there are dramatic and emotional arcs that explore loyalty, friendship, and redemption. The characters are charismatic and evolve throughout the story. Gintama surprises with its versatility, capable of making you laugh uncontrollably and cry from pure emotion.",
+    "cover_image": "posts/gintama_bh5bvnb.jpg",
+    "created_at": "2025-05-06T19:07:53.665Z",
+    "updated_at": "2025-05-06T19:07:53.665Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 132,
+  "fields": {
+    "title": "Death Note",
+    "content": "Death Note presents a gripping intellectual duel between two extraordinary minds: Light Yagami, a brilliant and ambitious high school student who comes into possession of a supernatural notebook capable of killing anyone simply by writing their name, and L, an eccentric, enigmatic detective determined to unmask and stop him.\r\n\r\nAt its core, Death Note masterfully explores complex themes about justice, morality, and the nature of power. It poses challenging questions: What exactly is justice? How far can, or should, one go in pursuit of it? These themes are intricately woven throughout the series, prompting viewers to constantly reassess their own ethical boundaries.\r\n\r\nThe relentless tension, dark and atmospheric setting, and meticulous strategic moves executed by both Light and L make every episode not just compelling, but genuinely thrilling. Each twist and turn intensifies the psychological battle, deepening the suspense and the stakes involved.\r\n\r\nThe moral conflict portrayed in Death Note—between the seductive allure of absolute power and the heavy burden of responsibility—is undoubtedly its greatest strength. The anime forces viewers to consider profound ethical dilemmas about power, justice, and human nature, making it a powerful, thought-provoking experience.\r\n\r\nI highly recommend Death Note for its captivating intensity and for the profound ethical reflections it inspires, offering insightful commentary on the depths and complexities of humanity itself.",
+    "cover_image": "posts/deathnote_AG2Vh6S.jpg",
+    "created_at": "2025-05-06T19:07:53.670Z",
+    "updated_at": "2025-05-18T20:56:43.208Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 133,
+  "fields": {
+    "title": "TheMars of Destruction",
+    "content": "Mars of Destruction is an amateur production that unfortunately falls short in several key areas. The plot is confusing and difficult to follow, making it challenging for viewers to stay engaged with the story. The animation quality is notably poor, reflecting the limited resources and planning behind the project. Additionally, the characters are underdeveloped, which prevents the audience from forming any meaningful connections with them. The series lacks any redeeming qualities, leaving little to captivate or retain the viewer's interest. Overall, Mars of Destruction fails to deliver the elements that make an anime memorable and enjoyable.",
+    "cover_image": "posts/mars_vAsLdPF.jpg",
+    "created_at": "2025-05-06T19:07:53.674Z",
+    "updated_at": "2025-05-06T19:07:53.674Z",
+    "published_at": null,
+    "author": 2,
+    "category": 2,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 134,
+  "fields": {
+    "title": "Skelter+Heaven",
+    "content": "Skelter+Heaven suffers from many of the same issues as Mars of Destruction, particularly weak animation and a nonsensical storyline. The visual quality is subpar, with scenes appearing poorly animated and inconsistent in style. The narrative is muddled and lacks clear development, making it hard to grasp the overall premise or follow the plot's progression. Moreover, the characters lack depth, preventing viewers from becoming invested in their journeys. The absence of a strong, coherent narrative direction makes Skelter+Heaven a frustrating experience for those seeking a well-crafted anime.",
+    "cover_image": "posts/skelter_auQwOB6.jpg",
+    "created_at": "2025-05-06T19:07:53.679Z",
+    "updated_at": "2025-05-06T19:07:53.679Z",
+    "published_at": null,
+    "author": 2,
+    "category": 2,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 135,
+  "fields": {
+    "title": "Pupa",
+    "content": "Pupa offers an intriguing premise that blends elements of horror and family drama, but its execution leaves much to be desired. The episodes are notably short, limiting the ability to develop the story and characters adequately. Additionally, excessive censorship detracts from the intended emotional intensity and immersion, undermining the series' impact. While the animation has its competent moments, it cannot compensate for the narrative shortcomings. As a result, Pupa fails to fully realize its potential, leaving viewers disappointed despite its interesting concept.",
+    "cover_image": "posts/pupa_T3lBLod.jpg",
+    "created_at": "2025-05-06T19:07:53.683Z",
+    "updated_at": "2025-05-06T19:07:53.683Z",
+    "published_at": null,
+    "author": 2,
+    "category": 2,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 136,
+  "fields": {
+    "title": "Eiken",
+    "content": "Eiken is notorious for its overabundance of pointless fanservice, which overshadows any attempt at crafting an engaging story. The series is filled with sexually suggestive scenes that can alienate viewers looking for a more substantial narrative. Beyond the fanservice, the storyline itself is lackluster, offering little in terms of conflict or character development. This combination makes Eiken an embarrassing entry in the anime genre, as it struggles to balance visual entertainment with meaningful content. Ultimately, Eiken fails to provide a satisfying experience for audiences seeking quality storytelling.",
+    "cover_image": "posts/eiken_zcJb2tu.jpg",
+    "created_at": "2025-05-06T19:07:53.688Z",
+    "updated_at": "2025-05-06T19:07:53.688Z",
+    "published_at": null,
+    "author": 2,
+    "category": 2,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 137,
+  "fields": {
+    "title": "Vampire Holmes",
+    "content": "Vampire Holmes promised a captivating blend of mystery and vampire lore but ends up delivering a tedious and confusing experience. The plot is poorly structured, with numerous loose ends that never come together cohesively. Characters, including the protagonist, are superficial and fail to evoke any genuine interest or empathy from the audience. While the animation is competent, it cannot salvage the disorganized narrative. Additionally, the mysteries introduced are not sufficiently developed, making the series predictable and unengaging. Vampire Holmes does not meet expectations, resulting in a lackluster and forgettable anime.",
+    "cover_image": "posts/holmes_5KSmmHn.jpg",
+    "created_at": "2025-05-06T19:07:53.703Z",
+    "updated_at": "2025-05-06T19:07:53.704Z",
+    "published_at": null,
+    "author": 2,
+    "category": 2,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 138,
+  "fields": {
+    "title": "Jujutsu Kaisen Season 3",
+    "content": "Jujutsu Kaisen Season 3 continues the series with its trademark intense battles and profound character development. This season delves deeper into the intricate world of jujutsu sorcery, introducing new antagonists and expanding on the lore that fans have come to love. The animation quality remains exceptional, with fluid motion and vibrant visuals that bring every fight scene to life. Character arcs are further explored, allowing viewers to connect more deeply with their motivations and backstories. Additionally, the storytelling balances dark themes with moments of humor and camaraderie, maintaining the series' dynamic pacing. Overall, Season 3 solidifies Jujutsu Kaisen as a standout in the shonen genre, offering both excitement and emotional depth.",
+    "cover_image": "posts/jujutsu_iPxRER1.jpg",
+    "created_at": "2025-05-06T19:07:53.709Z",
+    "updated_at": "2025-05-06T19:07:53.709Z",
+    "published_at": null,
+    "author": 2,
+    "category": 3,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 139,
+  "fields": {
+    "title": "Solo Leveling",
+    "content": "Solo Leveling is a captivating adaptation of the popular webtoon, faithfully translating its engaging storyline to the screen. The series follows Sung Jin-Woo, the weakest hunter who gains the unique ability to level up independently, making his power progression highly addictive to watch. The animation effectively portrays intense battles and the protagonist's growth, maintaining a high level of excitement throughout the series. Character development is well-executed, showcasing Jin-Woo's transformation from a struggling hunter to a formidable force. Additionally, the world-building is intricate, providing a rich backdrop for the action-packed narrative. Solo Leveling successfully captures the essence of the webtoon, making it a must-watch for fans of the genre.",
+    "cover_image": "posts/sololeveling_zqgMwIr.jpg",
+    "created_at": "2025-05-06T19:07:53.714Z",
+    "updated_at": "2025-05-06T19:07:53.714Z",
+    "published_at": null,
+    "author": 2,
+    "category": 3,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 140,
+  "fields": {
+    "title": "Chainsaw Man Season 2",
+    "content": "Chainsaw Man Season 2 continues to deliver its unique blend of insanity, originality, and brutality, further expanding its bizarre universe. The season delves deeper into the complex relationships between characters and introduces new, intriguing personalities that add depth to the storyline. The animation remains stunning, with dynamic action sequences that are both brutal and visually captivating. The narrative explores darker themes while maintaining a sense of dark humor, staying true to the series' distinctive tone. As the universe expands, viewers are treated to unexpected plot twists and creative world-building that keep the story fresh and engaging. Overall, Season 2 enhances the Chainsaw Man experience, making it a must-watch for fans of unconventional anime.",
+    "cover_image": "posts/chainsaw2_B4k6BTj.jpg",
+    "created_at": "2025-05-06T19:07:53.718Z",
+    "updated_at": "2025-05-06T19:07:53.718Z",
+    "published_at": null,
+    "author": 2,
+    "category": 3,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 141,
+  "fields": {
+    "title": "Vinland Saga Season 3",
+    "content": "Vinland Saga Season 3 continues to explore profound themes of peace and redemption, maturing with each new installment. The season delves into the characters' internal struggles and their quests for personal and societal reconciliation. The historical setting is meticulously crafted, providing an authentic backdrop for the intricate political and emotional narratives. Character development is at the forefront, with protagonists and antagonists alike facing moral dilemmas that add layers to their personalities. The animation quality remains high, capturing the gritty and realistic tone of the series. Vinland Saga Season 3 solidifies its place as a thoughtful and emotionally resonant epic, appealing to viewers seeking depth and complexity in their anime.",
+    "cover_image": "posts/vinland3_bF9Rl7N.jpg",
+    "created_at": "2025-05-06T19:07:53.722Z",
+    "updated_at": "2025-05-06T19:07:53.722Z",
+    "published_at": null,
+    "author": 2,
+    "category": 3,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 142,
+  "fields": {
+    "title": "Spy x Family Season 2",
+    "content": "Spy x Family Season 2 continues to charm audiences with its perfect blend of humor, action, and the heartfelt dynamics of the most beloved fake family in anime. The season further develops the unique relationships between the Forger family members, highlighting their individual strengths and vulnerabilities. The action sequences are thrilling and well-paced, seamlessly integrating with the comedic and emotional moments. The animation is vibrant and expressive, bringing the characters' personalities to life with great detail. The narrative balances espionage missions with everyday family life, creating a harmonious mix that keeps the story engaging. Spy x Family Season 2 is a delightful continuation that captures the essence of what makes the series so endearing to fans.",
+    "cover_image": "posts/spyxfamily2_YJbt1zo.jpg",
+    "created_at": "2025-05-06T19:07:53.728Z",
+    "updated_at": "2025-05-06T19:07:53.728Z",
+    "published_at": null,
+    "author": 2,
+    "category": 3,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 143,
+  "fields": {
+    "title": "Zombie Idol Fever",
+    "content": "Zombie Idol Fever attempts to blend the unconventional concept of zombie-themed idols but fails to execute it effectively. The animation quality is subpar, with stiff movements and poorly designed characters that detract from the overall viewing experience. The storyline lacks coherence, making it difficult to follow the motivations and development of the zombie idols. Additionally, the series struggles with pacing, often dragging scenes that should be dynamic and engaging. The humor and intended charm of the idol genre are lost amidst the disjointed narrative. As a result, Zombie Idol Fever fails to deliver on its unique premise, leaving viewers disappointed and uninterested.",
+    "cover_image": "posts/zombieidol_6JzNBL5.jpg",
+    "created_at": "2025-05-06T19:07:53.732Z",
+    "updated_at": "2025-05-06T19:07:53.732Z",
+    "published_at": null,
+    "author": 2,
+    "category": 4,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 144,
+  "fields": {
+    "title": "Love in the Outer Dimensions",
+    "content": "Love in the Outer Dimensions presents a space romance that unfortunately becomes tedious due to its forced dialogue and lackluster storytelling. The romantic elements feel unnatural and contrived, preventing the audience from forming a genuine emotional connection with the characters. The setting, while initially promising, does not receive the depth and exploration needed to make the space backdrop feel immersive and integral to the plot. Additionally, the animation falls short in portraying the vastness and beauty of outer space, making the environment feel flat and uninspiring. The pacing is uneven, with slow-moving plot points that fail to build tension or interest. Overall, Love in the Outer Dimensions struggles to maintain engagement, resulting in a monotonous and unremarkable romantic saga.",
+    "cover_image": "posts/loveouter_BUjvDv4.jpg",
+    "created_at": "2025-05-06T19:07:53.736Z",
+    "updated_at": "2025-05-06T19:07:53.736Z",
+    "published_at": null,
+    "author": 2,
+    "category": 4,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 145,
+  "fields": {
+    "title": "Kitten Warriors",
+    "content": "Kitten Warriors features adorable warrior cats with the potential to be both cute and action-packed, but the execution falls short due to poor animation and underdeveloped characters. The animation quality is lacking, with choppy movements and simplistic designs that fail to bring the warrior kittens to life. The story does not provide enough depth or background, making the characters' motivations and adventures feel superficial. Additionally, the pacing is inconsistent, with action sequences that lack excitement and dramatic tension. The intended childlike charm is overshadowed by the lack of creativity and effort put into the series. Kitten Warriors could have been an endearing and entertaining show but instead ends up being a disappointing portrayal of what could have been a delightful concept.",
+    "cover_image": "posts/kitten_xTNd4mX.jpg",
+    "created_at": "2025-05-06T19:07:53.740Z",
+    "updated_at": "2025-05-06T19:07:53.740Z",
+    "published_at": null,
+    "author": 2,
+    "category": 4,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 146,
+  "fields": {
+    "title": "Cyber Fairyland",
+    "content": "Cyber Fairyland attempts to merge cyberpunk aesthetics with fairy tale elements, but the combination lacks cohesion and fails to create a compelling narrative. The visual style is inconsistent, making it difficult to establish a clear and engaging world for the story to unfold. The plot promises innovation by blending two distinct genres, but the execution results in a disjointed and uninteresting storyline. Character development is sparse, leaving the protagonists and antagonists feeling flat and unremarkable. Additionally, the pacing is slow, with little to no tension or excitement to keep viewers invested. Instead of delivering a fresh and imaginative experience, Cyber Fairyland ends up being a boring and uninspired series that does not live up to its potential.",
+    "cover_image": "posts/cyberfairyland_62ol3u5.jpg",
+    "created_at": "2025-05-06T19:07:53.746Z",
+    "updated_at": "2025-05-06T19:07:53.746Z",
+    "published_at": null,
+    "author": 2,
+    "category": 4,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 147,
+  "fields": {
+    "title": "Attack on Titan: A New Era",
+    "content": "Attack on Titan: A New Era launches a fresh saga set after the conclusion of the original series. Fans can anticipate the continuation of the intense tension that 'Attack on Titan' is renowned for, introducing new threats and challenges for the protagonists to overcome. The animation is expected to uphold the high visual standards that have made the series so acclaimed, with dynamic battle scenes and intricate world-building. This new era will delve deeper into the aftermath of the original storyline, exploring the socio-political changes and the lingering effects of the Titan conflict. Character development remains a focal point, providing insights into the survivors' struggles and growth as they navigate a transformed world. With high expectations, 'Attack on Titan: A New Era' aims to revitalize the franchise and keep audiences engaged with its compelling narrative and stunning visuals.",
+    "cover_image": "posts/aot_newera_Ac9hA6Y.jpg",
+    "created_at": "2025-05-06T19:07:53.750Z",
+    "updated_at": "2025-05-06T19:07:53.750Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 148,
+  "fields": {
+    "title": "Demon Slayer: Pillar Chronicles",
+    "content": "Demon Slayer: Pillar Chronicles shifts the spotlight to the Hashira, the elite warriors of the Demon Slayer Corps, before the events of the main storyline. This spin-off promises a deeper exploration of the characters who have captivated fans with their strength and dedication. Each episode is expected to delve into the backstories of individual Hashira, revealing their origins, motivations, and the personal battles that shaped them into formidable demon slayers. The animation continues to deliver the high-quality visuals and fluid action sequences that the franchise is known for, enhancing the storytelling with breathtaking fight scenes and emotional moments. By focusing on the Hashira's past, the series aims to enrich the overall lore of 'Demon Slayer,' providing fans with a more comprehensive understanding of the characters and the world they inhabit. 'Pillar Chronicles' is set to deepen the connection between the audience and their favorite warriors, adding layers of depth to an already beloved series.",
+    "cover_image": "posts/ds_pillar_23NRUT9.jpg",
+    "created_at": "2025-05-06T19:07:53.755Z",
+    "updated_at": "2025-05-06T19:07:53.755Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 149,
+  "fields": {
+    "title": "My Hero Academia: Final Arc",
+    "content": "My Hero Academia: Final Arc marks the epic conclusion to Deku's journey and the overarching narrative of the series. Fans can expect a grand finale that resolves the major conflicts and challenges faced by the heroes. This final arc is anticipated to feature intense battles, strategic confrontations, and emotional resolutions as Deku and his classmates strive to achieve their ultimate goals. The animation is set to maintain the vibrant and dynamic style that has become synonymous with 'My Hero Academia,' ensuring that every fight and heroic moment is depicted with flair and excitement. Character development will reach its peak, showcasing the growth and evolution of the protagonists as they confront their greatest adversaries. Themes of legacy, sacrifice, and the true meaning of heroism are expected to be prominently explored, providing a satisfying and impactful conclusion to the beloved series. 'My Hero Academia: Final Arc' aims to leave a lasting impression, celebrating the journey of its characters and the enduring spirit of heroism.",
+    "cover_image": "posts/mha_final_j41sw9f.jpg",
+    "created_at": "2025-05-06T19:07:53.759Z",
+    "updated_at": "2025-05-06T19:07:53.759Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 150,
+  "fields": {
+    "title": "One Punch Man Season 3",
+    "content": "One Punch Man Season 3 continues to deliver the franchise's signature blend of over-the-top battles and nuanced character development. Fans can look forward to even more insane and visually spectacular fight scenes as Saitama faces new and formidable opponents. This season is expected to delve deeper into the backgrounds and motivations of both heroes and villains, adding layers of complexity to the narrative. The animation maintains its high energy and fluidity, enhancing the comedic and action-packed moments that define the series. Additionally, new characters are likely to be introduced, bringing fresh dynamics and challenges to the existing roster. 'One Punch Man Season 3' aims to balance humor with serious storytelling, ensuring that the series remains as engaging and entertaining as ever. With continued character growth and exhilarating battles, this season promises to keep fans on the edge of their seats.",
+    "cover_image": "posts/opm_s3_EShYu2t.jpg",
+    "created_at": "2025-05-06T19:07:53.764Z",
+    "updated_at": "2025-05-06T19:07:53.764Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 151,
+  "fields": {
+    "title": "Haikyuu!! Next Generation",
+    "content": "Haikyuu!! Next Generation introduces a new cohort of volleyball players while preserving the spirited and competitive essence of the original series. The storyline follows young athletes aspiring to reach the pinnacle of high school volleyball, facing various challenges both on and off the court. The animation continues to excel in capturing the intensity and dynamism of volleyball matches, with detailed and realistic movements that bring the sport to life. Character development is a key focus, showcasing the personal growth, teamwork, and perseverance of the new generation of players. The series maintains the inspirational and heartwarming themes that made 'Haikyuu!!' a favorite among fans, emphasizing friendship, determination, and the love of the game. 'Haikyuu!! Next Generation' aims to attract both longtime enthusiasts and new viewers by blending familiar elements with fresh narratives and characters. This continuation promises to deliver the same high-energy and emotionally resonant storytelling that defines the 'Haikyuu!!' experience.",
+    "cover_image": "posts/haikyuu_next_hEopo3j.jpg",
+    "created_at": "2025-05-06T19:07:53.769Z",
+    "updated_at": "2025-05-06T19:07:53.769Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 152,
+  "fields": {
+    "title": "Mushoku Tensei Season 3",
+    "content": "Mushoku Tensei Season 3 continues the high-quality isekai adventure, focusing on Rudeus' growth and his journey through a richly crafted magical world. This season delves deeper into Rudeus' personal development, exploring his abilities, relationships, and the challenges he faces in a fantastical setting. The animation remains top-notch, featuring intricate designs and fluid motion that enhance the immersive experience of the magical realm. The narrative expands the lore of 'Mushoku Tensei,' introducing new regions, cultures, and mystical elements that enrich the story. Character interactions and dynamics are further explored, providing a deeper understanding of Rudeus and the people around him. Additionally, new plotlines and conflicts emerge, driving the story forward and keeping viewers engaged with ongoing adventures and emotional arcs. 'Mushoku Tensei Season 3' promises to continue delivering a captivating and enchanting isekai experience for its dedicated fanbase.",
+    "cover_image": "posts/mushoku3_ORdPePb.jpg",
+    "created_at": "2025-05-06T19:07:53.773Z",
+    "updated_at": "2025-05-06T19:07:53.773Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 153,
+  "fields": {
+    "title": "Tokyo Revengers: The Final Time Leap",
+    "content": "'Tokyo Revengers: The Final Time Leap' aims to provide a coherent and satisfying conclusion to the time-travel saga that has captivated audiences. This final installment seeks to tie up all loose ends, resolving the intricate plotlines and character arcs that have been developed throughout the series. The animation continues to deliver intense and emotionally charged scenes, maintaining the high pace and dramatic flair that fans have come to expect. The narrative focuses on bringing closure to the protagonists' struggles, addressing the consequences of their actions across different timelines. Themes of redemption, friendship, and the impact of choices are expected to be prominently featured, providing a meaningful and impactful resolution. 'The Final Time Leap' strives to deliver a memorable and fulfilling end to the 'Tokyo Revengers' story, ensuring that fans leave with a sense of completion and satisfaction.",
+    "cover_image": "posts/tokyorev_final_BhmVqVv.jpg",
+    "created_at": "2025-05-06T19:07:53.779Z",
+    "updated_at": "2025-05-06T19:07:53.779Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 154,
+  "fields": {
+    "title": "Chainsaw Man Season 3",
+    "content": "'Chainsaw Man Season 3' expands the manga's already insane and captivating universe, introducing new threats and deepening the existing lore. This season continues to blend horror, action, and supernatural elements in a unique and engaging manner. The animation remains visually striking, with creative and intense fight sequences that highlight the series' distinctive style. New characters are introduced, adding complexity and fresh dynamics to the storyline, while returning characters receive further development and exploration of their backgrounds. The narrative delves into darker and more intricate plotlines, maintaining the frenetic and unpredictable tone that fans adore. Themes of power, identity, and survival are explored with depth and nuance, providing a rich and immersive viewing experience. 'Chainsaw Man Season 3' promises to elevate the series by pushing the boundaries of its bizarre and thrilling universe, keeping audiences hooked with every episode.",
+    "cover_image": "posts/chainsaw3_HFVFVno.jpg",
+    "created_at": "2025-05-06T19:07:53.783Z",
+    "updated_at": "2025-05-06T19:07:53.783Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 155,
+  "fields": {
+    "title": "Jujutsu Kaisen: Ancients",
+    "content": "'Jujutsu Kaisen: Ancients' delves into the history of sorcerers from the past, significantly expanding the series' rich lore. This season explores the origins of jujutsu techniques and the lives of the early sorcerers, providing a deeper context for the current events and characters in the main series. The animation continues to impress with its detailed and fluid portrayal of supernatural battles and mystical settings. The narrative weaves together elements of mystery and adventure, uncovering ancient secrets that have long influenced the world of 'Jujutsu Kaisen.' Character development is emphasized, offering insights into the motivations and struggles of historical figures and their impact on the present-day sorcerers. 'Ancients' enriches the overall storyline by connecting past and present, enhancing the complexity and depth of the series. Fans can expect a captivating exploration of the foundational aspects of jujutsu, adding new dimensions to an already beloved anime.",
+    "cover_image": "posts/jjk_ancients_wchKbZO.jpg",
+    "created_at": "2025-05-06T19:07:53.789Z",
+    "updated_at": "2025-05-06T19:07:53.789Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 156,
+  "fields": {
+    "title": "Sword Art Online: New Frontier",
+    "content": "'Sword Art Online: New Frontier' ushers in a new era for the beloved franchise, focusing on an innovative VRMMO experience. This season aims to bring freshness to the series by introducing new game mechanics, immersive worlds, and advanced technology that push the boundaries of virtual reality storytelling. The animation continues to deliver high-quality visuals, with detailed environments and dynamic action sequences that enhance the sense of immersion. The narrative introduces new characters and challenges, while maintaining connections to the original storyline, creating a seamless blend of old and new elements. Themes of technology, friendship, and survival are explored in depth, providing both new and returning fans with engaging and thought-provoking content. 'New Frontier' strives to expand the 'Sword Art Online' universe, offering exciting adventures and emotional journeys that keep the spirit of the original series alive. With its promise of innovation and captivating storytelling, this new frontier aims to elevate the franchise to new heights.",
+    "cover_image": "posts/sao_newfrontier_6WauiLW.jpg",
+    "created_at": "2025-05-06T19:07:53.804Z",
+    "updated_at": "2025-05-06T19:07:53.804Z",
+    "published_at": null,
+    "author": 2,
+    "category": 5,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 157,
+  "fields": {
+    "title": "Your Name",
+    "content": "Your Name is a poignant story of love that transcends time and space, beautifully brought to life with impeccable animation.\r\n\r\n Directed by Makoto Shinkai, the film follows the intertwined lives of Taki and Mitsuha, two teenagers who inexplicably begin to swap bodies intermittently.\r\n\r\n This unique premise explores themes of connection, fate, and the enduring power of love.\r\n\r\n The animation is nothing short of stunning, with vibrant colors and meticulously crafted backgrounds that enhance the emotional depth of the narrative.\r\n\r\n The seamless blend of traditional animation with CGI elements creates visually mesmerizing sequences that captivate audiences.\r\n\r\n The soundtrack, composed by RADWIMPS, perfectly complements the film’s emotional beats, adding layers of intensity and poignancy.\r\n\r\n Your Name masterfully balances a heartfelt romance with elements of mystery and fantasy, making it a universally relatable and emotionally impactful cinematic experience.",
+    "cover_image": "posts/yourname_51UQH53.jpg",
+    "created_at": "2025-05-06T19:07:53.809Z",
+    "updated_at": "2025-05-18T20:44:48.762Z",
+    "published_at": null,
+    "author": 2,
+    "category": 6,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 158,
+  "fields": {
+    "title": "Spirited Away",
+    "content": "Spirited Away stands as Studio Ghibli's masterpiece, immersing viewers in a magical world rich with symbolism and metaphors.\r\n\r\n Directed by Hayao Miyazaki, the film tells the enchanting tale of Chihiro, a young girl who becomes trapped in a mysterious and otherworldly bathhouse inhabited by spirits and magical creatures.\r\n\r\n As Chihiro navigates this fantastical realm, she undergoes a profound journey of self-discovery, resilience, and courage.\r\n\r\n The animation is exquisite, showcasing Studio Ghibli’s signature attention to detail and imaginative character designs that bring the spirit world to life.\r\n\r\n The narrative is layered with themes of environmentalism, consumerism, and the loss of innocence, making it a deeply thought-provoking experience.\r\n\r\n The film’s rich storytelling and emotional depth resonate with audiences of all ages, solidifying Spirited Away as a timeless classic that continues to inspire and captivate.",
+    "cover_image": "posts/chihiro_wcY1LBq.jpg",
+    "created_at": "2025-05-06T19:07:53.814Z",
+    "updated_at": "2025-05-18T20:43:32.164Z",
+    "published_at": null,
+    "author": 2,
+    "category": 6,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 159,
+  "fields": {
+    "title": "A Silent Voice",
+    "content": "A Silent Voice is an emotionally powerful film that delves into the complex themes of bullying, redemption, and acceptance.\r\n\r\n Directed by Naoko Yamada and based on the manga by Yoshitoki Ōima, the story centers around Shōya Ishida, a former bully who seeks to make amends with Shōko Nishimiya, a deaf girl he tormented during their childhood.\r\n\r\n The film sensitively portrays the struggles of both characters as they navigate their past traumas and strive for forgiveness and understanding.\r\n\r\n The animation effectively captures the nuanced emotions of the characters, using subtle visual cues and expressive character designs to convey their internal conflicts.\r\n\r\n The soundtrack complements the narrative beautifully, enhancing the film’s emotional resonance.\r\n\r\n A Silent Voice is a heartfelt exploration of the consequences of bullying and the importance of empathy and reconciliation, offering a moving and thought-provoking viewing experience.",
+    "cover_image": "posts/vozsilencio_Vlzrnvn.jpg",
+    "created_at": "2025-05-06T19:07:53.834Z",
+    "updated_at": "2025-05-18T20:42:21.582Z",
+    "published_at": null,
+    "author": 2,
+    "category": 6,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 160,
+  "fields": {
+    "title": "Your Lie in April: The Movie",
+    "content": "Your Lie in April: The Movie serves as a faithful adaptation of the beloved musical drama series, delivering an emotionally impactful continuation of the story.\r\n\r\n The film follows Kōsei Arima, a prodigious pianist who has lost his ability to hear the sound of his piano after his mother's death.\r\n\r\n His life takes a transformative turn when he meets Kaori Miyazono, a spirited violinist whose free-spirited approach to music reignites his passion for playing.\r\n\r\n The movie retains the series stunning animation, with beautifully rendered musical performances that capture the intensity and emotion of each piece.\r\n\r\n The character development is handled with care, deepening the viewers connection to Kōsei and Kaori as they navigate love, loss, and personal growth.\r\n\r\n The soundtrack, featuring classical and original compositions, plays a pivotal role in conveying the characters emotions and the overarching themes of hope and resilience.\r\n\r\n Your Lie in April: The Movie successfully encapsulates the essence of the series, offering a poignant and memorable cinematic experience.",
+    "cover_image": "posts/yourlie_Z8hlVOh.jpg",
+    "created_at": "2025-05-06T19:07:53.839Z",
+    "updated_at": "2025-05-18T20:40:27.517Z",
+    "published_at": null,
+    "author": 2,
+    "category": 6,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 161,
+  "fields": {
+    "title": "Made in Abyss: Dawn of the Deep Soul",
+    "content": "Made in Abyss: Dawn of the Deep Soul takes viewers on a dark and mesmerizing journey through the enigmatic Abyss, showcasing stunning visuals that both shock and enchant.\r\n\r\n Directed by Masayuki Kojima and produced by Kinema Citrus, the film continues the adventures of Riko, Reg, and Nanachi as they delve deeper into the mysterious and perilous Abyss in search of answers and survival.\r\n\r\n The animation is breathtaking, with meticulously detailed environments that highlight the Abyss's otherworldly beauty and hidden dangers.\r\n\r\n The film masterfully balances moments of awe-inspiring wonder with intense and harrowing sequences, creating a gripping and immersive experience.\r\n\r\n The narrative explores themes of exploration, sacrifice, and the unyielding human spirit, adding depth to the characters' motivations and the overarching lore of the Abyss.\r\n\r\n Made in Abyss: Dawn of the Deep Soul is a testament to the series' ability to blend dark fantasy with emotional storytelling, making it a standout addition to the franchise.",
+    "cover_image": "posts/madeinabyss_wojPaY6.jpg",
+    "created_at": "2025-05-06T19:07:53.844Z",
+    "updated_at": "2025-05-18T20:35:41.854Z",
+    "published_at": null,
+    "author": 2,
+    "category": 6,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 162,
+  "fields": {
+    "title": "Jujutsu Kaisen (2020)",
+    "content": "Jujutsu Kaisen made a remarkable debut in 2020, quickly establishing itself as a standout series in the shonen genre.\r\n\r\n The anime captivates audiences with its fluid and dynamic action sequences, showcasing expertly choreographed battles that are both visually stunning and strategically engaging.\r\n\r\n The characters are imbued with charisma, each bringing a unique personality and depth that resonates with viewers.\r\n\r\n The story delves into the world of curses and sorcery, blending traditional supernatural elements with fresh, innovative twists.\r\n\r\n The animation quality is consistently high, with detailed backgrounds and smooth motion that enhance the overall viewing experience.\r\n\r\n Jujutsu Kaisen successfully balances intense action with moments of humor and emotional depth, making it a compelling and impactful series that continues to garner widespread acclaim.",
+    "cover_image": "covers/jujutsu202.jpg",
+    "created_at": "2025-05-06T19:07:53.850Z",
+    "updated_at": "2025-08-26T22:50:18.746Z",
+    "published_at": null,
+    "author": 2,
+    "category": 7,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 163,
+  "fields": {
+    "title": "Attack on Titan: The Final Season Part 1 (2021)",
+    "content": "Attack on Titan: The Final Season Part 1 delivered a powerful culmination to the long-running series, emphasizing political tension and high technical quality.\r\n\r\n The season delves deeper into the complex socio-political dynamics between different factions, adding layers of intrigue and strategic maneuvering that elevate the narrative.\r\n\r\n The animation remains top-tier, with meticulously detailed scenes that bring the intense battles and dramatic moments to life with breathtaking realism.\r\n\r\n Character development is profound, as key figures undergo significant transformations and confront their inner conflicts.\r\n\r\n The storytelling is masterfully paced, balancing action-packed sequences with thoughtful dialogue and emotional resonance.\r\n\r\n Attack on Titan: The Final Season Part 1 sets a high bar for the concluding chapters, promising a gripping and unforgettable finale for fans.",
+    "cover_image": "posts/aot2021_ka4TyoK.jpg",
+    "created_at": "2025-05-06T19:07:53.855Z",
+    "updated_at": "2025-05-18T20:32:19.735Z",
+    "published_at": null,
+    "author": 2,
+    "category": 7,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 164,
+  "fields": {
+    "title": "Cyberpunk: Edgerunners (2022)",
+    "content": "Cyberpunk: Edgerunners stands out as a stylish and emotionally charged adaptation inspired by the iconic video game.\r\n\r\n Set in the vibrant and dystopian world of Night City, the series follows the journey of a young street kid who becomes an edgerunner, a mercenary outlaw, seeking survival and purpose.\r\n\r\n The animation is visually stunning, with a neon-soaked aesthetic that perfectly captures the cyberpunk atmosphere.\r\n\r\n The storytelling is both heartfelt and intense, exploring themes of ambition, identity, and the human cost of technological advancement.\r\n\r\n The characters are well-developed, each with their own compelling backstories and motivations that add depth to the narrative.\r\n\r\n Cyberpunk: Edgerunners successfully translates the essence of the game into a captivating anime experience, balancing action with emotional storytelling to create a memorable and impactful series.",
+    "cover_image": "posts/edgerunners2022_6YCmwGW.jpg",
+    "created_at": "2025-05-06T19:07:53.861Z",
+    "updated_at": "2025-05-18T20:31:15.933Z",
+    "published_at": null,
+    "author": 2,
+    "category": 7,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 165,
+  "fields": {
+    "title": "Oshi no Ko (2023)",
+    "content": "Oshi no Ko presents a gripping narrative that intertwines drama, mystery, and a critical look at the entertainment industry. \r\n\r\n The story follows the lives of idols and their struggles behind the glamorous facade, delving into the darker aspects of fame and the pressures faced by those in the spotlight. \r\n\r\n The animation is beautifully crafted, with expressive character designs and detailed settings that enhance the storytelling. \r\n\r\n The plot is intricately woven, keeping viewers engaged with its twists and turns as it unravels the mysteries surrounding the characters' lives. \r\n\r\n Themes of ambition, sacrifice, and the quest for authenticity are explored with nuance, offering a thought-provoking critique of the entertainment world. \r\n\r\n Oshi no Ko stands out for its mature and layered approach, making it a compelling watch for those interested in character-driven dramas.",
+    "cover_image": "posts/oshinoko2023_Qfk68d2.jpg",
+    "created_at": "2025-05-06T19:07:53.868Z",
+    "updated_at": "2025-05-18T20:30:03.050Z",
+    "published_at": null,
+    "author": 2,
+    "category": 7,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 166,
+  "fields": {
+    "title": "Solo Leveling (2024)",
+    "content": "Solo Leveling arrived in 2024 as a highly anticipated adaptation of the popular webtoon, living up to the immense hype surrounding it. \r\n \r\n The series follows Sung Jin-Woo, the weakest hunter who gains the unique ability to level up independently, transforming him into an unstoppable force. \r\n\r\n The animation is exceptional, capturing the intense and dynamic battles with fluid motion and stunning visual effects that bring the action-packed scenes to life. \r\n \r\n Character development is robust, showcasing Jin-Woo's growth from a struggling hunter to a formidable hero, along with the evolution of supporting characters who add depth to the story.\r\n \r\n The world-building is comprehensive, with a richly detailed universe that expands the lore of the original webtoon.\r\n \r\n Solo Leveling effectively balances thrilling action with engaging storytelling, making it a standout addition to the action-fantasy genre and a must-watch for fans of the source material.",
+    "cover_image": "covers/sololeveling2024_lXAnTay_y0MHJm5.jpg",
+    "created_at": "2025-05-06T19:07:53.872Z",
+    "updated_at": "2025-08-21T17:50:01.653Z",
+    "published_at": null,
+    "author": 2,
+    "category": 7,
+    "featured": false
+  }
+},
+{
+  "model": "blog.post",
+  "pk": 167,
+  "fields": {
+    "title": "One Piece",
+    "content": "Hello, anime fans! Today, let's dive into the vast ocean of one of the most beloved and iconic anime and manga series of all time: One Piece.\r\n\r\n Created by Eiichiro Oda, the manga debuted in 1997, and its anime adaptation began airing in 1999.\r\n\r\nThis means that One Piece has been captivating generations for over two decades, becoming a true cultural phenomenon.\r\n\r\nThe story follows Monkey D. Luffy, an enthusiastic young pirate whose body gains rubber-like properties after accidentally eating a mysterious Devil Fruit.\r\n\r\n With dreams of becoming the Pirate King, Luffy embarks on an epic journey across the dangerous Grand Line.\r\n\r\n Alongside his diverse crew, the Straw Hat Pirates, he explores exotic islands, battles formidable enemies, and uncovers profound secrets, including the legendary treasure known as the \"One Piece.\"\r\n\r\nThe strength of One Piece lies in its unique and well-developed characters.\r\n Here are the main members of Luffy’s crew:\r\n\r\nMonkey D. Luffy: Captain, dreams of becoming the Pirate King.\r\n\r\nRoronoa Zoro: Swordsman and first mate, known for his determination.\r\n\r\nNami: Navigator, an expert in meteorology and maps.\r\n\r\nUsopp: Marksman, inventor, and creative storyteller.\r\n\r\nSanji: Talented cook and expert in martial arts focused on kicks.\r\n\r\nTony Tony Chopper: Doctor, a reindeer with human abilities thanks to a Devil Fruit.\r\n\r\nNico Robin: Archaeologist, specializing in ancient history.\r\n\r\nFranky: Shipwright and naval engineer, responsible for ship maintenance and construction.\r\n\r\nBrook: Musician and swordsman, a living skeleton thanks to another Devil Fruit.\r\n\r\nJinbe: Helmsman, expert in maritime navigation and aquatic martial arts.\r\n\r\nThemes, Social Criticism, and Impact\r\n\r\nOne Piece isn't just entertainment; the anime tackles profound social criticisms about inequality, social injustice, prejudice, governmental corruption, and the fight for freedom and individual rights. \r\n\r\nOda frequently uses the pirate universe to reflect real societal issues, creating a narrative that encourages critical reflection.\r\n\r\nAnimation and Recommendations\r\n\r\nFor new viewers, it's worth noting that the animation quality in the first 200 episodes is older and might feel outdated compared to current standards. \r\n\r\n However, from around episode 200, particularly with the Water 7 and Enies Lobby arcs, the animation quality significantly improves, becoming smoother and more detailed as the series progresses.\r\n\r\nCurrently, One Piece has over 1,000 episodes, which can be daunting for newcomers.\r\n\r\n A good strategy is to watch about 5 to 10 episodes per week, making the experience manageable and allowing you to follow comfortably without rushing.\r\n\r\nConclusion\r\nOne Piece continues to be an extraordinary journey that resonates with both new and longtime fans. \r\n\r\nIt’s more than just an anime; it's an exploration of life itself, filled with adventure, social criticism, and valuable lessons.\r\n\r\n Set sail today and join Luffy and his crew on their quest to conquer the Grand Line!\r\n\r\nWhat do you think of One Piece? Do you have favorite episodes or characters you particularly enjoy? Share your thoughts in the comments!",
+    "cover_image": "covers/onepiece.jpg",
+    "created_at": "2025-05-14T16:39:33.581Z",
+    "updated_at": "2025-08-21T17:44:23.496Z",
+    "published_at": null,
+    "author": 2,
+    "category": 1,
+    "featured": false
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 1,
+  "fields": {
+    "post": 153,
+    "user": 3,
+    "body": "jhujkj",
+    "approved": false,
+    "created_at": "2025-05-06T19:14:29.215Z",
+    "updated_at": "2025-08-13T20:48:25.866Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 2,
+  "fields": {
+    "post": 167,
+    "user": 4,
+    "body": "one piece is my favorite anime",
+    "approved": true,
+    "created_at": "2025-05-18T17:05:34.799Z",
+    "updated_at": "2025-08-13T20:48:25.866Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 3,
+  "fields": {
+    "post": 166,
+    "user": 6,
+    "body": "i like this anime",
+    "approved": false,
+    "created_at": "2025-08-09T18:22:21.284Z",
+    "updated_at": "2025-08-13T20:48:25.866Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 4,
+  "fields": {
+    "post": 166,
+    "user": 6,
+    "body": "i like this anime",
+    "approved": false,
+    "created_at": "2025-08-09T18:22:32.803Z",
+    "updated_at": "2025-08-13T20:48:25.866Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 5,
+  "fields": {
+    "post": 166,
+    "user": 6,
+    "body": "like this",
+    "approved": false,
+    "created_at": "2025-08-09T18:48:43.663Z",
+    "updated_at": "2025-08-13T20:48:25.866Z"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 10,
+  "fields": {
+    "post": 166,
+    "user": 5,
+    "body": "oi",
+    "approved": true,
+    "created_at": "2025-08-26T09:25:47.569Z",
+    "updated_at": "2025-08-26T09:27:40.108Z"
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "date_of_birth": null,
+    "bio": ""
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "date_of_birth": null,
+    "bio": ""
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "date_of_birth": "1997-12-22",
+    "bio": ""
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "date_of_birth": "2000-03-27",
+    "bio": ""
+  }
+},
+{
+  "model": "blog.profile",
+  "pk": 5,
+  "fields": {
+    "user": 6,
+    "date_of_birth": null,
+    "bio": ""
+  }
+}
+]
